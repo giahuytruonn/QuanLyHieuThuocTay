@@ -35,15 +35,15 @@ public class GiaBan{
             return -1f;
         }else {
             if(giaSanPhamTrenDonViTinhNhoNhat <= 1000) {
-                return giaSanPhamTrenDonViTinhNhoNhat * (1.15f + VAT);
+                return giaSanPhamTrenDonViTinhNhoNhat * (1.15f);
             } else if(giaSanPhamTrenDonViTinhNhoNhat <= 5000) {
-                return giaSanPhamTrenDonViTinhNhoNhat * (1.1f + VAT);
+                return giaSanPhamTrenDonViTinhNhoNhat * (1.1f);
             } else if(giaSanPhamTrenDonViTinhNhoNhat <= 100000) {
-                return giaSanPhamTrenDonViTinhNhoNhat * (1.07f + VAT);
+                return giaSanPhamTrenDonViTinhNhoNhat * (1.07f);
             }else if(giaSanPhamTrenDonViTinhNhoNhat <= 1000000) {
-                return giaSanPhamTrenDonViTinhNhoNhat * (1.05f + VAT);
+                return giaSanPhamTrenDonViTinhNhoNhat * (1.05f);
             }else{
-                return giaSanPhamTrenDonViTinhNhoNhat * (1.02f + VAT);
+                return giaSanPhamTrenDonViTinhNhoNhat * (1.02f);
             }
         }
     }

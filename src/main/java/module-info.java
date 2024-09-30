@@ -4,21 +4,18 @@ module qlhtt {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires com.microsoft.sqlserver.jdbc;
-
     requires org.kordamp.bootstrapfx.core;
 
     opens qlhtt to javafx.fxml;
     exports qlhtt;
     exports qlhtt.Controllers;
-    opens qlhtt.Models to javafx.fxml;
-    opens qlhtt.Views to javafx.fxml;
+    exports qlhtt.Models;
+    exports qlhtt.Views;
 
-    opens qlhtt.Controllers to javafx.fxml;
-    exports qlhtt.Controllers.NguoiQuanLy to javafx.fxml;
-    exports qlhtt.Controllers.NhanVien to javafx.fxml;
+    opens qlhtt.Controllers.NhanVien to javafx.fxml;
+    exports qlhtt.Controllers.NhanVien;
 
-
-
-
+    opens qlhtt.Controllers.NguoiQuanLy to javafx.fxml;
+    exports qlhtt.Controllers.NguoiQuanLy;
 
 }
