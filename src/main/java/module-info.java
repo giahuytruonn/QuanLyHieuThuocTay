@@ -11,6 +11,7 @@ module qlhtt {
     requires com.google.gson;
     requires java.desktop;
     requires javafx.swing;
+    //requires com.fasterxml.jackson.databind;
 
 
     opens qlhtt to javafx.fxml;
@@ -25,8 +26,9 @@ module qlhtt {
     opens qlhtt.Controllers.NguoiQuanLy to javafx.fxml;
     exports qlhtt.Controllers.NguoiQuanLy;
 
-
-    exports qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
     opens qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
+
+    //exports qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
+
 
 }

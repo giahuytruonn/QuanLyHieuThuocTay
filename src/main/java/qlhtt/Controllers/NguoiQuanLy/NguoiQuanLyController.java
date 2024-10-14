@@ -41,7 +41,7 @@ public class NguoiQuanLyController {
             String accountNo = "1033547785";
             String accountName = "VO THAI DUY";
             int acqId = 970436;
-            String addInfo = "Thanh toan hoa don thuoc";
+            String addInfo = "Xin ti tien an com di";
             String format = "text";
             String template = "compact";
 
