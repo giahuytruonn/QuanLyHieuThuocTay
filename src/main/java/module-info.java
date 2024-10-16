@@ -6,6 +6,7 @@ module qlhtt {
     requires com.microsoft.sqlserver.jdbc;
     requires org.kordamp.bootstrapfx.core;
     requires spring.web;
+    requires spring.core; // Thêm dòng này
     requires java.base;
     requires com.fasterxml.jackson.databind;
     requires com.google.gson;

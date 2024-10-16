@@ -2,11 +2,10 @@ package qlhtt.Controllers.NguoiQuanLy;
 
 
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BubbleChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
