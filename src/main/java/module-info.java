@@ -12,6 +12,9 @@ module qlhtt {
     requires com.google.gson;
     requires java.desktop;
     requires javafx.swing;
+    //requires jakarta.mail;
+    requires spring.boot.autoconfigure;
+    requires java.mail;
     //requires com.fasterxml.jackson.databind;
 
 
@@ -28,6 +31,7 @@ module qlhtt {
     exports qlhtt.Controllers.NguoiQuanLy;
 
     opens qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
+    opens qlhtt.Service to com.fasterxml.jackson.databind, com.google.gson;
 
     //exports qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
 

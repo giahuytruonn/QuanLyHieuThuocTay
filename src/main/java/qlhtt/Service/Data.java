@@ -1,4 +1,4 @@
-package qlhtt.Entity;
+package qlhtt.Service;
 
 public class Data {
     public int acpId;
