@@ -11,12 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
-import qlhtt.Entity.ApiRequest;
-import qlhtt.Entity.ApiResponse;
+import qlhtt.Service.ApiRequest;
+import qlhtt.Service.ApiResponse;
 import javafx.embed.swing.SwingFXUtils;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

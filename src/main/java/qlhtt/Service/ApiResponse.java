@@ -1,4 +1,4 @@
-package qlhtt.Entity;
+package qlhtt.Service;
 
 public class ApiResponse {
     public String code;
