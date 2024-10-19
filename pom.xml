@@ -19,7 +19,9 @@
     <junit.version>5.8.2</junit.version>
   </properties>
 
+
   <dependencies>
+
     <!-- Jackson Databind -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -35,11 +37,13 @@
     </dependency>
 
     <!-- JavaFX Dependencies (Đồng Nhất Phiên Bản) -->
+    <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
       <version>17.0.1</version>
     </dependency>
+
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
