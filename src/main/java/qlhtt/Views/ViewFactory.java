@@ -59,7 +59,7 @@ public class ViewFactory {
         stage.show();
     }
 
-    public void hienCuaSoNguoiQuanLy() {
+    public void hienTrangTongQuatCuaNguoiQuanLy() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/TrangTongQuat.fxml"));
         TrangTongQuatController trangTongQuatController = new TrangTongQuatController();
         loader.setController(trangTongQuatController);

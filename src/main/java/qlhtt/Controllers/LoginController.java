@@ -75,7 +75,7 @@ public class LoginController implements Initializable {
                 if (taiKhoan.getTrangTaiTaiKhoan()) {
                     if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.NGUOIQUANLY) {
                         Model.getInstance().getViewFactory().closeStage(stage);
-                        Model.getInstance().getViewFactory().hienCuaSoNguoiQuanLy();
+                        Model.getInstance().getViewFactory().hienTrangTongQuatCuaNguoiQuanLy();
                     } else {
                         Model.getInstance().getViewFactory().closeStage(stage);
                         Model.getInstance().getViewFactory().hienCuaSoNhanVien();
