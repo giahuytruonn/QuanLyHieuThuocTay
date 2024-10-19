@@ -60,9 +60,9 @@ public class ViewFactory {
     }
 
     public void hienCuaSoNguoiQuanLy() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/TrangTongQuat.fxml"));
-        TrangTongQuatController trangTongQuatController = new TrangTongQuatController();
-        loader.setController(trangTongQuatController);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/NguoiQuanLy.fxml"));
+        NguoiQuanLyController nguoiQuanLyController = new NguoiQuanLyController();
+        loader.setController(nguoiQuanLyController);
         createStageNoResizable(loader);
     }
 

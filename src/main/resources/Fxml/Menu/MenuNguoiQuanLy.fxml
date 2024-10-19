@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #2093A5;" stylesheets="../Styles/Menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.Menu.MenuNguoiQuanLy">
+<AnchorPane prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #2093A5;" stylesheets="" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.Menu.MenuNguoiQuanLyController">
    <children>
       <VBox prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #FFF; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
          <children>
@@ -37,6 +37,26 @@
                   <Insets bottom="12.0" top="12.0" />
                </padding>
             </Pane>
+            <Label layoutX="19.0" layoutY="124.0" prefHeight="30.0" prefWidth="212.0" text="Tổng quát" textFill="#1c7987">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="19.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="212.0" style="-fx-background-color: #2093A5; -fx-background-radius: 10px;" text="Trang tổng quát" textFill="WHITE">
+               <padding>
+                  <Insets bottom="6.0" right="85.0" top="6.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/TongQuat.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
             <Label prefHeight="30.0" prefWidth="212.0" text="Nhân viên" textFill="#1c7987" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />

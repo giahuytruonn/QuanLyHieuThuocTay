@@ -32,6 +32,8 @@ module qlhtt {
 
     opens qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
     opens qlhtt.Service to com.fasterxml.jackson.databind, com.google.gson;
+    exports qlhtt.Controllers.Menu;
+    opens qlhtt.Controllers.Menu to javafx.fxml;
 
     //exports qlhtt.Entity to com.fasterxml.jackson.databind, com.google.gson;
 
