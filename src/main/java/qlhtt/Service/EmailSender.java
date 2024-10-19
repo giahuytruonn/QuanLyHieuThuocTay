@@ -23,7 +23,7 @@ public class EmailSender {
         properties.put("mail.smtp.port", "587");
 
         String myEmail = "duythvo2004@gmail.com";
-        String recipientEmail = "nhatduy20072004@gmail.com ";
+        String recipientEmail = "acestargmer@gmail.com";
         String password = "kxrc qvlv vlrg yfar";
 
         Session session = Session.getInstance(properties, new Authenticator() {
