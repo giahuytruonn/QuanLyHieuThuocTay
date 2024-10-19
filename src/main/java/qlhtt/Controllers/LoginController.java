@@ -56,15 +56,15 @@ public class LoginController implements Initializable {
 
     private void onLogin() {
 
-        //ArrayList<TaiKhoan> dsTaiKhoan = getDSTaiKHoan();
-        List<TaiKhoan> danhSachTaiKhoan = new ArrayList<>();
-
-        danhSachTaiKhoan.add(new TaiKhoan("1", "admin", "admin", true));
-        danhSachTaiKhoan.add(new TaiKhoan("2", "nhanvien", "nhanvien", true));
-        danhSachTaiKhoan.add(new TaiKhoan("3", "nhanvien2", "nhanvien2", true));
-        danhSachTaiKhoan.add(new TaiKhoan("4", "nhanvien3", "nhanvien3", true));
-
-        checkTaiKhoan((ArrayList<TaiKhoan>) danhSachTaiKhoan, tendangnhap_fld.getText(), matkhau_fld.getText());
+//        //ArrayList<TaiKhoan> dsTaiKhoan = getDSTaiKHoan();
+//        List<TaiKhoan> danhSachTaiKhoan = new ArrayList<>();
+//
+//        danhSachTaiKhoan.add(new TaiKhoan("1", "admin", "admin", true));
+//        danhSachTaiKhoan.add(new TaiKhoan("2", "nhanvien", "nhanvien", true));
+//        danhSachTaiKhoan.add(new TaiKhoan("3", "nhanvien2", "nhanvien2", true));
+//        danhSachTaiKhoan.add(new TaiKhoan("4", "nhanvien3", "nhanvien3", true));
+//
+//        checkTaiKhoan((ArrayList<TaiKhoan>) danhSachTaiKhoan, tendangnhap_fld.getText(), matkhau_fld.getText());
 
     }
 

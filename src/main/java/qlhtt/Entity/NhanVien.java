@@ -1,6 +1,7 @@
 package qlhtt.Entity;
 
 import qlhtt.DAO.NhanVienDAO;
+import qlhtt.Enum.VaiTro;
 
 import javax.xml.transform.Result;
 import java.sql.ResultSet;
@@ -14,20 +15,21 @@ public class NhanVien {
     private String soDienThoai;
     private String email;
     private String cccd;
-    private int vaiTro;
+    private VaiTro vaiTro;
     private LocalDate ngaySinh;
     private Boolean gioiTinh;
 
 
-    public NhanVien(String maNhanVien, String tenNhanVien, String soDienThoai, String email, String cccd, int vaiTro, LocalDate ngaySinh, Boolean gioiTinh) {
-        this.maNhanVien = maNhanVien;
-        this.tenNhanVien = tenNhanVien;
-        this.soDienThoai = soDienThoai;
-        this.email = email;
-        this.cccd = cccd;
-        this.vaiTro = vaiTro;
-        this.ngaySinh = ngaySinh;
-        this.gioiTinh = gioiTinh;
+    public NhanVien(String maNhanVien, String tenNhanVien, String soDienThoai, String email, String cccd, VaiTro vaiTro, LocalDate ngaySinh, Boolean gioiTinh) {
+        super();
+        setMaNhanVien(maNhanVien);
+        setTenNhanVien(tenNhanVien);
+        setSoDienThoai(soDienThoai);
+        setEmail(email);
+        setCccd(cccd);
+        setVaiTro(vaiTro);
+        setNgaySinh(ngaySinh);
+        setGioiTinh(gioiTinh);
     }
 
     public NhanVien() {
@@ -47,15 +49,20 @@ public class NhanVien {
         setGioiTinh(nhanVien.getGioiTinh());
     }
 
-    public NhanVien(ResultSet rs) throws SQLException{
-        this.maNhanVien = rs.getString("maNhanVien");
-        this.tenNhanVien = rs.getString("tenNhanVien");
-        this.soDienThoai = rs.getString("soDienThoai");
-        this.email = rs.getString("email");
-        this.cccd = rs.getString("cccd");
-        this.vaiTro = rs.getInt("vaiTro");
-        this.ngaySinh = rs.getDate("ngaySinh").toLocalDate();
-        this.gioiTinh = rs.getBoolean("gioiTinh");
+    public NhanVien(ResultSet rs) throws SQLException {
+        setMaNhanVien(rs.getString("maNhanVien"));
+        setTenNhanVien(rs.getString("tenNhanVien"));
+        setSoDienThoai(rs.getString("soDienThoai"));
+        setEmail(rs.getString("email"));
+        setCccd(rs.getString("cccd"));
+        if(Integer.parseInt(rs.getString("vaiTro")) == 0) {
+            setVaiTro(VaiTro.NGUOIQUANLY);
+        }
+        else {
+            setVaiTro(VaiTro.NHANVIEN);
+        }
+        setNgaySinh(rs.getDate("ngaySinh").toLocalDate());
+        setGioiTinh(rs.getBoolean("gioiTinh"));
     }
 
     public String getMaNhanVien() {
@@ -82,11 +89,11 @@ public class NhanVien {
         this.ngaySinh = ngaySinh;
     }
 
-    public int getVaiTro() {
+    public VaiTro getVaiTro() {
         return vaiTro;
     }
 
-    public void setVaiTro(int vaiTro) {
+    public void setVaiTro(VaiTro vaiTro) {
         this.vaiTro = vaiTro;
     }
 

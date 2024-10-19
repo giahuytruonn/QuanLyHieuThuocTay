@@ -1,6 +1,9 @@
 package qlhtt.Entity;
 
+import qlhtt.DAO.KhachHangDAO;
+
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -18,31 +21,37 @@ public class KhachHang {
     }
 
     public KhachHang(String maKhachHang, String hoTen, boolean gioiTinh, String soDienThoai, LocalDate ngaySinh, int diemTichLuy, String email) {
-        this.maKhachHang = maKhachHang;
-        this.hoTen = hoTen;
-        this.gioiTinh = gioiTinh;
-        this.soDienThoai = soDienThoai;
-        this.ngaySinh = ngaySinh;
-        this.diemTichLuy = diemTichLuy;
-        this.email = email;
+        super();
+        setMaKhachHang(maKhachHang);
+        setHoTen(hoTen);
+        setGioiTinh(gioiTinh);
+        setSoDienThoai(soDienThoai);
+        setNgaySinh(ngaySinh);
+        setDiemTichLuy(diemTichLuy);
+        //setEmail(email);
     }
 
     public KhachHang(String maKhachHang) {
-        this.maKhachHang = maKhachHang;
+        KhachHangDAO khachHangDAO = KhachHangDAO.getInstance();
+        KhachHang khachHang = khachHangDAO.getKhachHangBangMaKhachHang(maKhachHang);
+        setMaKhachHang(khachHang.getMaKhachHang());
+        setHoTen(khachHang.getHoTen());
+        setGioiTinh(khachHang.isGioiTinh());
+        setSoDienThoai(khachHang.getSoDienThoai());
+        setNgaySinh(khachHang.getNgaySinh());
+        setDiemTichLuy(khachHang.getDiemTichLuy());
+        //setEmail(khachHang.getEmail());
+
     }
 
-    public KhachHang(ResultSet rs) {
-        try {
-            this.maKhachHang = rs.getString("maKhachHang");
-            this.hoTen = rs.getString("hoTen");
-            this.gioiTinh = rs.getBoolean("gioiTinh");
-            this.soDienThoai = rs.getString("soDienThoai");
-            this.ngaySinh = rs.getDate("ngaySinh").toLocalDate();
-            this.diemTichLuy = rs.getInt("diemTichLuy");
-            this.email = rs.getString("email");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public KhachHang(ResultSet rs) throws SQLException {
+        setMaKhachHang(rs.getString("maKhachHang"));
+        setHoTen(rs.getString("hoTen"));
+        setGioiTinh(rs.getBoolean("gioiTinh"));
+        setSoDienThoai(rs.getString("soDienThoai"));
+        setNgaySinh(rs.getDate("ngaySinh").toLocalDate());
+        setDiemTichLuy(rs.getInt("diemTichLuy"));
+        //setEmail(rs.getString("email"));
     }
 
     public String getMaKhachHang() {

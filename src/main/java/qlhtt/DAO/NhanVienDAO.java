@@ -3,10 +3,7 @@ package qlhtt.DAO;
 import qlhtt.ConnectDB.ConnectDB;
 import qlhtt.Entity.NhanVien;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,9 +48,10 @@ public class NhanVienDAO {
         try {
             ConnectDB.getInstance().connect();
             Connection con = ConnectDB.getConnection();
-            String sql = "SELECT * FROM NhanVien WHERE maNhanVien = '" + maNV + "'";
-            Statement statement = con.createStatement();
-            ResultSet rs = statement.executeQuery(sql);
+            String sql = "SELECT * FROM NhanVien WHERE maNhanVien = ?";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, maNV);
+            ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 nhanVien = new NhanVien(rs);
             }
