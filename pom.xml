@@ -38,22 +38,27 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>19.0.2</version>
+      <version>17.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>19.0.2</version>
+      <version>17.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>17.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-base</artifactId>
-      <version>19.0.2</version>
+      <version>17.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-swing</artifactId>
-      <version>19.0.2</version>
+      <version>17.0.1</version>
     </dependency>
 
     <!-- FontAwesomeFX -->
@@ -170,6 +175,9 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <version>3.0.6</version>
+        <configuration>
+          <mainClass>qlhtt.App</mainClass>
+        </configuration>
         <executions>
           <execution>
             <goals>

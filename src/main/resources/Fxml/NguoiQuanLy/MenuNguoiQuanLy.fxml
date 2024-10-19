@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #2093A5;" stylesheets=""
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="qlhtt.Controllers.NguoiQuanLy.MenuNguoiQuanLyController">
    <VBox prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #FFF; -fx-background-radius: 10px;"
          AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0"
