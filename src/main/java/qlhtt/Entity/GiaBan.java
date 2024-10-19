@@ -3,7 +3,6 @@ package qlhtt.Entity;
 public class GiaBan{
     private String maGiaBan;
     private Float giaBan;
-    private final Float VAT = 0.08f;
 
     public GiaBan(String maGiaBan, Float giaBan) {
         this.maGiaBan = maGiaBan;
@@ -24,10 +23,6 @@ public class GiaBan{
 
     public void setGiaBan(Float giaBan) {
         this.giaBan = giaBan;
-    }
-
-    public Float getVAT() {
-        return VAT;
     }
 
     public Float taoGiaBan(Float giaSanPhamTrenDonViTinhNhoNhat) {
