@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import qlhtt.Controllers.NguoiQuanLy.NguoiQuanLyController;
+import qlhtt.Controllers.NguoiQuanLy.TrangTongQuatController;
 import qlhtt.Controllers.NhanVien.NhanVienController;
 
 public class ViewFactory {
@@ -59,9 +60,9 @@ public class ViewFactory {
     }
 
     public void hienCuaSoNguoiQuanLy() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/NguoiQuanLy.fxml"));
-        NguoiQuanLyController nguoiQuanLyController = new NguoiQuanLyController();
-        loader.setController(nguoiQuanLyController);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/TrangTongQuat.fxml"));
+        TrangTongQuatController trangTongQuatController = new TrangTongQuatController();
+        loader.setController(trangTongQuatController);
         createStageNoResizable(loader);
     }
 
