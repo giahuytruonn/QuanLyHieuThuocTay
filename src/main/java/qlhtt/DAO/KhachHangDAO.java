@@ -3,10 +3,7 @@ package qlhtt.DAO;
 import qlhtt.ConnectDB.ConnectDB;
 import qlhtt.Entity.KhachHang;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,9 +49,9 @@ public class KhachHangDAO {
             ConnectDB.getInstance().connect();
             Connection con = ConnectDB.getConnection();
             String sql = "SELECT * FROM KhachHang WHERE maKhachHang = ?";
-            Statement statement = con.createStatement();
-            statement.executeQuery(sql);
-            ResultSet rs = statement.executeQuery(sql);
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, maKH);
+            ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 khachHang = new KhachHang(rs);
             }

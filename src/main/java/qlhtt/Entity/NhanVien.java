@@ -17,6 +17,7 @@ public class NhanVien {
     private String cccd;
     private VaiTro vaiTro;
     private LocalDate ngaySinh;
+    // true: nam, false: nu
     private Boolean gioiTinh;
     private String duongDanAnh;
 

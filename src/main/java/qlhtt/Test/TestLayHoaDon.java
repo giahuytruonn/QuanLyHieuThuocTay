@@ -8,6 +8,6 @@ import java.util.List;
 public class TestLayHoaDon {
     public static void main(String[] args) {
         HoaDonDAO hoaDonDAO = HoaDonDAO.getInstance();
-        System.out.println(hoaDonDAO.getHoaDonBangMaHoaDon("HD18102024001"));
+        System.out.println(hoaDonDAO.getHoaDonBangMaHoaDon("HD20102024001"));
     }
 }

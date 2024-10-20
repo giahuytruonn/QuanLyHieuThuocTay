@@ -122,10 +122,10 @@ public class HoaDon {
     }
 
     public void setTienDaGiam(Double tienDaGiam) {
-        if(tienDaGiam > 0){
+        if(tienDaGiam >= 0){
             this.tienDaGiam = tienDaGiam;
         } else {
-            throw new IllegalArgumentException("Tiền đã giảm phải lớn hơn 0");
+            throw new IllegalArgumentException("Tiền đã giảm phải lớn hơn hoặc bằng 0");
         }
     }
 
@@ -170,10 +170,10 @@ public class HoaDon {
     }
 
     public void setTongTienTraLai(Double tongTienTraLai) {
-        if(tongTienTraLai > 0){
+        if(tongTienTraLai >= 0){
             this.tongTienTraLai = tongTienTraLai;
         } else {
-            throw new IllegalArgumentException("Tổng tiền trả lại phải lớn hơn 0");
+            throw new IllegalArgumentException("Tổng tiền trả lại phải lớn hơn bằng 0");
         }
     }
 
