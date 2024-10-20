@@ -60,7 +60,11 @@ public class ChiTietHoaDon {
     }
 
     public void setTongTien(Double tongTien) {
-        this.tongTien = tongTien;
+        if(tongTien > 0){
+            this.tongTien = tongTien;
+        } else {
+            throw new IllegalArgumentException("Tổng tiền phải lớn hơn 0");
+        }
     }
 
     public int getSoLuong() {
@@ -68,7 +72,11 @@ public class ChiTietHoaDon {
     }
 
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+       if(soLuong > 0){
+           this.soLuong = soLuong;
+       } else {
+           throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
+       }
     }
 
     @Override

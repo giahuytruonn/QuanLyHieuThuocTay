@@ -5,6 +5,7 @@ import qlhtt.DAO.ChiTietPhieuNhapDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Period;
 
 public class ChiTietPhieuNhap {
     private SanPham sanPham;
@@ -88,7 +89,12 @@ public class ChiTietPhieuNhap {
     }
 
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        if(soLuong > 0){
+            this.soLuong = soLuong;
+        }
+        else {
+            throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
+        }
     }
 
     public Double getGiaNhap() {
@@ -96,7 +102,12 @@ public class ChiTietPhieuNhap {
     }
 
     public void setGiaNhap(Double giaNhap) {
-        this.giaNhap = giaNhap;
+        if(giaNhap > 0){
+            this.giaNhap = giaNhap;
+        }
+        else {
+            throw new IllegalArgumentException("Giá nhập phải lớn hơn 0");
+        }
     }
 
     public String getDonViTinh() {
@@ -120,7 +131,17 @@ public class ChiTietPhieuNhap {
     }
 
     public void setHanSuDung(LocalDate hanSuDung) {
-        this.hanSuDung = hanSuDung;
+        if(hanSuDung.isAfter(ngaySanXuat)) {
+            Period period = Period.between(ngaySanXuat, hanSuDung);
+
+            if (period.getYears() >= 1) {
+                this.hanSuDung = hanSuDung;
+            } else {
+                throw new IllegalArgumentException("Hạn sử dụng phải ít nhất 1 năm trở lên.");
+            }
+        } else {
+            throw new IllegalArgumentException("Hạn sử dụng phải sau ngày sản xuất.");
+        }
     }
 
     public Double getThanhTien() {
@@ -128,7 +149,12 @@ public class ChiTietPhieuNhap {
     }
 
     public void setThanhTien(Double thanhTien) {
-        this.thanhTien = thanhTien;
+        if(thanhTien > 0){
+            this.thanhTien = thanhTien;
+        }
+        else {
+            throw new IllegalArgumentException("Thành tiền phải lớn hơn 0");
+        }
     }
 
     @Override

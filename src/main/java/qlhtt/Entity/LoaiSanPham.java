@@ -35,7 +35,11 @@ public class LoaiSanPham {
     }
 
     public void setMaLoaiSP(String maLoaiSP) {
-        this.maLoaiSP = maLoaiSP;
+        if(maLoaiSP.matches("LSP[0-9]{3}")) {
+            this.maLoaiSP = maLoaiSP;
+        } else {
+            throw new IllegalArgumentException("Loại sản phẩm phải theo định dạng LSPXXX");
+        }
     }
 
     public String getTenLoaiSP() {
@@ -43,7 +47,11 @@ public class LoaiSanPham {
     }
 
     public void setTenLoaiSP(String tenLoaiSP) {
-        this.tenLoaiSP = tenLoaiSP;
+        if(tenLoaiSP.matches("^[\\p{L}\\d\\s]+$")) {
+            this.tenLoaiSP = tenLoaiSP;
+        } else {
+            throw new IllegalArgumentException("Tên loại sản phẩm không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     @Override

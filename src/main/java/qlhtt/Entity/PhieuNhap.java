@@ -94,7 +94,11 @@ public class PhieuNhap {
     }
 
     public void setTongTien(double tongTien) {
-        this.tongTien = tongTien;
+        if(tongTien > 0){
+            this.tongTien = tongTien;
+        } else {
+            throw new IllegalArgumentException("Tong tien phai lon hon 0");
+        }
     }
 
     @Override

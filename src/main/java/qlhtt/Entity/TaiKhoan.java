@@ -50,7 +50,11 @@ public class TaiKhoan {
     }
 
     public void setMaTaiKhoan(String maTaiKhoan) {
-        this.maTaiKhoan = maTaiKhoan;
+        if(maTaiKhoan.matches("TK[0-9]{3}")) {
+            this.maTaiKhoan = maTaiKhoan;
+        } else {
+            throw new IllegalArgumentException("Tài khoản phải theo định dạng TKXXX");
+        }
     }
 
     public NhanVien getNhanVien() {
@@ -74,7 +78,11 @@ public class TaiKhoan {
     }
 
     public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
+        if(matKhau.isEmpty()) {
+            throw new IllegalArgumentException("Mật khẩu không được để trống");
+        } else {
+            this.matKhau = matKhau;
+        }
     }
 
     public String getTenDangNhap() {

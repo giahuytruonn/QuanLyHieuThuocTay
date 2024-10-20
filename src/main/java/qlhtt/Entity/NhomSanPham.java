@@ -35,7 +35,11 @@ public class NhomSanPham {
     }
 
     public void setMaNhomSP(String maNhomSP) {
-        this.maNhomSP = maNhomSP;
+        if(maNhomSP.matches("NSP[0-9]{3}")) {
+            this.maNhomSP = maNhomSP;
+        } else {
+            throw new IllegalArgumentException("Nhóm sản phẩm phải theo định dạng NSPXXX");
+        }
     }
 
     public String getTenNhomSP() {
@@ -43,7 +47,11 @@ public class NhomSanPham {
     }
 
     public void setTenNhomSP(String tenNhomSP) {
-        this.tenNhomSP = tenNhomSP;
+        if(tenNhomSP.matches("^[\\p{L}\\d\\s]+$")) {
+            this.tenNhomSP = tenNhomSP;
+        } else {
+            throw new IllegalArgumentException("Tên nhóm sản phẩm không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     @Override

@@ -61,7 +61,11 @@ public class ChietKhau {
     }
 
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        if(soLuong > 0) {
+            this.soLuong = soLuong;
+        } else {
+            throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
+        }
     }
 
     public Double getGiaTriChietKhau() {
@@ -69,7 +73,11 @@ public class ChietKhau {
     }
 
     public void setGiaTriChietKhau(Double giaTriChietKhau) {
-        this.giaTriChietKhau = giaTriChietKhau;
+        if(giaTriChietKhau > 0 && giaTriChietKhau <= 1) {
+            this.giaTriChietKhau = giaTriChietKhau;
+        } else {
+            throw new IllegalArgumentException("Giá trị chiết khấu phải lớn hơn 0");
+        }
     }
 
     public LocalDate getNgayBatDauApDung() {
@@ -85,7 +93,11 @@ public class ChietKhau {
     }
 
     public void setNgayKetThucApDung(LocalDate ngayKetThucApDung) {
-        this.ngayKetThucApDung = ngayKetThucApDung;
+        if(ngayKetThucApDung.isAfter(ngayBatDauApDung)) {
+            this.ngayKetThucApDung = ngayKetThucApDung;
+        } else {
+            throw new IllegalArgumentException("Ngày kết thúc phải sau ngày bắt đầu");
+        }
     }
 
     public Boolean getTrangThaiChietKhau() {
@@ -101,7 +113,11 @@ public class ChietKhau {
     }
 
     public void setMoTa(String moTa) {
-        this.moTa = moTa;
+        if(moTa.matches("^[\\p{L}\\d\\s]+$")) {
+            this.moTa = moTa;
+        } else {
+            throw new IllegalArgumentException("Mô tả không được để trống và không có kí tự đặc biệt");
+        }
     }
 
     @Override

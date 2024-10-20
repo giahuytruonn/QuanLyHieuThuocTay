@@ -36,7 +36,11 @@ public class DonViTinh {
     }
 
     public void setMaDonViTinh(String maDonViTinh) {
-        this.maDonViTinh = maDonViTinh;
+        if(maDonViTinh.matches("DVT[0-9]{3}")) {
+            this.maDonViTinh = maDonViTinh;
+        } else {
+            throw new IllegalArgumentException("Đơn vị tính phải theo định dạng DVTXXX");
+        }
     }
 
     public String getTenDonViTinh() {
@@ -44,7 +48,11 @@ public class DonViTinh {
     }
 
     public void setTenDonViTinh(String tenDonViTinh) {
-        this.tenDonViTinh = tenDonViTinh;
+        if(tenDonViTinh.matches("^[\\p{L}\\d\\s]+$")) {
+            this.tenDonViTinh = tenDonViTinh;
+        } else {
+            throw new IllegalArgumentException("Tên đơn vị tính không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     @Override

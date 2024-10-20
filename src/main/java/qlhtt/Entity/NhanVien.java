@@ -18,9 +18,10 @@ public class NhanVien {
     private VaiTro vaiTro;
     private LocalDate ngaySinh;
     private Boolean gioiTinh;
+    private String duongDanAnh;
 
 
-    public NhanVien(String maNhanVien, String tenNhanVien, String soDienThoai, String email, String cccd, VaiTro vaiTro, LocalDate ngaySinh, Boolean gioiTinh) {
+    public NhanVien(String maNhanVien, String tenNhanVien, String soDienThoai, String email, String cccd, VaiTro vaiTro, LocalDate ngaySinh, Boolean gioiTinh, String duongDanAnh) {
         super();
         setMaNhanVien(maNhanVien);
         setTenNhanVien(tenNhanVien);
@@ -30,6 +31,7 @@ public class NhanVien {
         setVaiTro(vaiTro);
         setNgaySinh(ngaySinh);
         setGioiTinh(gioiTinh);
+        setDuongDanAnh(duongDanAnh);
     }
 
     public NhanVien() {
@@ -47,6 +49,7 @@ public class NhanVien {
         setVaiTro(nhanVien.getVaiTro());
         setNgaySinh(nhanVien.getNgaySinh());
         setGioiTinh(nhanVien.getGioiTinh());
+        setDuongDanAnh(nhanVien.getDuongDanAnh());
     }
 
     public NhanVien(ResultSet rs) throws SQLException {
@@ -63,6 +66,7 @@ public class NhanVien {
         }
         setNgaySinh(rs.getDate("ngaySinh").toLocalDate());
         setGioiTinh(rs.getBoolean("gioiTinh"));
+        setDuongDanAnh(rs.getString("duongDanAnh"));
     }
 
     public String getMaNhanVien() {
@@ -70,7 +74,11 @@ public class NhanVien {
     }
 
     public void setMaNhanVien(String maNhanVien) {
-        this.maNhanVien = maNhanVien;
+        if(maNhanVien.matches("^NV[0-9]{3}$")){
+            this.maNhanVien = maNhanVien;
+        }else {
+            throw new IllegalArgumentException("Mã nhân viên phải theo định dạng NVXXX");
+        }
     }
 
     public Boolean getGioiTinh() {
@@ -86,7 +94,11 @@ public class NhanVien {
     }
 
     public void setNgaySinh(LocalDate ngaySinh) {
-        this.ngaySinh = ngaySinh;
+        if(LocalDate.now().getYear() - ngaySinh.getYear() >= 18) {
+            this.ngaySinh = ngaySinh;
+        }else {
+            throw new IllegalArgumentException("Nhân viên phải đủ 18 tuổi");
+        }
     }
 
     public VaiTro getVaiTro() {
@@ -102,7 +114,11 @@ public class NhanVien {
     }
 
     public void setCccd(String cccd) {
-        this.cccd = cccd;
+        if(cccd.matches("[0-9]{12}")) {
+            this.cccd = cccd;
+        }else {
+            throw new IllegalArgumentException("CCCD phải có 12 chữ số");
+        }
     }
 
     public String getEmail() {
@@ -110,7 +126,11 @@ public class NhanVien {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+            if(email.matches("^[a-zA-Z0-9._%+-]+@(gmail.com|gmail.vn)$")) {
+            this.email = email;
+        }else {
+            throw new IllegalArgumentException("Email không hợp lệ, phải theo định dạng tên email@tên miền");
+        }
     }
 
     public String getSoDienThoai() {
@@ -118,7 +138,11 @@ public class NhanVien {
     }
 
     public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
+        if(soDienThoai.matches("^(03|05|07|09)[0-9]{8}$")) {
+            this.soDienThoai = soDienThoai;
+        }else {
+            throw new IllegalArgumentException("Số điện thoại phải bắt đầu bằng số 03, 05, 07, 09 và phải 10 chữ số");
+        }
     }
 
     public String getTenNhanVien() {
@@ -126,7 +150,20 @@ public class NhanVien {
     }
 
     public void setTenNhanVien(String tenNhanVien) {
-        this.tenNhanVien = tenNhanVien;
+        if(tenNhanVien.matches("^(?:\\p{Lu}\\p{Ll}*\\s*)+$")){
+            this.tenNhanVien = tenNhanVien;
+        }
+        else {
+            throw new IllegalArgumentException("Tên nhân viên phải viết hoa chữ cái đầu tiên của mỗi từ,có khoảng trắng, không có ký tặc biệt hoặc số");
+        }
+    }
+
+    public String getDuongDanAnh() {
+        return duongDanAnh;
+    }
+
+    public void setDuongDanAnh(String duongDanAnh) {
+        this.duongDanAnh = duongDanAnh;
     }
 
     @Override

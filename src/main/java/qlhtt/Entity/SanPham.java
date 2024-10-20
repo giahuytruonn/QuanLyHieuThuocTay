@@ -16,6 +16,7 @@ public class SanPham {
     private ChiDinhSuDung chiDinhSuDung;
     private String nhaSanXuat;
     private String quocGiaSanXuat;
+    private String doiTuongSuDung;
     private String moTaSanPham;
     private int soLuong;
     private Double donGia;
@@ -28,7 +29,7 @@ public class SanPham {
     public SanPham() {
     }
 
-    public SanPham(String maSanPham, String tenSanPham, String quyCachDongGoi, String thanhPhan, String dangBaoChe, ChiDinhSuDung chiDinhSuDung, String nhaSanXuat, String quocGiaSanXuat, String moTaSanPham, int soLuong, Double donGia, String duongDung, String hamLuong, DonViTinh donViTinh, NhomSanPham nhomSanPham, LoaiSanPham loaiSanPham) {
+    public SanPham(String maSanPham, String tenSanPham, String quyCachDongGoi, String thanhPhan, String dangBaoChe, ChiDinhSuDung chiDinhSuDung, String nhaSanXuat, String quocGiaSanXuat, String doiTuongSuDung ,String moTaSanPham, int soLuong, Double donGia, String duongDung, String hamLuong, DonViTinh donViTinh, NhomSanPham nhomSanPham, LoaiSanPham loaiSanPham) {
         super();
         setMaSanPham(maSanPham);
         setTenSanPham(tenSanPham);
@@ -38,6 +39,7 @@ public class SanPham {
         setChiDinhSuDung(chiDinhSuDung);
         setNhaSanXuat(nhaSanXuat);
         setQuocGiaSanXuat(quocGiaSanXuat);
+        setDoiTuongSuDung(doiTuongSuDung);
         setMoTaSanPham(moTaSanPham);
         setSoLuong(soLuong);
         setDonGia(donGia);
@@ -59,6 +61,7 @@ public class SanPham {
         setChiDinhSuDung(sanPham.getChiDinhSuDung());
         setNhaSanXuat(sanPham.getNhaSanXuat());
         setQuocGiaSanXuat(sanPham.getQuocGiaSanXuat());
+        setDoiTuongSuDung(sanPham.getDoiTuongSuDung());
         setMoTaSanPham(sanPham.getMoTaSanPham());
         setSoLuong(sanPham.getSoLuong());
         setDonGia(sanPham.getDonGia());
@@ -83,6 +86,7 @@ public class SanPham {
         }
         setNhaSanXuat(rs.getString("nhaSanXuat"));
         setQuocGiaSanXuat(rs.getString("quocGiaSanXuat"));
+        setDoiTuongSuDung(rs.getString("doiTuongSuDung"));
         setMoTaSanPham(rs.getString("moTaSanPham"));
         setSoLuong(rs.getInt("soLuong"));
         setDonGia(rs.getDouble("donGia"));
@@ -98,7 +102,11 @@ public class SanPham {
     }
 
     public void setMaSanPham(String maSanPham) {
-        this.maSanPham = maSanPham;
+        if(maSanPham.matches("[0-9]{13}")) {
+            this.maSanPham = maSanPham;
+        } else {
+            throw new IllegalArgumentException("Mã sản phẩm phải có 13 chữ số");
+        }
     }
 
     public String getTenSanPham() {
@@ -106,7 +114,11 @@ public class SanPham {
     }
 
     public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
+        if(tenSanPham.matches("^[\\p{L}\\d\\s]+$")) {
+            this.tenSanPham = tenSanPham;
+        } else {
+            throw new IllegalArgumentException("Tên sản phẩm không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     public String getQuyCachDongGoi() {
@@ -146,7 +158,11 @@ public class SanPham {
     }
 
     public void setNhaSanXuat(String nhaSanXuat) {
-        this.nhaSanXuat = nhaSanXuat;
+        if(nhaSanXuat.matches("^[\\p{L}\\d\\s]+$")) {
+            this.nhaSanXuat = nhaSanXuat;
+        } else {
+            throw new IllegalArgumentException("Nhà sản xuất không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     public String getQuocGiaSanXuat() {
@@ -170,7 +186,11 @@ public class SanPham {
     }
 
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        if(soLuong > 0) {
+            this.soLuong = soLuong;
+        } else {
+            throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
+        }
     }
 
     public Double getDonGia() {
@@ -178,7 +198,11 @@ public class SanPham {
     }
 
     public void setDonGia(Double donGia) {
-        this.donGia = donGia;
+        if(donGia > 0) {
+            this.donGia = donGia;
+        } else {
+            throw new IllegalArgumentException("Đơn giá phải lớn hơn 0");
+        }
     }
 
     public String getDuongDung() {
@@ -219,6 +243,18 @@ public class SanPham {
 
     public void setLoaiSanPham(LoaiSanPham loaiSanPham) {
         this.loaiSanPham = loaiSanPham;
+    }
+
+    public String getDoiTuongSuDung() {
+        return doiTuongSuDung;
+    }
+
+    public void setDoiTuongSuDung(String doiTuongSuDung) {
+        if(doiTuongSuDung.matches("^[\\p{L}\\d\\s]+$")) {
+            this.doiTuongSuDung = doiTuongSuDung;
+        } else {
+            throw new IllegalArgumentException("Đối tượng sử dụng không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     @Override

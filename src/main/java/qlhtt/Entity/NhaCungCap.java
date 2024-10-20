@@ -47,7 +47,11 @@ public class NhaCungCap {
     }
 
     public void setMaNhaCungCap(String maNhaCungCap) {
-        this.maNhaCungCap = maNhaCungCap;
+        if(maNhaCungCap.matches("NCC[0-9]{3}")){
+            this.maNhaCungCap = maNhaCungCap;
+        } else {
+            throw new IllegalArgumentException("Mã nhà cung cấp phải theo định dạng NCCXXX");
+        }
     }
 
     public String getTenNhaCungCap() {
@@ -55,7 +59,11 @@ public class NhaCungCap {
     }
 
     public void setTenNhaCungCap(String tenNhaCungCap) {
-        this.tenNhaCungCap = tenNhaCungCap;
+        if(tenNhaCungCap.matches("^[\\p{L}\\d\\s]+$")) {
+            this.tenNhaCungCap = tenNhaCungCap;
+        } else {
+            throw new IllegalArgumentException("Tên nhà cung cấp không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     public String getSoDienThoai() {
@@ -63,7 +71,11 @@ public class NhaCungCap {
     }
 
     public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
+        if(soDienThoai.matches("^(03|05|07|09)[0-9]{8}$")) {
+            this.soDienThoai = soDienThoai;
+        }else {
+            throw new IllegalArgumentException("Số điện thoại phải bắt đầu bằng số 03, 05, 07, 09 và phải 10 chữ số");
+        }
     }
 
     public String getDiaChi() {
@@ -71,7 +83,11 @@ public class NhaCungCap {
     }
 
     public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+        if(diaChi.matches("^[\\p{L}\\d\\s]+$")) {
+            this.diaChi = diaChi;
+        } else {
+            throw new IllegalArgumentException("Địa chỉ không có kí tự đặc biệt và không được rỗng");
+        }
     }
 
     public String getEmail() {
@@ -79,7 +95,11 @@ public class NhaCungCap {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if(email.matches("^[a-zA-Z0-9._%+-]+@(gmail.com|gmail.vn)$")) {
+            this.email = email;
+        }else {
+            throw new IllegalArgumentException("Email không hợp lệ, phải theo định dạng tên email@tên miền");
+        }
     }
 
     @Override

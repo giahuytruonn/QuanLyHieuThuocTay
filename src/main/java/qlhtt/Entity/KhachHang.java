@@ -28,7 +28,7 @@ public class KhachHang {
         setSoDienThoai(soDienThoai);
         setNgaySinh(ngaySinh);
         setDiemTichLuy(diemTichLuy);
-        //setEmail(email);
+        setEmail(email);
     }
 
     public KhachHang(String maKhachHang) {
@@ -40,8 +40,7 @@ public class KhachHang {
         setSoDienThoai(khachHang.getSoDienThoai());
         setNgaySinh(khachHang.getNgaySinh());
         setDiemTichLuy(khachHang.getDiemTichLuy());
-        //setEmail(khachHang.getEmail());
-
+        setEmail(khachHang.getEmail());
     }
 
     public KhachHang(ResultSet rs) throws SQLException {
@@ -51,7 +50,7 @@ public class KhachHang {
         setSoDienThoai(rs.getString("soDienThoai"));
         setNgaySinh(rs.getDate("ngaySinh").toLocalDate());
         setDiemTichLuy(rs.getInt("diemTichLuy"));
-        //setEmail(rs.getString("email"));
+        setEmail(rs.getString("email"));
     }
 
     public String getMaKhachHang() {
@@ -59,7 +58,11 @@ public class KhachHang {
     }
 
     public void setMaKhachHang(String maKhachHang) {
-        this.maKhachHang = maKhachHang;
+        if(maKhachHang.matches("KH[0-9]{4}")) {
+            this.maKhachHang = maKhachHang;
+        }else {
+            throw new IllegalArgumentException("Mã khách hàng phải bắt đầu bằng KH và theo sau là 4 chữ số");
+        }
     }
 
     public String getHoTen() {
@@ -67,7 +70,12 @@ public class KhachHang {
     }
 
     public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
+        if(hoTen.matches("^(?:\\p{Lu}\\p{Ll}*\\s*)+$")){
+            this.hoTen = hoTen;
+        }
+        else {
+            throw new IllegalArgumentException("Tên Khách hàng phải viết hoa chữ cái đầu tiên của mỗi từ,có khoảng trắng, không có ký tặc biệt hoặc số");
+        }
     }
 
     public boolean isGioiTinh() {
@@ -83,7 +91,11 @@ public class KhachHang {
     }
 
     public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
+        if(soDienThoai.matches("^(03|05|07|09)[0-9]{8}$")) {
+            this.soDienThoai = soDienThoai;
+        }else {
+            throw new IllegalArgumentException("Số điện thoại phải bắt đầu bằng số 03, 05, 07, 09 và phải 10 chữ số");
+        }
     }
 
     public int getDiemTichLuy() {
@@ -91,7 +103,11 @@ public class KhachHang {
     }
 
     public void setDiemTichLuy(int diemTichLuy) {
-        this.diemTichLuy = diemTichLuy;
+        if(diemTichLuy >= 0) {
+            this.diemTichLuy = diemTichLuy;
+        } else {
+            throw new IllegalArgumentException("Điểm tích lũy phải lớn hơn hoặc bằng 0");
+        }
     }
 
     public LocalDate getNgaySinh() {
@@ -107,7 +123,11 @@ public class KhachHang {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+            if(email.matches("^[a-zA-Z0-9._%+-]+@(gmail.com|gmail.vn)$")) {
+            this.email = email;
+        }else {
+            throw new IllegalArgumentException("Email không hợp lệ, phải theo định dạng tên email@tên miền");
+        }
     }
     @Override
     public String toString() {

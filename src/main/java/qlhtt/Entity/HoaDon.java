@@ -110,7 +110,11 @@ public class HoaDon {
     }
 
     public void setTongGiaTriHoaDon(Double tongGiaTriHoaDon) {
-        this.tongGiaTriHoaDon = tongGiaTriHoaDon;
+        if(tongGiaTriHoaDon > 0){
+            this.tongGiaTriHoaDon = tongGiaTriHoaDon;
+        } else {
+            throw new IllegalArgumentException("Tổng giá trị hóa đơn phải lớn hơn 0");
+        }
     }
 
     public Double getTienDaGiam() {
@@ -118,7 +122,11 @@ public class HoaDon {
     }
 
     public void setTienDaGiam(Double tienDaGiam) {
-        this.tienDaGiam = tienDaGiam;
+        if(tienDaGiam > 0){
+            this.tienDaGiam = tienDaGiam;
+        } else {
+            throw new IllegalArgumentException("Tiền đã giảm phải lớn hơn 0");
+        }
     }
 
     public Double getTongTienThanhToan() {
@@ -126,7 +134,11 @@ public class HoaDon {
     }
 
     public void setTongTienThanhToan(Double tongTienThanhToan) {
-        this.tongTienThanhToan = tongTienThanhToan;
+        if(tongTienThanhToan > 0){
+            this.tongTienThanhToan = tongTienThanhToan;
+        } else {
+            throw new IllegalArgumentException("Tổng tiền thanh toán phải lớn hơn 0");
+        }
     }
 
     public Double getTongTienKhachTra() {
@@ -134,7 +146,11 @@ public class HoaDon {
     }
 
     public void setTongTienKhachTra(Double tongTienKhachTra) {
-        this.tongTienKhachTra = tongTienKhachTra;
+        if(tongTienKhachTra > 0){
+            this.tongTienKhachTra = tongTienKhachTra;
+        } else {
+            throw new IllegalArgumentException("Tổng tiền khách trả phải lớn hơn 0");
+        }
     }
 
     public PhuongThucThanhToan getPhuongThucThanhToan() {
@@ -154,7 +170,11 @@ public class HoaDon {
     }
 
     public void setTongTienTraLai(Double tongTienTraLai) {
-        this.tongTienTraLai = tongTienTraLai;
+        if(tongTienTraLai > 0){
+            this.tongTienTraLai = tongTienTraLai;
+        } else {
+            throw new IllegalArgumentException("Tổng tiền trả lại phải lớn hơn 0");
+        }
     }
 
     public NhanVien getNhanVien() {
