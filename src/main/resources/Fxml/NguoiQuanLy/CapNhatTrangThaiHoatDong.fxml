@@ -35,7 +35,7 @@
       </Pane>
       <Pane layoutX="84.0" layoutY="244.0" prefHeight="486.0" prefWidth="1171.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.topAnchor="239.0">
          <children>
-            <TableView layoutX="16.0" layoutY="25.0" prefHeight="428.0" prefWidth="1137.0">
+            <TableView fx:id="bangNhanVien" layoutX="16.0" layoutY="25.0" prefHeight="428.0" prefWidth="1137.0">
               <columns>
                   <TableColumn fx:id="tenNhanVien" prefWidth="314.40000915527344" text="TÊN NHÂN VIÊN" />
                   <TableColumn fx:id="gioiTinh" prefWidth="158.4000244140625" text="GIỚI TÍNH" />

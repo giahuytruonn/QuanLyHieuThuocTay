@@ -14,6 +14,8 @@ module qlhtt {
     requires spring.boot.autoconfigure;
     requires java.mail;
     requires spring.security.crypto;
+    requires com.jfoenix;
+    requires javafx.controls;
     //requires com.fasterxml.jackson.databind;
 
 
