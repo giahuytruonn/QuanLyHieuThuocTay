@@ -119,6 +119,12 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- Spring Boot Security -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+    </dependency>
+
     <!-- Java Mail -->
     <dependency>
       <groupId>com.sun.mail</groupId>

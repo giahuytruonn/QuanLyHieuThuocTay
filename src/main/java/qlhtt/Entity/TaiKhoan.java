@@ -1,5 +1,9 @@
 package qlhtt.Entity;
 
+import qlhtt.DAO.TaiKhoanDAO;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class TaiKhoan {
@@ -8,23 +12,37 @@ public class TaiKhoan {
     private String matKhau;
     // 1 -> Đang họat động
     // 0 -> Ngưng hoạt động
-    private Boolean trangTaiTaiKhoan;
-    //private NhanVien nhanVien;
-
-    public TaiKhoan(String maTaiKhoan, String tenDangNhap, String matKhau, Boolean trangTaiTaiKhoan) {
-        this.maTaiKhoan = maTaiKhoan;
-        this.tenDangNhap = tenDangNhap;
-        this.matKhau = matKhau;
-        this.trangTaiTaiKhoan = trangTaiTaiKhoan;
-    }
-
-    public TaiKhoan(String tenDangNhap, String matKhau) {
-        this.tenDangNhap = tenDangNhap;
-        this.matKhau = matKhau;
-    }
+    private Boolean trangThaiTaiKhoan;
+    private NhanVien nhanVien;
 
     public TaiKhoan() {
+    }
 
+    public TaiKhoan(String maTaiKhoan, String tenDangNhap, String matKhau, Boolean trangThaiTaiKhoan, NhanVien nhanVien) {
+        super();
+        setMaTaiKhoan(maTaiKhoan);
+        setTenDangNhap(tenDangNhap);
+        setMatKhau(matKhau);
+        setTrangThaiTaiKhoan(trangThaiTaiKhoan);
+        setNhanVien(nhanVien);
+    }
+
+    public TaiKhoan(String maTaiKhoan) {
+        TaiKhoanDAO taiKhoanDAO = TaiKhoanDAO.getInstance();
+        TaiKhoan taiKhoan = taiKhoanDAO.getTaiKhoanBangMaTaiKhoan(maTaiKhoan);
+        setMaTaiKhoan(taiKhoan.getMaTaiKhoan());
+        setTenDangNhap(taiKhoan.getTenDangNhap());
+        setMatKhau(taiKhoan.getMatKhau());
+        setTrangThaiTaiKhoan(taiKhoan.getTrangTaiTaiKhoan());
+        setNhanVien(taiKhoan.getNhanVien());
+    }
+
+    public TaiKhoan(ResultSet rs) throws SQLException{
+        setMaTaiKhoan(rs.getString("maTaiKhoan"));
+        setTenDangNhap(rs.getString("tenDangNhap"));
+        setMatKhau(rs.getString("matKhau"));
+        setTrangThaiTaiKhoan(rs.getBoolean("trangThaiTaiKhoan"));
+        setNhanVien(new NhanVien(rs.getString("maNhanVien")));
     }
 
     public String getMaTaiKhoan() {
@@ -32,7 +50,39 @@ public class TaiKhoan {
     }
 
     public void setMaTaiKhoan(String maTaiKhoan) {
-        this.maTaiKhoan = maTaiKhoan;
+        if(maTaiKhoan.matches("TK[0-9]{3}")) {
+            this.maTaiKhoan = maTaiKhoan;
+        } else {
+            throw new IllegalArgumentException("Tài khoản phải theo định dạng TKXXX");
+        }
+    }
+
+    public NhanVien getNhanVien() {
+        return nhanVien;
+    }
+
+    public void setNhanVien(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
+    }
+
+    public Boolean getTrangTaiTaiKhoan() {
+        return trangThaiTaiKhoan;
+    }
+
+    public void setTrangThaiTaiKhoan(Boolean trangThaiTaiKhoan) {
+        this.trangThaiTaiKhoan = trangThaiTaiKhoan;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        if(matKhau.isEmpty()) {
+            throw new IllegalArgumentException("Mật khẩu không được để trống");
+        } else {
+            this.matKhau = matKhau;
+        }
     }
 
     public String getTenDangNhap() {
@@ -43,29 +93,14 @@ public class TaiKhoan {
         this.tenDangNhap = tenDangNhap;
     }
 
-    public String getMatKhau() {
-        return matKhau;
-    }
-
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
-    }
-
-    public Boolean getTrangTaiTaiKhoan() {
-        return trangTaiTaiKhoan;
-    }
-
-    public void setTrangTaiTaiKhoan(Boolean trangTaiTaiKhoan) {
-        this.trangTaiTaiKhoan = trangTaiTaiKhoan;
-    }
-
     @Override
     public String toString() {
         return "TaiKhoan{" +
                 "maTaiKhoan='" + maTaiKhoan + '\'' +
                 ", tenDangNhap='" + tenDangNhap + '\'' +
                 ", matKhau='" + matKhau + '\'' +
-                ", trangTaiTaiKhoan=" + trangTaiTaiKhoan +
+                ", trangThaiTaiKhoan=" + trangThaiTaiKhoan +
+                ", nhanVien=" + nhanVien +
                 '}';
     }
 
