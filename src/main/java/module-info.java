@@ -1,5 +1,4 @@
 module qlhtt {
-    requires javafx.controls;
     requires javafx.fxml;
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
@@ -7,7 +6,6 @@ module qlhtt {
     requires org.kordamp.bootstrapfx.core;
     requires spring.web;
     requires spring.core; // Thêm dòng này
-    requires java.base;
     requires com.fasterxml.jackson.databind;
     requires com.google.gson;
     requires java.desktop;
@@ -15,6 +13,8 @@ module qlhtt {
     //requires jakarta.mail;
     requires spring.boot.autoconfigure;
     requires java.mail;
+    requires com.jfoenix;
+    requires javafx.controls;
     //requires com.fasterxml.jackson.databind;
 
 

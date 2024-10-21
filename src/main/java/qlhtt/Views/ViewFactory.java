@@ -3,7 +3,7 @@ package qlhtt.Views;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import qlhtt.Controllers.NguoiQuanLy.NguoiQuanLyController;
+import qlhtt.Controllers.NguoiQuanLy.CapNhatTrangThaiHoatDongController;
 import qlhtt.Controllers.NguoiQuanLy.TrangTongQuatController;
 import qlhtt.Controllers.NhanVien.NhanVienController;
 
@@ -70,6 +70,13 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/NhanVien.fxml"));
         NhanVienController nhanVienController = new NhanVienController();
         loader.setController(nhanVienController);
+        createStage(loader);
+    }
+
+    public void capNhatTrangThaiHoatDong(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/CapNhatTrangThaiHoatDong.fxml"));
+        CapNhatTrangThaiHoatDongController capNhatTrangThaiHoatDongController = new CapNhatTrangThaiHoatDongController();
+        loader.setController(capNhatTrangThaiHoatDongController);
         createStage(loader);
     }
 }

@@ -1,9 +1,18 @@
-.bangNhanVien{
+.table-view{
     -fx-background-color: #fff;
 }
-.table-view .column-header-background{
-    -fx-background-color: transparent;
+.table-view .column-header{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 44px;
 }
-.table-view .column-header-background {
-    -fx-text-fill: #009EE2 ;
+.table-view .column-header-background .label{
+    -fx-font-size: 20px;
+    -fx-text-fill: #009EE2;
+}
+.table-row-cell:odd {
+    -fx-background-color: #B8ECF4;  /* Màu dòng lẻ */
+}
+
+.table-row-cell:even {
+    -fx-background-color: #ffffff;  /* Màu dòng chẵn */
 }

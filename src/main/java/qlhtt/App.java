@@ -6,11 +6,15 @@ import qlhtt.Models.Model;
 
 public class App extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
-        Model.getInstance().getViewFactory().showLoginWindow();
-    }
+//    public void start(Stage stage) throws Exception {
+//        Model.getInstance().getViewFactory().showLoginWindow();
+//    }
 
 //    public static void main(String[] args) {
 //        launch(args);
 //    }
+
+    public void start(Stage stage) throws Exception {
+        Model.getInstance().getViewFactory().capNhatTrangThaiHoatDong();
+    }
 }

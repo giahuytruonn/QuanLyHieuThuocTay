@@ -1,60 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="780.0" prefWidth="1500.0" style="-fx-background-color: #2093A5;" stylesheets="/Fxml/Styles/ThemNhanVien.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.ThemNhanVien">
-    <left>
-        <fx:include source="MenuNguoiQuanLy.fxml" />
-    </left>
-    <center>
-        <AnchorPane prefHeight="762.0" prefWidth="1293.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
-         <BorderPane.margin>
-            <Insets left="9.0" />
-         </BorderPane.margin>
-         <children>
-            <Text fill="#2093a5" layoutX="565.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NHÂN VIÊN" textAlignment="CENTER" AnchorPane.leftAnchor="546.0" AnchorPane.topAnchor="13.0">
-               <font>
-                  <Font name="System Bold" size="35.0" />
-               </font>
-            </Text>
-            <Pane layoutX="374.0" layoutY="59.0" prefHeight="123.0" prefWidth="1171.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="79.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="31.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: #2093A5; -fx-background-radius: 10;" text="Số điện thoại nhân viên cần tìm:" textAlignment="RIGHT" textFill="#fff">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="353.0" layoutY="36.0" prefHeight="55.0" prefWidth="630.0" style="-fx-background-color: #fff; -fx-border-color: #000000; -fx-border-radius: 10;" />
-                  <JFXButton layoutX="1013.0" layoutY="36.0" prefHeight="55.0" prefWidth="119.0" style="-fx-background-color: #2093A5; -fx-background-radius: 10;" text="TÌM" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </JFXButton>
-               </children>
-            </Pane>
-            <Pane layoutX="84.0" layoutY="244.0" prefHeight="486.0" prefWidth="1171.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.topAnchor="239.0">
-               <children>
-                  <TableView layoutX="16.0" layoutY="25.0" prefHeight="428.0" prefWidth="1137.0">
-                    <columns>
-                      <TableColumn prefWidth="326.0" text="TÊN NHÂN VIÊN" />
-                        <TableColumn prefWidth="163.99993896484375" text="GIỚI TÍNH" />
-                        <TableColumn prefWidth="276.00006103515625" text="SỐ ĐIỆN THOẠI" />
-                        <TableColumn prefWidth="370.39996337890625" text="TRẠNG THÁI HOẠT ĐỘNG" />
-                    </columns>
-                  </TableView>
-               </children>
-            </Pane>
-         </children></AnchorPane>
-    </center>
 
-</BorderPane>
+  <AnchorPane prefHeight="762.0" prefWidth="1293.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.CapNhatTrangThaiHoatDong">
+   <children>
+      <Text fill="#2093a5" layoutX="565.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NHÂN VIÊN" textAlignment="CENTER" AnchorPane.leftAnchor="546.0" AnchorPane.topAnchor="13.0">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Text>
+      <Pane layoutX="374.0" layoutY="59.0" prefHeight="123.0" prefWidth="1171.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="79.0">
+         <children>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: #2093A5; -fx-background-radius: 10;" text="Số điện thoại nhân viên cần tìm:" textAlignment="RIGHT" textFill="#fff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="sdtTimKiem" layoutX="353.0" layoutY="36.0" prefHeight="55.0" prefWidth="630.0" style="-fx-background-color: #fff; -fx-border-color: #000000; -fx-border-radius: 10;" />
+            <JFXButton fx:id="timBtn" layoutX="1013.0" layoutY="36.0" prefHeight="55.0" prefWidth="119.0" style="-fx-background-color: #2093A5; -fx-background-radius: 10;" text="TÌM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="84.0" layoutY="244.0" prefHeight="486.0" prefWidth="1171.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.topAnchor="239.0">
+         <children>
+            <TableView layoutX="16.0" layoutY="25.0" prefHeight="428.0" prefWidth="1137.0">
+              <columns>
+                  <TableColumn fx:id="tenNhanVien" prefWidth="314.40000915527344" text="TÊN NHÂN VIÊN" />
+                  <TableColumn fx:id="gioiTinh" prefWidth="158.4000244140625" text="GIỚI TÍNH" />
+                  <TableColumn fx:id="soDienThoai" prefWidth="188.00006103515625" text="SỐ ĐIỆN THOẠI" />
+                  <TableColumn fx:id="vaiTro" prefWidth="164.79986572265625" text="VAI TRÒ" />
+                  <TableColumn fx:id="trangThai" prefWidth="310.60003662109375" text="TRẠNG THÁI HOẠT ĐỘNG" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

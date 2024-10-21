@@ -5,31 +5,31 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import qlhtt.Entity.NhanVien;
 
-public class CapNhatTrangThaiHoatDong {
-
+public class CapNhatTrangThaiHoatDongController {
     @FXML
-    private TableView<?> bangNhanVien;
-
-    @FXML
-    private TableColumn<?, ?> gioiTinh;
+    private TableColumn<NhanVien, Boolean> gioiTinh;
 
     @FXML
     private TextField sdtTimKiem;
 
     @FXML
-    private TableColumn<?, ?> soDienThoai;
+    private TableColumn<NhanVien, String> soDienThoai;
 
     @FXML
-    private TableColumn<?, ?> tenNhanVien;
+    private TableColumn<NhanVien, String> tenNhanVien;
 
     @FXML
     private JFXButton timBtn;
 
     @FXML
-    private TableColumn<?, ?> trangThai;
+    private TableColumn<NhanVien, String> trangThai;
 
     @FXML
-    private TableColumn<?, ?> vaiTro;
+    private TableColumn<NhanVien, String> vaiTro;
 
+    public void initialize() {
+
+    }
 }
