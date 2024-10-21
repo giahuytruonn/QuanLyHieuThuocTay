@@ -1,0 +1,9 @@
+.bangNhanVien{
+    -fx-background-color: #fff;
+}
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background {
+    -fx-text-fill: #009EE2 ;
+}
