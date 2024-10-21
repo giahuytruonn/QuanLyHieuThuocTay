@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+<AnchorPane prefHeight="780.0" prefWidth="1252.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="qlhtt.Controllers.NguoiQuanLy.NguoiQuanLyController">
    <Button fx:id="taoMa" layoutX="242.0" layoutY="91.0" mnemonicParsing="false" text="Tạo mã"/>
