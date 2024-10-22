@@ -5,6 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed520b5a-e2a2-42d2-9e4e-278523b2e6f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/NguoiQuanLyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/TrangTongQuatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NhanVien/NhanVienController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/GiaBan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Models/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Views/AccountType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Views/ViewFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/NguoiQuanLy.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/TrangTongQuat.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NhanVien/NhanVien.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Styles/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,9 +47,15 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": -1
+  "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2mrrxmYADI6MZlVSQYVV6yqQZ0D" />
   <component name="ProjectViewState">
@@ -31,8 +66,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ADMIN/Desktop/2H2D-Pharmacy-main/QuanLyHieuThuocTay"
+    "git-widget-placeholder": "Merging NDuy",
+    "last_opened_file_path": "C:/Users/ADMIN/Desktop/2H2D-Pharmacy-main/QuanLyHieuThuocTay",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
