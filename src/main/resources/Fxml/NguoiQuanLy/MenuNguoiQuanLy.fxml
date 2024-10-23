@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #2093A5;" stylesheets=""
+<AnchorPane prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #115D33;" stylesheets=""
             xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="qlhtt.Controllers.NguoiQuanLy.MenuNguoiQuanLyController">
    <VBox prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: #FFF; -fx-background-radius: 10px;"
@@ -19,7 +19,7 @@
       <padding>
          <Insets left="9.0" right="9.0" top="20.0"/>
       </padding>
-      <Pane prefHeight="74.0" prefWidth="212.0" style="-fx-background-color: #2093A5; -fx-background-radius: 15px;">
+      <Pane prefHeight="74.0" prefWidth="212.0" style="-fx-background-color: #115D33; -fx-background-radius: 15px;">
          <VBox.margin>
             <Insets bottom="15.0"/>
          </VBox.margin>
@@ -55,7 +55,7 @@
       </Label>
       <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                  prefHeight="36.0" prefWidth="212.0"
-                 style="-fx-background-color: #2093A5; -fx-background-radius: 10px;" text="Thêm nhân viên"
+                 style="-fx-background-color: #115D33; -fx-background-radius: 10px;" text="Thêm nhân viên"
                  textFill="WHITE">
          <padding>
             <Insets bottom="6.0" right="85.0" top="6.0"/>

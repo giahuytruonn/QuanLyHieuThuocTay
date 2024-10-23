@@ -33,7 +33,7 @@ public class TaiKhoan {
         setMaTaiKhoan(taiKhoan.getMaTaiKhoan());
         setTenDangNhap(taiKhoan.getTenDangNhap());
         setMatKhau(taiKhoan.getMatKhau());
-        setTrangThaiTaiKhoan(taiKhoan.getTrangTaiTaiKhoan());
+        setTrangThaiTaiKhoan(taiKhoan.getTrangThaiTaiKhoan());
         setNhanVien(taiKhoan.getNhanVien());
     }
 
@@ -65,7 +65,7 @@ public class TaiKhoan {
         this.nhanVien = nhanVien;
     }
 
-    public Boolean getTrangTaiTaiKhoan() {
+    public Boolean getTrangThaiTaiKhoan() {
         return trangThaiTaiKhoan;
     }
 

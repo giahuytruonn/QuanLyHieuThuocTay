@@ -12,7 +12,7 @@ public class TestLayNhanVien {
         List<NhanVien> danhSachNV = NhanVienDAO.getInstance().getDanhSachNhanVien();
         for (NhanVien nhanVien : danhSachNV) {
             System.out.println(nhanVien.getMaNhanVien());
-//            System.out.println(nhanVien.getTenNhanVien());
+            System.out.println(nhanVien.getTenNhanVien());
 //            System.out.println(nhanVien.getSoDienThoai());
 //            System.out.println(nhanVien.getEmail());
 //            System.out.println(nhanVien.getCccd());

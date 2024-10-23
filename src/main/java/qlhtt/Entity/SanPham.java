@@ -186,7 +186,7 @@ public class SanPham {
     }
 
     public void setSoLuong(int soLuong) {
-        if(soLuong > 0) {
+        if(soLuong >= 0) {
             this.soLuong = soLuong;
         } else {
             throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
@@ -250,11 +250,7 @@ public class SanPham {
     }
 
     public void setDoiTuongSuDung(String doiTuongSuDung) {
-        if(doiTuongSuDung.matches("^[\\p{L}\\d\\s]+$")) {
             this.doiTuongSuDung = doiTuongSuDung;
-        } else {
-            throw new IllegalArgumentException("Đối tượng sử dụng không có kí tự đặc biệt và không được rỗng");
-        }
     }
 
     @Override
