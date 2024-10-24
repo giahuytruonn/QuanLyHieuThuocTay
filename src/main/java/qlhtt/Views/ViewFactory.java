@@ -67,7 +67,7 @@ public class ViewFactory {
     }
 
     public void hienTrangTongQuatCuaNhanVien() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/ThemSanPham.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/ThemKhachHang.fxml"));
 //        NhanVienController nhanVienController = new NhanVienController();
 //        loader.setController(nhanVienController);
         createStage(loader);

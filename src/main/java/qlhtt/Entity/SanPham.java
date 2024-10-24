@@ -114,10 +114,10 @@ public class SanPham {
     }
 
     public void setTenSanPham(String tenSanPham) {
-        if(tenSanPham.matches("^[\\p{L}\\d\\s]+$")) {
+        if(tenSanPham.isEmpty()){
+            throw new IllegalArgumentException("Tên sản phẩm không được rỗng");
+        }else {
             this.tenSanPham = tenSanPham;
-        } else {
-            throw new IllegalArgumentException("Tên sản phẩm không có kí tự đặc biệt và không được rỗng");
         }
     }
 
@@ -158,10 +158,10 @@ public class SanPham {
     }
 
     public void setNhaSanXuat(String nhaSanXuat) {
-        if(nhaSanXuat.matches("^[\\p{L}\\d\\s]+$")) {
+        if(nhaSanXuat.isEmpty()){
+            throw new IllegalArgumentException("Nhà sản xuất không được rỗng");
+        }else {
             this.nhaSanXuat = nhaSanXuat;
-        } else {
-            throw new IllegalArgumentException("Nhà sản xuất không có kí tự đặc biệt và không được rỗng");
         }
     }
 
@@ -189,7 +189,7 @@ public class SanPham {
         if(soLuong >= 0) {
             this.soLuong = soLuong;
         } else {
-            throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
+            throw new IllegalArgumentException("Số lượng phải lớn hơn hoặc bằng 0");
         }
     }
 
