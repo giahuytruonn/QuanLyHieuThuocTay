@@ -7,6 +7,7 @@ import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Objects;
 
 public class NhanVien {
@@ -95,10 +96,11 @@ public class NhanVien {
     }
 
     public void setNgaySinh(LocalDate ngaySinh) {
-        if(LocalDate.now().getYear() - ngaySinh.getYear() >= 18) {
+        Period period = Period.between(ngaySinh, LocalDate.now());
+        if(period.getYears() >= 18) {
             this.ngaySinh = ngaySinh;
         }else {
-            throw new IllegalArgumentException("Nhân viên phải đủ 18 tuổi");
+            throw new IllegalArgumentException("Nhân viên phải từ 18 tuổi trở lên");
         }
     }
 

@@ -71,7 +71,7 @@ public class LoginController implements Initializable {
         for (TaiKhoan taiKhoan : dsTaiKhoan) {
             if (taiKhoan.getTenDangNhap().equals(tenDangNhap) && TaiKhoanController.kiemTraMatKhau(matKhau, taiKhoan.getMatKhau())
                     && taiKhoan.getNhanVien().getVaiTro() == vaiTroTaiKhoan) {
-                if (taiKhoan.getTrangThaiTaiKhoan()) {
+                if (taiKhoan.getTrangThaiTaiKhoan() ) {
                     if(vaiTroTaiKhoan == VaiTro.NGUOIQUANLY) {
                         Model.getInstance().getViewFactory().closeStage(stage);
                         Model.getInstance().getViewFactory().hienTrangTongQuatCuaNguoiQuanLy();

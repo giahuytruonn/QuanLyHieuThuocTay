@@ -61,10 +61,10 @@ public class ChietKhau {
     }
 
     public void setSoLuong(int soLuong) {
-        if(soLuong > 0) {
+        if(soLuong >= 0) {
             this.soLuong = soLuong;
         } else {
-            throw new IllegalArgumentException("Số lượng phải lớn hơn 0");
+            throw new IllegalArgumentException("Số lượng phải lớn hơn hoặc bằng 0");
         }
     }
 

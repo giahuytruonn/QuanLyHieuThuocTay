@@ -83,10 +83,10 @@ public class NhaCungCap {
     }
 
     public void setDiaChi(String diaChi) {
-        if(diaChi.matches("^[\\p{L}\\d\\s]+$")) {
-            this.diaChi = diaChi;
+        if(diaChi.isEmpty()) {
+            throw new IllegalArgumentException("Địa chỉ không được để trống");
         } else {
-            throw new IllegalArgumentException("Địa chỉ không có kí tự đặc biệt và không được rỗng");
+            this.diaChi = diaChi;
         }
     }
 
