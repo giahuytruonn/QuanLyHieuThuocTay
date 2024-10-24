@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import qlhtt.Controllers.NguoiQuanLy.NguoiQuanLyController;
+import qlhtt.Controllers.NguoiQuanLy.TrangTongQuatController;
+import qlhtt.Controllers.NhanVien.BanHangController;
 import qlhtt.Controllers.NhanVien.NhanVienController;
 
 public class ViewFactory {
@@ -58,17 +60,17 @@ public class ViewFactory {
         stage.show();
     }
 
-    public void hienCuaSoNguoiQuanLy() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/NguoiQuanLy.fxml"));
-        NguoiQuanLyController nguoiQuanLyController = new NguoiQuanLyController();
-        loader.setController(nguoiQuanLyController);
+    public void hienTrangTongQuatCuaNguoiQuanLy() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NguoiQuanLy/TrangTongQuat.fxml"));
+        TrangTongQuatController trangTongQuatController = new TrangTongQuatController();
+        loader.setController(trangTongQuatController);
         createStageNoResizable(loader);
     }
 
     public void hienCuaSoNhanVien() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/NhanVien.fxml"));
-        NhanVienController nhanVienController = new NhanVienController();
-        loader.setController(nhanVienController);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/BanHang.fxml"));
+        BanHangController banHangController = new BanHangController();
+        loader.setController(banHangController);
         createStage(loader);
     }
 }

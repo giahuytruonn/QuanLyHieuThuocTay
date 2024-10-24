@@ -4,11 +4,109 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed520b5a-e2a2-42d2-9e4e-278523b2e6f0" name="Changes" comment="" />
+    <list default="true" id="ed520b5a-e2a2-42d2-9e4e-278523b2e6f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/artifacts/QuanLyHieuThuocTay_jar/QuanLyHieuThuocTay.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/ConnectDB/ConnectDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/MenuNguoiQuanLyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NhanVien/BanHangController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NhanVien/SanPhamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/TaiKhoanController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/ChiTietPhieuNhapDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/ChietKhauDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/DonViTinhDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/HoaDonDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/KhachHangDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/LoaiSanPhamDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/NhaCungCapDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/NhanVienDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/NhomSanPhamDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/PhieuNhapDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/SanPhamDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/DAO/TaiKhoanDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/ChiTietHoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/ChiTietPhieuNhap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/ChietKhau.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/DonViTinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/HoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/KhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/LoaiSanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/NhaCungCap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/NhanVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/NhomSanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/PhieuNhap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/SanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/TaiKhoan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Enum/ChiDinhSuDung.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Enum/PhuongThucThanhToan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Enum/VaiTro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Service/ApiRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Service/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Service/Data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Service/EmailSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestCheckPass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestDonViTinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayChiTietHoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayChiTietPhieuNhap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayChietKhau.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayHoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayKhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayNhaCungCap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayNhanVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayPhieuNhap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLaySanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLayTaiKhoan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestLoaiSanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestNhomSanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Test/TestRegex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/qlhtt/exception/ThongBaoLoi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/ChietKhau.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/MatKhau.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/NDuy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/ThemNhanVien.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/ThongKe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/TraCuu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/TrangThaiChietKhau.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Images/TrangThaiHoatDong.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/MenuNguoiQuanLy.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NhanVien/BanHang.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Styles/BanHang.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qlhtt/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qlhtt/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/NguoiQuanLyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/NguoiQuanLyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/TrangTongQuatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Controllers/NguoiQuanLy/TrangTongQuatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qlhtt/Entity/GiaBan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qlhtt/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qlhtt/Views/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/NguoiQuanLy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/NguoiQuanLy.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/TrangTongQuat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/NguoiQuanLy/TrangTongQuat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/NguoiQuanLy/NguoiQuanLy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/NguoiQuanLy/NguoiQuanLy.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Fxml/NguoiQuanLy/TrangTongQuat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fxml/NguoiQuanLy/TrangTongQuat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qlhtt/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qlhtt/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qlhtt/Controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qlhtt/Controllers/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qlhtt/Controllers/NguoiQuanLy/NguoiQuanLyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qlhtt/Controllers/NguoiQuanLy/NguoiQuanLyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qlhtt/Controllers/NguoiQuanLy/TrangTongQuatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qlhtt/Controllers/NguoiQuanLy/TrangTongQuatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qlhtt/Entity/GiaBan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qlhtt/Views/ViewFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qlhtt/Views/ViewFactory.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,30 +117,38 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2mrrxmYADI6MZlVSQYVV6yqQZ0D" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "NDuy",
-    "last_opened_file_path": "C:/Users/ADMIN/Desktop/2H2D-Pharmacy-main/QuanLyHieuThuocTay",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging NDuy&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADMIN/Desktop/2H2D-Pharmacy-main/QuanLyHieuThuocTay&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="qlhtt.App" />
@@ -58,6 +164,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +180,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727845785624</updated>
+      <workItem from="1729593172224" duration="6345000" />
+      <workItem from="1729602346921" duration="741000" />
+      <workItem from="1729603103487" duration="177000" />
+      <workItem from="1729603291870" duration="1594000" />
+      <workItem from="1729739718052" duration="1443000" />
+      <workItem from="1729771933870" duration="7431000" />
+      <workItem from="1729779409181" duration="359000" />
+      <workItem from="1729779782279" duration="312000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
