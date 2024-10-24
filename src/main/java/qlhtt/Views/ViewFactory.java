@@ -66,10 +66,10 @@ public class ViewFactory {
         createStageNoResizable(loader);
     }
 
-    public void hienCuaSoNhanVien() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/NhanVien.fxml"));
-        NhanVienController nhanVienController = new NhanVienController();
-        loader.setController(nhanVienController);
+    public void hienTrangTongQuatCuaNhanVien() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/NhanVien/ThemSanPham.fxml"));
+//        NhanVienController nhanVienController = new NhanVienController();
+//        loader.setController(nhanVienController);
         createStage(loader);
     }
 }

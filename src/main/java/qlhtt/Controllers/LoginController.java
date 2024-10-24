@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
                         Model.getInstance().getViewFactory().hienTrangTongQuatCuaNguoiQuanLy();
                     } else {
                         Model.getInstance().getViewFactory().closeStage(stage);
-                        Model.getInstance().getViewFactory().hienCuaSoNhanVien();
+                        Model.getInstance().getViewFactory().hienTrangTongQuatCuaNhanVien();
                     }
                 } else {
                     err_lbl.setText("Tài khoản đã bị khóa");

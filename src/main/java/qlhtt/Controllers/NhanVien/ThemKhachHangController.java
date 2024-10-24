@@ -1,4 +1,4 @@
 package qlhtt.Controllers.NhanVien;
 
-public class SanPhamController {
+public class ThemKhachHangController {
 }
