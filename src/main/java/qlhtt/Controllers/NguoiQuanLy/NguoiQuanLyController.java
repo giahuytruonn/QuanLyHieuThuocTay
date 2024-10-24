@@ -11,16 +11,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
-import qlhtt.Entity.ApiRequest;
-import qlhtt.Entity.ApiResponse;
+import qlhtt.Service.ApiRequest;
+import qlhtt.Service.ApiResponse;
 import javafx.embed.swing.SwingFXUtils;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Base64;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class NguoiQuanLyController {
 
@@ -36,13 +36,14 @@ public class NguoiQuanLyController {
     @FXML
     public void initialize() {
         taoMa.setOnAction(event -> {
+            Dotenv dotenv = Dotenv.load();
             Integer amount = Integer.valueOf(soTien.getText().trim());
-            String accountNo = "1033547785";
-            String accountName = "VO THAI DUY";
-            int acqId = 970436;
-            String addInfo = "Xin ti tien an com di";
-            String format = "text";
-            String template = "compact";
+            String accountNo = dotenv.get("ACCOUNT_NO");
+            String accountName = dotenv.get("ACCOUNT_NAME");
+            int acqId = Integer.parseInt(dotenv.get("ACQ_ID"));
+            String addInfo = dotenv.get("ADD_INFO");
+            String format = dotenv.get("FORMAT");
+            String template = dotenv.get("TEMPLATE");
 
             if (soTien.getText().isEmpty()) {
                 // Nếu trường soTien trống, hiển thị thông báo hoặc xử lý theo cách của bạn

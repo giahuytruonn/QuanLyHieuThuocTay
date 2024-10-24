@@ -1,4 +1,4 @@
-package qlhtt.Entity;
+package qlhtt.Service;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
