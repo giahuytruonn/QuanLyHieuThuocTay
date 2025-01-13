@@ -1,5 +1,6 @@
 package entity;
 
+import dao.NhanVienDao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,5 +38,11 @@ public class NhanVien {
 
     @OneToMany(mappedBy = "nhanVien")
     private Set<PhieuNhap> dsPhieuNhap;
+
+    public NhanVien(String maNhanVien, String tenNhanVien, String sdt){
+        this.maNhanVien = maNhanVien;
+        this.tenNhanVien = tenNhanVien;
+        this.soDienThoai = sdt;
+    }
 
 }
