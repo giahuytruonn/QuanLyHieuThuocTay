@@ -3,10 +3,7 @@ package entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.checkerframework.checker.units.qual.A;
 
 import java.time.LocalDate;
@@ -18,8 +15,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class KhachHang {
     @Id
+    @EqualsAndHashCode.Include
     private String maKhachHang;
     private String hoTen;
     //0: Nam, 1: Nữ

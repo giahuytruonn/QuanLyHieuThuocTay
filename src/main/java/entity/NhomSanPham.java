@@ -3,10 +3,7 @@ package entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -16,8 +13,11 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 public class NhomSanPham {
     @Id
+    @EqualsAndHashCode.Include
     private String maNhomSp;
     private String tenNhomSp;
 

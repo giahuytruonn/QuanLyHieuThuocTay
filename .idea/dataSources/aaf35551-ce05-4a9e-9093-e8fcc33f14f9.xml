@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Pharmacy@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.52">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.53">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1448,35 +1448,35 @@
       <CollationName>latin1_swedish_ci</CollationName>
     </table>
     <column id="534" parent="521" name="maChietKhau">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="535" parent="521" name="giaTriChietKhau">
-      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="536" parent="521" name="moTa">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="537" parent="521" name="ngayBatDauApDung">
-      <DasType>date|0s</DasType>
       <Position>4</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="538" parent="521" name="ngayKetThucApDung">
-      <DasType>date|0s</DasType>
       <Position>5</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="539" parent="521" name="soLuong">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <column id="540" parent="521" name="trangThaiChietKhau">
-      <DasType>bit(1)|0s</DasType>
       <Position>7</Position>
+      <StoredType>bit(1)|0s</StoredType>
     </column>
     <index id="541" parent="521" name="PRIMARY">
       <ColNames>maChietKhau</ColNames>
@@ -1489,24 +1489,24 @@
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="543" parent="522" name="soLuong">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <column id="544" parent="522" name="tongTien">
-      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="545" parent="522" name="maHoaDon">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="546" parent="522" name="maSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <foreign-key id="547" parent="522" name="FK48lko1mwj5apm7o0w68jp3ugw">
       <ColNames>maHoaDon</ColNames>
@@ -1534,41 +1534,41 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="552" parent="523" name="donViTinh">
-      <DasType>varchar(255)|0s</DasType>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="553" parent="523" name="giaNhap">
-      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="554" parent="523" name="hanSuDung">
-      <DasType>date|0s</DasType>
       <Position>3</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="555" parent="523" name="ngaySanXuat">
-      <DasType>date|0s</DasType>
       <Position>4</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="556" parent="523" name="soLuong">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <column id="557" parent="523" name="thanhTien">
-      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="558" parent="523" name="maSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="559" parent="523" name="maPhieuNhap">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <foreign-key id="560" parent="523" name="FKn5x8480aq42ci5xh5ykx6ohwg">
       <ColNames>maSanPham</ColNames>
@@ -1596,13 +1596,13 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="565" parent="524" name="maDonViTinh">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="566" parent="524" name="tenDonViTinh">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <index id="567" parent="524" name="PRIMARY">
       <ColNames>maDonViTinh</ColNames>
@@ -1620,53 +1620,53 @@ maSanPham</ColNames>
       <Predicate>`phuongThucThanhToan` between 0 and 1</Predicate>
     </check>
     <column id="570" parent="525" name="maHoaDon">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="571" parent="525" name="ngayTao">
-      <DasType>date|0s</DasType>
       <Position>2</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="572" parent="525" name="phuongThucThanhToan">
-      <DasType>tinyint(4)|0s</DasType>
       <Position>3</Position>
+      <StoredType>tinyint(4)|0s</StoredType>
     </column>
     <column id="573" parent="525" name="tienDaGiam">
-      <DasType>double|0s</DasType>
       <Position>4</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="574" parent="525" name="tongGiaTriHoaDon">
-      <DasType>double|0s</DasType>
       <Position>5</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="575" parent="525" name="tongTienKhachTra">
-      <DasType>double|0s</DasType>
       <Position>6</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="576" parent="525" name="tongTienThanhToan">
-      <DasType>double|0s</DasType>
       <Position>7</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="577" parent="525" name="tongTienTraLai">
-      <DasType>double|0s</DasType>
       <Position>8</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="578" parent="525" name="trangThaiHoaDon">
-      <DasType>bit(1)|0s</DasType>
       <Position>9</Position>
+      <StoredType>bit(1)|0s</StoredType>
     </column>
     <column id="579" parent="525" name="maChietKhau">
-      <DasType>varchar(255)|0s</DasType>
       <Position>10</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="580" parent="525" name="maKhachHang">
-      <DasType>varchar(255)|0s</DasType>
       <Position>11</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="581" parent="525" name="maNhanVien">
-      <DasType>varchar(255)|0s</DasType>
       <Position>12</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <foreign-key id="582" parent="525" name="FK4x0ip7iwolpeybwh3u7gg6m6y">
       <ColNames>maChietKhau</ColNames>
@@ -1706,35 +1706,35 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="590" parent="526" name="maKhachHang">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="591" parent="526" name="diemTichLuy">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <column id="592" parent="526" name="email">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="593" parent="526" name="gioiTinh">
-      <DasType>bit(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>bit(1)|0s</StoredType>
     </column>
     <column id="594" parent="526" name="hoTen">
-      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="595" parent="526" name="ngaySinh">
-      <DasType>date|0s</DasType>
       <Position>6</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="596" parent="526" name="soDienThoai">
-      <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <index id="597" parent="526" name="PRIMARY">
       <ColNames>maKhachHang</ColNames>
@@ -1747,13 +1747,13 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="599" parent="527" name="maLoaiSp">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="600" parent="527" name="tenLoaiSp">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <index id="601" parent="527" name="PRIMARY">
       <ColNames>maLoaiSp</ColNames>
@@ -1766,25 +1766,25 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="603" parent="528" name="maNhaCungCap">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="604" parent="528" name="diaChi">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="605" parent="528" name="email">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="606" parent="528" name="soDienThoai">
-      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="607" parent="528" name="tenNhaCungCap">
-      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <index id="608" parent="528" name="PRIMARY">
       <ColNames>maNhaCungCap</ColNames>
@@ -1802,41 +1802,41 @@ maSanPham</ColNames>
       <Predicate>`vaiTro` between 0 and 1</Predicate>
     </check>
     <column id="611" parent="529" name="maNhanVien">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="612" parent="529" name="cccd">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="613" parent="529" name="duongDanAnh">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="614" parent="529" name="email">
-      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="615" parent="529" name="gioiTinh">
-      <DasType>bit(1)|0s</DasType>
       <Position>5</Position>
+      <StoredType>bit(1)|0s</StoredType>
     </column>
     <column id="616" parent="529" name="ngaySinh">
-      <DasType>date|0s</DasType>
       <Position>6</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="617" parent="529" name="soDienThoai">
-      <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="618" parent="529" name="tenNhanVien">
-      <DasType>varchar(255)|0s</DasType>
       <Position>8</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="619" parent="529" name="vaiTro">
-      <DasType>tinyint(4)|0s</DasType>
       <Position>9</Position>
+      <StoredType>tinyint(4)|0s</StoredType>
     </column>
     <index id="620" parent="529" name="PRIMARY">
       <ColNames>maNhanVien</ColNames>
@@ -1849,13 +1849,13 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="622" parent="530" name="maNhomSp">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="623" parent="530" name="tenNhomSp">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <index id="624" parent="530" name="PRIMARY">
       <ColNames>maNhomSp</ColNames>
@@ -1868,34 +1868,34 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="626" parent="531" name="maPhieuNhap">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="627" parent="531" name="ngayTao">
-      <DasType>date|0s</DasType>
       <Position>2</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="628" parent="531" name="soLo">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="629" parent="531" name="tongTien">
-      <DasType>double|0s</DasType>
       <Position>4</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="630" parent="531" name="trangThaiPhieuNhap">
-      <DasType>bit(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>bit(1)|0s</StoredType>
     </column>
     <column id="631" parent="531" name="maNhaCungCap">
-      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="632" parent="531" name="maNhanVien">
-      <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <foreign-key id="633" parent="531" name="FKcc6m7fq0ma13edkql4hdjf293">
       <ColNames>maNhaCungCap</ColNames>
@@ -1931,75 +1931,75 @@ maSanPham</ColNames>
       <Predicate>`chiDinhSuDung` between 0 and 1</Predicate>
     </check>
     <column id="640" parent="532" name="maSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="641" parent="532" name="chiDinhSuDung">
-      <DasType>tinyint(4)|0s</DasType>
       <Position>2</Position>
+      <StoredType>tinyint(4)|0s</StoredType>
     </column>
     <column id="642" parent="532" name="dangBaoChe">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="643" parent="532" name="doiTuongSuDung">
-      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="644" parent="532" name="donGia">
-      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="645" parent="532" name="duongDung">
-      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="646" parent="532" name="hamLuong">
-      <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="647" parent="532" name="moTaSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <Position>8</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="648" parent="532" name="nhaSanXuat">
-      <DasType>varchar(255)|0s</DasType>
       <Position>9</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="649" parent="532" name="quocGiaSanXuat">
-      <DasType>varchar(255)|0s</DasType>
       <Position>10</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="650" parent="532" name="quyCachDongGoi">
-      <DasType>varchar(255)|0s</DasType>
       <Position>11</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="651" parent="532" name="soLuong">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>12</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <column id="652" parent="532" name="tenSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <Position>13</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="653" parent="532" name="thanhPhan">
-      <DasType>varchar(255)|0s</DasType>
       <Position>14</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="654" parent="532" name="maDonViTinh">
-      <DasType>varchar(255)|0s</DasType>
       <Position>15</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="655" parent="532" name="maLoaiSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <Position>16</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="656" parent="532" name="maNhomSanPham">
-      <DasType>varchar(255)|0s</DasType>
       <Position>17</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <foreign-key id="657" parent="532" name="FK2kr919xbxv1unfrfh5mfc32lm">
       <ColNames>maDonViTinh</ColNames>
@@ -2039,26 +2039,26 @@ maSanPham</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="665" parent="533" name="maTaiKhoan">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="666" parent="533" name="matKhau">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="667" parent="533" name="tenDanNhap">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="668" parent="533" name="trangThaiTaiKhoan">
-      <DasType>bit(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>bit(1)|0s</StoredType>
     </column>
     <column id="669" parent="533" name="maNhanVien">
-      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <foreign-key id="670" parent="533" name="FK9lupyi9pufop3bkwjm4ig97u">
       <ColNames>maNhanVien</ColNames>

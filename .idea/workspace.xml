@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e468593a-83e5-49ce-927d-e92af1ef3cf4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aaf35551-ce05-4a9e-9093-e8fcc33f14f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aaf35551-ce05-4a9e-9093-e8fcc33f14f9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Generate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ChiTietPhieuNhap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ChiTietPhieuNhap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/ChietKhau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ChietKhau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/DonViTinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/DonViTinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/LoaiSanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/LoaiSanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhaCungCap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhaCungCap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhanVien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhomSanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhomSanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/PhieuNhap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/PhieuNhap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SanPham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TaiKhoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TaiKhoan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +43,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="QuanLyHieuThuocTay" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -49,38 +61,43 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2rYpGlw0bVCDLS9Cze49Kkq707H" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.QuanLyHieuThuocTay [:Generate.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/votha/Desktop/DHKTPM18BTT_JPA_Tuan3",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TestCRUD.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.QuanLyHieuThuocTay [:Generate.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.QuanLyHieuThuocTay [:TestCRUD.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/votha/Desktop/DHKTPM18BTT_JPA_Tuan3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected="Application.TestCRUD">
+}</component>
+  <component name="RunManager" selected="Application.Generate">
     <configuration name="Generate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Generate" />
       <module name="QuanLyHieuThuocTay.main" />
@@ -88,15 +105,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCRUD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCRUD (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestCRUD" />
       <module name="QuanLyHieuThuocTay.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestCRUD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="TestCRUD" />
+      <module name="QuanLyHieuThuocTay" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestCRUD (1)" />
         <item itemvalue="Application.TestCRUD" />
         <item itemvalue="Application.Generate" />
       </list>
@@ -105,8 +132,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -119,6 +146,10 @@
       <option name="presentableId" value="Default" />
       <updated>1736745772347</updated>
       <workItem from="1736745773615" duration="9756000" />
+      <workItem from="1736866290894" duration="5361000" />
+      <workItem from="1736932410445" duration="387000" />
+      <workItem from="1736945423049" duration="1466000" />
+      <workItem from="1737019548961" duration="3921000" />
     </task>
     <servers />
   </component>

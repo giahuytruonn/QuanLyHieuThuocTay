@@ -3,10 +3,7 @@ package entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -16,8 +13,10 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ChietKhau {
     @Id
+    @EqualsAndHashCode.Include
     private String maChietKhau;
     private int soLuong;
     private double giaTriChietKhau;
@@ -29,4 +28,6 @@ public class ChietKhau {
 
     @OneToMany(mappedBy = "chietKhau")
     private Set<HoaDon> dsHoaDon;
+
+
 }

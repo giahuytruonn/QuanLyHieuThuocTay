@@ -6,6 +6,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.checkerframework.checker.units.qual.N;
 
@@ -15,8 +16,11 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 public class PhieuNhap {
     @Id
+    @EqualsAndHashCode.Include
     private String maPhieuNhap;
     //1 -> đã thanh toán, 0 -> chưa thanh toán
     private boolean trangThaiPhieuNhap;

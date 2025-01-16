@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ChiTietPhieuNhap {
     @Id
     @ManyToOne
@@ -35,4 +35,7 @@ public class ChiTietPhieuNhap {
     private LocalDate ngaySanXuat;
     private LocalDate hanSuDung;
     private double thanhTien;
+
+
+
 }

@@ -2,10 +2,7 @@ package entity;
 
 import dao.NhanVienDao;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.checkerframework.checker.signature.qual.Identifier;
 
 import java.time.LocalDate;
@@ -17,8 +14,11 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 @Entity
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 public class NhanVien {
     @Id
+    @EqualsAndHashCode.Include
     private String maNhanVien;
     private String tenNhanVien;
     private String soDienThoai;
