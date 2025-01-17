@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e468593a-83e5-49ce-927d-e92af1ef3cf4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aaf35551-ce05-4a9e-9093-e8fcc33f14f9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Generate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TestCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestCRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChiTietHoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChiTietPhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChiTietPhieuNhapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChietKhauDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChietKhauDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DonViTinhDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DonViTinhDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/HoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/KhachHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/LoaiSanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/LoaiSanPhamDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhaCungCapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhaCungCapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhanVienDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhanVienDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhomSanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhomSanPhamDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PhieuNhapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SanPhamDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TaiKhoanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TaiKhoanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/enums/ChiDinhSuDung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/enums/ChiDinhSuDung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/enums/PhuongThucThanhToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/enums/PhuongThucThanhToan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/enums/VaiTro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/enums/VaiTro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e468593a-83e5-49ce-927d-e92af1ef3cf4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,6 +141,7 @@
       <workItem from="1737040564196" duration="474000" />
       <workItem from="1737135428112" duration="4678000" />
       <workItem from="1737140321768" duration="9000" />
+      <workItem from="1737140619718" duration="67000" />
     </task>
     <servers />
   </component>
