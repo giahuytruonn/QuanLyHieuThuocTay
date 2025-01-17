@@ -6,24 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="e468593a-83e5-49ce-927d-e92af1ef3cf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aaf35551-ce05-4a9e-9093-e8fcc33f14f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aaf35551-ce05-4a9e-9093-e8fcc33f14f9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aaf35551-ce05-4a9e-9093-e8fcc33f14f9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Generate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TestCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestCRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ChiTietPhieuNhap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ChiTietPhieuNhap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ChietKhau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ChietKhau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/DonViTinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/DonViTinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChiTietHoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChiTietPhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChiTietPhieuNhapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChietKhauDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChietKhauDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DonViTinhDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DonViTinhDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/HoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/KhachHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/LoaiSanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/LoaiSanPhamDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhaCungCapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhaCungCapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhanVienDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhanVienDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhomSanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhomSanPhamDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PhieuNhapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SanPhamDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TaiKhoanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TaiKhoanDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/LoaiSanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/LoaiSanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhaCungCap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhaCungCap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NhomSanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NhomSanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/PhieuNhap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/PhieuNhap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TaiKhoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TaiKhoan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/enums/ChiDinhSuDung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/enums/ChiDinhSuDung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/enums/PhuongThucThanhToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/enums/PhuongThucThanhToan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/enums/VaiTro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/enums/VaiTro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +68,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2rYpGlw0bVCDLS9Cze49Kkq707H" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -75,11 +87,13 @@
     &quot;Application.TestCRUD.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.QuanLyHieuThuocTay [:Generate.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.QuanLyHieuThuocTay [:TestCRUD.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/votha/Desktop/DHKTPM18BTT_JPA_Tuan3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ProjectJAVA/HotelManagement&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -88,7 +102,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -150,6 +164,10 @@
       <workItem from="1736932410445" duration="387000" />
       <workItem from="1736945423049" duration="1466000" />
       <workItem from="1737019548961" duration="3921000" />
+      <workItem from="1737040450878" duration="102000" />
+      <workItem from="1737040564196" duration="474000" />
+      <workItem from="1737135428112" duration="4678000" />
+      <workItem from="1737140321768" duration="9000" />
     </task>
     <servers />
   </component>

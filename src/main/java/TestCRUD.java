@@ -1,5 +1,3 @@
-import dao.NhanVienDao;
-import entity.NhanVien;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 

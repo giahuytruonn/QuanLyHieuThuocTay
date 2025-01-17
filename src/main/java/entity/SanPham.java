@@ -1,5 +1,6 @@
 package entity;
 
+import entity.enums.ChiDinhSuDung;
 import jakarta.persistence.*;
 import lombok.*;
 

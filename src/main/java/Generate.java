@@ -1,8 +1,10 @@
 import entity.*;
+import entity.enums.ChiDinhSuDung;
+import entity.enums.PhuongThucThanhToan;
+import entity.enums.VaiTro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import lombok.EqualsAndHashCode;
 import net.datafaker.Faker;
 
 import java.time.LocalDate;

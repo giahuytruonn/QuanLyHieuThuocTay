@@ -1,12 +1,10 @@
 package entity;
 
-import dao.NhanVienDao;
+import entity.enums.VaiTro;
 import jakarta.persistence.*;
 import lombok.*;
-import org.checkerframework.checker.signature.qual.Identifier;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -25,7 +23,7 @@ public class NhanVien {
     private String email;
     private String cccd;
     @Enumerated
-    private  VaiTro vaiTro;
+    private VaiTro vaiTro;
     private LocalDate ngaySinh;
     //true: nam, false: nu
     private Boolean gioiTinh;

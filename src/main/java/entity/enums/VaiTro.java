@@ -1,4 +1,4 @@
-package entity;
+package entity.enums;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
