@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e468593a-83e5-49ce-927d-e92af1ef3cf4" name="Changes" comment="" />
+    <list default="true" id="e468593a-83e5-49ce-927d-e92af1ef3cf4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChiTietHoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChiTietPhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChiTietPhieuNhapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ChietKhauDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ChietKhauDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DonViTinhDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DonViTinhDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/HoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/LoaiSanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/LoaiSanPhamDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhaCungCapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhaCungCapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/NhomSanPhamDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/NhomSanPhamDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PhieuNhapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TaiKhoanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TaiKhoanDAO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,6 +153,7 @@
       <workItem from="1737135428112" duration="4678000" />
       <workItem from="1737140321768" duration="9000" />
       <workItem from="1737140619718" duration="67000" />
+      <workItem from="1737190611026" duration="193000" />
     </task>
     <servers />
   </component>

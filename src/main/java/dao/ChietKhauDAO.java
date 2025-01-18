@@ -54,7 +54,7 @@ public class ChietKhauDAO {
         }
     }
 
-    public boolean xaoChietKhau(String maChietKhau){
+    public boolean xoaChietKhau(String maChietKhau){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();

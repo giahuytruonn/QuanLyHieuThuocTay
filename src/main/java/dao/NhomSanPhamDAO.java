@@ -51,7 +51,7 @@ public class NhomSanPhamDAO {
         }
     }
 
-    public boolean xaoNhomSanPham(String maNhomSp){
+    public boolean xoaNhomSanPham(String maNhomSp){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();

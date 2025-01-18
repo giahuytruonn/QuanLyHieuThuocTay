@@ -51,7 +51,7 @@ public class HoaDonDAO {
         }
     }
 
-    public boolean xaoHoaDon(String maHoaDon){
+    public boolean xoaHoaDon(String maHoaDon){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();

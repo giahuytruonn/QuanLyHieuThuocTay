@@ -51,7 +51,7 @@ public class DonViTinhDAO {
         }
     }
 
-    public boolean xaoDonViTinh(String maDonViTinh){
+    public boolean xoaDonViTinh(String maDonViTinh){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();

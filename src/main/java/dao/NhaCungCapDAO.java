@@ -51,7 +51,7 @@ public class NhaCungCapDAO {
         }
     }
 
-    public boolean xaoNhaCungCap(String maNhaCungCap){
+    public boolean xoaNhaCungCap(String maNhaCungCap){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();

@@ -53,7 +53,7 @@ public class TaiKhoanDAO {
         }
     }
 
-    public boolean xaoTaiKhoan(String id){
+    public boolean xoaTaiKhoan(String id){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();

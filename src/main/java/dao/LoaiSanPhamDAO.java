@@ -51,7 +51,7 @@ public class LoaiSanPhamDAO {
         }
     }
 
-    public boolean xaoLoaiSanPham(String maLoaiSp){
+    public boolean xoaLoaiSanPham(String maLoaiSp){
         EntityTransaction tr = em.getTransaction();
         try{
             tr.begin();
