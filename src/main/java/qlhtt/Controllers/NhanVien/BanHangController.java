@@ -1229,6 +1229,7 @@ public class BanHangController implements Initializable {
 
             //Nhan dữ liệu từ server
             String response = in.readLine();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -334,11 +334,16 @@ public class HandleClient implements Runnable {
     }
 
     private String handleUpdateDTL(String[] parts) {
-        String maKhachHang = parts[1];
-        System.out.println(parts[2]);
-        int diemTichLuy = Integer.parseInt(parts[2]);
-        KhachHangController khachHangController = new KhachHangController();
-        khachHangController.capNhatDiemTichLuy(maKhachHang, diemTichLuy);
+        if(parts.length > 2){
+            String maKhachHang = parts[1];
+            //System.out.println(parts[2]);
+            int diemTichLuy = Integer.parseInt(parts[2]);
+            KhachHangController khachHangController = new KhachHangController();
+            khachHangController.capNhatDiemTichLuy(maKhachHang, diemTichLuy);
+        }
+        else{
+            return "FAIL";
+        }
         return "SUCCESS";
     }
 
@@ -352,6 +357,13 @@ public class HandleClient implements Runnable {
         try {
             hoaDon = objectMapper.readValue(payload, HoaDon.class);
             HoaDonController hoaDonController = new HoaDonController();
+            if(hoaDon.getChietKhau().getMaChietKhau().equals("")){
+                hoaDon.setChietKhau(null);
+            }
+
+            if(hoaDon.getKhachHang().getMaKhachHang() == null){
+                hoaDon.setKhachHang(null);
+            }
             hoaDonController.capNhatHoaDon(hoaDon);
             return "SUCCESS";
         } catch (Exception e) {

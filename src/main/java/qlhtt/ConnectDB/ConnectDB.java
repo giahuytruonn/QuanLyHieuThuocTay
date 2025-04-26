@@ -10,7 +10,7 @@ public class ConnectDB {
 
     public void connect() throws SQLException {
         String serverName = "localhost";
-        String databaseName = "QuanLyHieuThuocTay";
+        String databaseName = "pharmacy_system";
         String username = "sa";
         String password = "sa";
         String url = "jdbc:sqlserver://" + serverName + ":1433;databaseName=" + databaseName + ";encrypt=true;trustServerCertificate=true;";

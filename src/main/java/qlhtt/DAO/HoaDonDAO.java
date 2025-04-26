@@ -156,6 +156,8 @@ public class HoaDonDAO {
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(hoaDon);
+            System.out.println("Trần Nhật Duy huhu"+ hoaDon.getTrangThaiHoaDon());
+            entityManager.flush();
             entityManager.getTransaction().commit();
             return true;
         } catch (Exception e) {

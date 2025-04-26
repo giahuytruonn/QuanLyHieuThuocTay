@@ -40,29 +40,41 @@ public class ThanhToanQRControlller implements Initializable {
     private HoaDonController hoaDonController = new HoaDonController();
     private ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
     private KhachHangController khachHangController = new KhachHangController();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_XacNhan.setOnAction(event -> {
             HoaDon hoaDon = Model.getInstance().getHoaDon();
             hoaDon.setTrangThaiHoaDon(true);
             BanHangController.updateHD(hoaDon);
+//            System.out.println();
+           // System.out.println(hoaDonController.getHoaDonMoiNhat());
             List<ChiTietHoaDon> dsChiTietHoaDon = Model.getInstance().getChiTietHoaDonList();
-            BanHangController.updateDTL(Model.getInstance().getKhachHang().getMaKhachHang(),Model.getInstance().getKhachHang().getDiemTichLuy());
+            if (Model.getInstance().getKhachHang().getMaKhachHang() != null) {
+                BanHangController.updateDTL(Model.getInstance().getKhachHang().getMaKhachHang(), Model.getInstance().getKhachHang().getDiemTichLuy());
+            }
             BanHangController.deleteCTHD(hoaDon.getMaHoaDon());
-            dsChiTietHoaDon.forEach(i->{
+            dsChiTietHoaDon.forEach(i -> {
                 BanHangController.createCTHD(i);
+                System.out.println(i);
             });
 
             ChietKhauController chietKhauController = new ChietKhauController();
-            BanHangController.updateSoLuongCK(hoaDon.getChietKhau());
+           // BanHangController.updateSoLuongCK(hoaDon.getChietKhau());
+
 //            ChietKhauController chietKhauController = new ChietKhauController();
-            if(hoaDon.getChietKhau()!=null){
+            if (hoaDon.getChietKhau() != null) {
                 BanHangController.updateSoLuongCK(hoaDon.getChietKhau());
             }
 
-            if(Model.getInstance().getKhachHang()!=null){
-                BanHangController.updateDTL(Model.getInstance().getKhachHang().getMaKhachHang(),Model.getInstance().getDiemTichLuy());
+            if (Model.getInstance().getKhachHang().getMaKhachHang() != null) {
+                BanHangController.updateDTL(Model.getInstance().getKhachHang().getMaKhachHang(), Model.getInstance().getDiemTichLuy());
             }
+
+//            SanPhamController sanPhamController = new SanPhamController();
+//            dsChiTietHoaDon.forEach(i -> {
+//                sanPhamController.capNhatSoLuongSanPham(i.getSanPham().getMaSanPham(), i.getSoLuong());
+//            });
 
 
             Model.getInstance().getViewFactory().closeStage(
@@ -70,6 +82,8 @@ public class ThanhToanQRControlller implements Initializable {
             );
             Model.getInstance().getViewFactory().hienThiTrangHoaDon(Model.getInstance().getKhachHang().getEmail());
             new BanHangController().suKienTaoHoaDon(hoaDon);
+
+
         });
         btn_Huy.setOnAction(event -> {
             Model.getInstance().getViewFactory().closeStage(
@@ -78,11 +92,11 @@ public class ThanhToanQRControlller implements Initializable {
         });
     }
 
-    public void hienThiQR(String giaTriThanhToan){
+    public void hienThiQR(String giaTriThanhToan) {
         if (giaTriThanhToan.isEmpty()) {
             ThongBao.getInstance().thongBaoLoi("Phải có  số tiền cần thanh toán.");
             return;
-        }else{
+        } else {
             Dotenv dotenv = Dotenv.load();
             Integer amount = Integer.valueOf(giaTriThanhToan.trim());
             String accountNo = dotenv.get("ACCOUNT_NO");
