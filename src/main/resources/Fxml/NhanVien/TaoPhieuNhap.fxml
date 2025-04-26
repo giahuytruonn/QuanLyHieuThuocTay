@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane stylesheets="@../Styles/BanHang.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.TaoPhieuNhapController">
+    <BorderPane style="-fx-background-color: rgba(32, 147, 165, 1);" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+        <center>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="762.0" minWidth="1293.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="27.0" prefWidth="1293.0" style="-fx-font-weight: bold;" text="TẠO PHIẾU NHẬP" textAlignment="CENTER" textFill="#2093a5">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="7.0" layoutY="14.0" prefHeight="752.0" prefWidth="1293.0" style="-fx-background-color: #eff2f7;">
+                    <TableView fx:id="chiTietPhieuNhap_tableView" editable="true" layoutX="15.0" layoutY="207.0" prefHeight="425.0" prefWidth="866.0" style="-fx-border-color: rgba(32, 147, 165, 1);">
+                        <columns>
+                            <TableColumn fx:id="maSP_tblColumn" prefWidth="110.20001220703125" text="MÃ SẢN PHẨM" />
+                            <TableColumn fx:id="hanSuDung_tblColumn" prefWidth="132.7999725341797" text="HẠN SỬ DỤNG" />
+                            <TableColumn fx:id="ngaySanXuat_tblColumn" prefWidth="138.4000244140625" text="NGÀY SẢN XUẤT" />
+                            <TableColumn fx:id="donViTinh_tblColumn" minWidth="0.0" prefWidth="115.20001220703125" text="ĐƠN VỊ TÍNH" />
+                            <TableColumn fx:id="soLuong_tblColumn" prefWidth="101.5999755859375" text="SỐ LƯỢNG" />
+                            <TableColumn fx:id="giaNhap_tblColumn" prefWidth="101.60003662109375" text="GIÁ NHẬP" />
+                            <TableColumn fx:id="thanhTien_tblColumn" prefWidth="164.79998779296875" text="THÀNH TIỀN" />
+                        </columns>
+                    </TableView>
+                    <Pane layoutX="895.0" layoutY="207.0" prefHeight="423.0" prefWidth="372.0" style="-fx-border-radius: 20PX; -fx-border-color: rgba(32, 147, 165, 1);">
+                        <Label layoutX="14.0" layoutY="22.0" text="Mã sản phẩm">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="76.0" text="Đơn vị tính">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="maSanPham_tf" layoutX="163.0" layoutY="23.0" prefHeight="25.0" prefWidth="179.0" style="-fx-border-radius: 10px;" />
+                        <ComboBox fx:id="donViTinh_cb" layoutX="163.0" layoutY="77.0" prefHeight="25.0" prefWidth="180.0" style="-fx-border-radius: 10px; -fx-background-color: white;" />
+                        <Label layoutX="11.0" layoutY="199.0" text="Ngày sản xuất">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <DatePicker fx:id="ngaySanXuat_dp" layoutX="163.0" layoutY="200.0" prefHeight="25.0" prefWidth="180.0" style="-fx-border-radius: 10px;" />
+                        <DatePicker fx:id="hanSuDung_dp" layoutX="161.0" layoutY="265.0" prefHeight="25.0" prefWidth="183.0" style="-fx-border-radius: 10px;" />
+                        <Label layoutX="14.0" layoutY="264.0" text="Hạn sử  dụng">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="12.0" layoutY="323.0" text="Giá nhập">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="giaNhap_tf" layoutX="161.0" layoutY="324.0" prefHeight="25.0" prefWidth="183.0" style="-fx-border-radius: 10px;" />
+                        <Label layoutX="12.0" layoutY="141.0" text="Số lượng">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="soLuong_tf" layoutX="163.0" layoutY="142.0" prefHeight="25.0" prefWidth="180.0" style="-fx-border-radius: 10px;" />
+                        <Button fx:id="them_btn" layoutX="115.0" layoutY="363.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="143.0" style="-fx-border-radius: 10px; -fx-background-color: #00b4d8;" text="Thêm" textFill="WHITE">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                    </Pane>
+                    <ComboBox fx:id="nhaCungCap_cb" layoutX="57.0" layoutY="124.0" prefHeight="32.0" prefWidth="185.0" style="-fx-background-radius: 10px; -fx-background-color: white;" />
+                    <Button fx:id="themPhieuNhap_btn" layoutX="1000.0" layoutY="662.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="163.0" style="-fx-border-radius: 10px; -fx-background-color: #00b4d8;-fx-text-fill: white; -fx-font-weight: bold" text="Thêm Phiếu Nhập" textFill="WHITE" />
+                    <Button layoutX="954.0" layoutY="120.0" minHeight="32.0" minWidth="107.0" prefHeight="40.0" prefWidth="127.0" style="-fx-border-radius: 10px; -fx-background-color: #00b4d8;-fx-text-fill: white; -fx-font-weight: bold" text="Xóa" textFill="WHITE" fx:id="xoa_btn">
+                        <graphic>
+                            <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../Images/icons8-remove-48.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <Label style="-fx-font-size: 19; -fx-font-weight: bold;" text="Xóa" textFill="#fffdfd" />
+                    </Button>
+                    <Button fx:id="reset_btn" layoutX="1124.0" layoutY="120.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" style="-fx-border-radius: 10px; -fx-background-color: #00b4d8;-fx-text-fill: white; -fx-font-weight: bold" text="Reset" textFill="WHITE">
+                        <graphic>
+                            <ImageView fitHeight="28.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../Images/icons8-refresh-50.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <Label style="-fx-font-size: 17; -fx-font-weight: bold;" text="Xóa" textFill="#fffdfd" />
+                    </Button>
+                    <Separator layoutX="28.0" layoutY="72.0" prefHeight="2.0" prefWidth="196.0" style="-fx-background-color: rgba(32, 147, 165, 1); -fx-min-height: 1px;" />
+                    <Separator layoutX="360.0" layoutY="71.0" prefHeight="2.0" prefWidth="911.0" style="-fx-background-color: rgba(32, 147, 165, 1); -fx-min-height: 1px;" />
+                    <Label layoutX="229.0" layoutY="54.0" style="-fx-text-fill: rgba(32, 147, 165, 1); -fx-font-weight: bold;" text="Phiếu Nhập" textAlignment="JUSTIFY">
+                        <font>
+                            <Font size="24.0" />
+                        </font></Label>
+                    <Button fx:id="themNhaCungCap_btn" layoutX="250.0" layoutY="112.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="34.0" style="-fx-background-color:  #eff2f7;">
+                        <graphic>
+                            <ImageView fitHeight="49.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../Images/add-user.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="import_btn" layoutX="773.0" layoutY="119.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="137.0" style="-fx-border-radius: 10px; -fx-background-color: #00b4d8;-fx-text-fill: white; -fx-font-weight: bold" text="Import File" textFill="WHITE">
+                        <graphic>
+                            <ImageView fitHeight="28.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../Images/icons8-import-24.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Label layoutX="80.0" layoutY="654.0" text="Tổng sản phẩm">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="80.0" layoutY="685.0" text="Tổng thành tiền">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="valueSoLuong_lbl" layoutX="304.0" layoutY="654.0" text="">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="valueThanhTien_lbl" layoutX="303.0" layoutY="685.0" text="">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="soLo_tf" layoutX="376.0" layoutY="124.0" prefHeight="32.0" prefWidth="160.0" promptText="Số Lô" style="-fx-background-radius: 10px;" />
+
+                </Pane>
+            </Pane>
+        </center>
+    </BorderPane>
+</AnchorPane>

@@ -1,0 +1,94 @@
+.anchor_pane{
+    -fx-background-color: #ffffff;
+}
+
+.VBox{
+    -fx-background-color: #ffffff;
+    -fx-spacing: 10;
+    -fx-alignment: top_left;
+}
+
+.label{
+    -fx-text-fill: #816969;
+    -fx-font-size: 1.2em;
+}
+
+.choice-box{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #816969;
+    -fx-pref-height: 40;
+    -fx-pref-width: 580;
+    -fx-border-radius: 10;
+}
+
+.choice-box .label{
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.3em;
+}
+
+.choice_box_background{
+    -fx-background-color: #ffffff;
+}
+
+.choice-box .arrow{
+    -fx-background-color: #816969;
+}
+
+#choice-box-popup-menu{
+    -fx-background-color: #ffffff;
+}
+
+#choice-prompt-text{
+    -fx-font-weight: 300;
+}
+
+.text-field{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 40;
+    -fx-font-size: 1.2em;
+    -fx-border-color: #816969;
+    -fx-border-radius: 10;
+    -fx-pref-width: 580;
+}
+
+.text-area_background{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 150;
+    -fx-font-size: 1.2em;
+    -fx-border-color: #816969;
+    -fx-border-radius: 10;
+    -fx-pref-width: 560;
+}
+
+.button{
+    -fx-background-color: #696dbd;
+    -fx-text-fill: #ffffff;
+    -fx-pref-width: 100;
+    -fx-pref-height: 60;
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+.btn_Huy{
+    -fx-background-color: #ff0000;
+    -fx-text-fill: #ffffff;
+    -fx-pref-width: 100;
+    -fx-pref-height: 60;
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+.btn_LamMoi{
+    -fx-background-color: #a1893f;
+    -fx-text-fill: #ffffff;
+    -fx-pref-width: 100;
+    -fx-pref-height: 60;
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}

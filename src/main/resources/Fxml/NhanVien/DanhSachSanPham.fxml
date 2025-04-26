@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #eff2f7;" stylesheets="@../Styles/DanhSachSanPham.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.DanhSachSanPhamController">
+   <TableView fx:id="tbv_DanhSachSanPham" layoutX="63.0" layoutY="197.0" prefHeight="561.0" prefWidth="1210.0" style="-fx-background-color: #eff2f7;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="155.0">
+      <columns>
+         <TableColumn fx:id="tbc_STT" prefWidth="74.0" text="Số Thứ Tự" />
+         <TableColumn fx:id="tbc_MaSanPham" prefWidth="170.5714111328125" text="Mã Sản Phẩm" />
+         <TableColumn fx:id="tbc_TenSanPham" prefWidth="329.2856750488281" text="Tên Sản Phẩm" />
+         <TableColumn fx:id="tbc_NhomSanPham" prefWidth="188.28570556640625" text="Nhóm Sản Phẩm" />
+         <TableColumn fx:id="tbc_DonGia" prefWidth="159.142822265625" text="Đơn giá" />
+         <TableColumn fx:id="tbc_SoLuong" prefWidth="151.2857666015625" text="Số Lượng" />
+         <TableColumn fx:id="tbc_HanhDong" prefWidth="123.0" text="Hành Động" />
+      </columns>
+   </TableView>
+   <Label fx:id="lbl_HienThi" layoutX="40.0" layoutY="728.0" styleClass="lbl_HienThi" text="Hiển thị 10 kết quả trên tổng số 200" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="728.0">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Button fx:id="btn_Next" layoutX="1197.0" layoutY="138.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="65.0" styleClass="btn_DieuKhien" text="&gt;" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="95.0" />
+   <ChoiceBox fx:id="chb_Trang" layoutX="1068.0" layoutY="138.0" prefHeight="40.0" prefWidth="110.0" styleClass="chb_Trang" AnchorPane.leftAnchor="1068.0" AnchorPane.rightAnchor="111.71428571428578" AnchorPane.topAnchor="95.0" />
+   <Button fx:id="btn_Back" layoutX="997.0" layoutY="138.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="65.0" styleClass="btn_DieuKhien" text="&lt;" AnchorPane.rightAnchor="227.8571428571429" AnchorPane.topAnchor="95.0" />
+   <TextField fx:id="txt_TimSanPham" layoutX="59.0" layoutY="138.0" prefHeight="40.0" prefWidth="399.0" promptText="Tìm sản phẩm bằng mã" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="95.0" />
+   <Button fx:id="btn_TimSanPham" layoutX="475.0" layoutY="138.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="65.0" style="-fx-background-color: #00b4d8;" styleClass="btn_TimKiem" AnchorPane.leftAnchor="465.0" AnchorPane.topAnchor="95.0">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="18" strokeType="OUTSIDE" strokeWidth="0.0" />
+      </graphic>
+   </Button>
+   <Button fx:id="btn_ThemMoi" layoutX="1119.0" layoutY="61.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="142.0" styleClass="btn_ThemMoi" text=" Thêm mới" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="31.0">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="20" strokeType="OUTSIDE" strokeWidth="0.0" tabSize="6" />
+      </graphic>
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Button>
+   <Label layoutX="62.0" layoutY="43.0" prefHeight="36.0" prefWidth="226.0" styleClass="lbl_TieuDe" text="Quản Lý Sản Phẩm" textFill="#0077b6" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="13.0">
+      <font>
+         <Font size="22.0" />
+      </font>
+   </Label>
+   <Button fx:id="btn_Loc" layoutX="552.0" layoutY="138.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="65.0" style="-fx-background-color: #00b4d8;" styleClass="btn_Loc" text="Lọc" AnchorPane.leftAnchor="542.0" AnchorPane.topAnchor="95.0">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="FILTER" size="20" strokeType="OUTSIDE" strokeWidth="0.0" />
+      </graphic>
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <Label layoutX="63.0" layoutY="86.0" styleClass="lbl_TieuDe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="53.0">
+      <font>
+         <Font size="17.0" />
+      </font>
+   </Label>
+   <Button fx:id="btn_LamMoi" layoutX="630.0" layoutY="138.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #0077b6;" styleClass="btn_LamMOi" text=" Làm mới" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="95.0">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" size="20" strokeType="OUTSIDE" strokeWidth="0.0" />
+      </graphic>
+   </Button>
+   <AnchorPane layoutX="550.0" layoutY="300.0" prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <ProgressIndicator fx:id="progressIndicator" layoutX="70" layoutY="70" visible="false" />
+      </children>
+   </AnchorPane>
+</AnchorPane>

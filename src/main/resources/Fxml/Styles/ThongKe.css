@@ -1,0 +1,20 @@
+.axis{
+    -fx-stroke: black;
+    -fx-fill: #fff;
+    -fx-font-size: 24;
+    -fx-tick-label-fill: black;
+}
+#barChart_doanhThu .chart-bar {
+    -fx-bar-fill: #68CFFF;
+}
+
+
+#xAxis_sp .axis {
+    -fx-tick-label-font-size: 11px;
+    -fx-wrap-text: true;
+    -fx-tick-label-rotation: 0;
+}
+
+.chart {
+    -fx-padding: 10px;
+}

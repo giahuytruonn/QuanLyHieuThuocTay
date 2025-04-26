@@ -1,0 +1,17 @@
+.back_ground {
+    -fx-background-color: #ffffff;
+}
+
+.btn_GuiLai{
+    -fx-background-color: #2e549f;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}
+
+.btn_TiepTheo{
+    -fx-background-color: #096909;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}

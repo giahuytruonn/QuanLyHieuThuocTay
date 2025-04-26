@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #eff2f7;" stylesheets="@../Styles/CapNhatThongTinKhachHang.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.CapNhatThongTinKhachHangController">
+    <AnchorPane layoutX="245.0" layoutY="129.0" prefHeight="415.0" prefWidth="800.0" styleClass="container_CapNhatThongTinKhachHang" AnchorPane.bottomAnchor="215.57142857142856" AnchorPane.leftAnchor="245.0">
+        <Label layoutX="34.0" layoutY="31.0" styleClass="label_Child" text="Số điện thoại" textFill="#00b4d8" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="30.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txt_SoDienThoai" layoutX="34.0" layoutY="71.0" prefHeight="40.0" prefWidth="637.0" style="-fx-border-color: #00b4d8;" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="70.0" />
+        <Label layoutX="35.0" layoutY="126.0" styleClass="label_Child" text="Ngày sinh" textFill="#00b4d8" AnchorPane.topAnchor="120.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="35.0" layoutY="213.0" styleClass="label_Child" text="Tên khách hàng" textFill="#00b4d8" AnchorPane.topAnchor="210.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txt_TenKhachHang" layoutX="35.0" layoutY="250.0" prefHeight="40.0" prefWidth="724.0" style="-fx-border-color: #00b4d8;" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="250.0" />
+        <Label layoutX="422.0" layoutY="120.0" styleClass="label_Child" text="Giới tính" textFill="#00b4d8">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="chb_GioiTinh" layoutX="422.0" layoutY="160.0" prefHeight="40.0" prefWidth="335.0" style="-fx-border-color: #00b4d8;" AnchorPane.rightAnchor="42.571428571428555" AnchorPane.topAnchor="160.0" />
+        <Label layoutX="35.0" layoutY="304.0" styleClass="label_Child" text="Email" textFill="#00b4d8" AnchorPane.topAnchor="300.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dp_NgaySinh" layoutX="35.0" layoutY="160.0" prefHeight="40.0" prefWidth="335.0" style="-fx-border-color: #00b4d8;" />
+        <TextField fx:id="txt_Email" layoutX="34.0" layoutY="327.0" prefHeight="40.0" prefWidth="724.0" style="-fx-border-color: #00b4d8;" AnchorPane.bottomAnchor="35.0" AnchorPane.topAnchor="340.0" />
+      <Button fx:id="btn_tim" layoutX="705.0" layoutY="70.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="52.0" style="-fx-background-color: #90e0ef;" styleClass="btn_TimKiem">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" selectionFill="#f9f9f9" size="18" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </graphic>
+      </Button>
+    </AnchorPane>
+    <Button fx:id="btn_LamMoi" layoutX="506.0" layoutY="611.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="110.0" style="-fx-background-color: #ff007f;" styleClass="btn_LamMoi" text="Làm mới" AnchorPane.leftAnchor="506.0">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </Button>
+    <Button fx:id="btn_CapNhat" layoutX="667.0" layoutY="611.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="110.0" style="-fx-background-color: #90e0ef;" styleClass="btn_CapNhat" text="Cập Nhật" AnchorPane.rightAnchor="512.7142857142857">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </Button>
+   <Label layoutX="390.0" layoutY="42.0" styleClass="label_title" text="Cập Nhật Thông Tin Khách Hàng" textFill="#00b4d8">
+      <font>
+         <Font size="36.0" />
+      </font></Label>
+</AnchorPane>

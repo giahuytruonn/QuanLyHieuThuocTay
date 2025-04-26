@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/XemHoaDon.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.XemHoaDonController">
+    <BorderPane fx:id="client_parent" style="-fx-background-color: rgba(32, 147, 165, 1);" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+        <center>
+            <StackPane xmlns:fx="http://javafx.com/fxml">
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="762.0" minWidth="1293.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 10; -fx-background-color: #eff2f7;">
+                    <children>
+                    </children>
+                    <Pane layoutX="15.0" layoutY="83.0" minHeight="68.0" minWidth="704.0" prefHeight="68.0" prefWidth="704.0" style="-fx-border-color: rgba(32, 147, 165, 1); -fx-border-radius: 10px;">
+                        <children>
+                            <TextField fx:id="soDienThoai_tf" layoutX="136.0" layoutY="17.0" prefHeight="34.0" prefWidth="195.0" promptText="Số điện thoại" style="-fx-border-radius: 20px;" />
+                            <Button fx:id="loc_btn" layoutX="596.0" layoutY="19.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" style="-fx-border-radius: 10px; -fx-background-color: #00B4D8; -fx-text-fill: white; -fx-font-weight: bold" text="Lọc" />
+                            <Label layoutX="26.0" layoutY="26.0" style="-fx-font-weight: bold;" text="Số điện thoại">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Label>
+                            <Button fx:id="btn_Timkiem" layoutX="352.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" style="-fx-border-radius: 10px; -fx-background-color: #00B4D8;-fx-text-fill: white; -fx-font-weight: bold" text="Tìm kiếm" />
+                                <Button fx:id="lamMoi_btn" layoutX="471.0" layoutY="18.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="99.0" style="-fx-background-color: #00B4D8; -fx-font-weight: bold;" text="Làm Mới" textFill="#faf8f8">
+                                    <graphic>
+                                        <ImageView fitHeight="28.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Images/icons8-refresh-50.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <Label style="-fx-font-size: 17; -fx-font-weight: bold;" text="Xóa" textFill="#fffdfd" />
+                                </Button>
+                        </children>
+                    </Pane>
+                    <TabPane fx:id="tabPane" layoutX="13.0" layoutY="164.0" prefHeight="511.0" prefWidth="707.0" style="-fx-border-color: rgba(32, 147, 165, 1); -fx-border-width: 2px; -fx-border-radius: 10px;" tabClosingPolicy="UNAVAILABLE">
+                        <tabs>
+                            <Tab fx:id="hoaDon_tab" text="Hóa Đơn">
+                                <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <children>
+                                            <TableView id="bbbh" fx:id="hoaDon_tableView" layoutX="4.0" layoutY="75.0" prefHeight="402.0" prefWidth="700.0">
+                                                <columns>
+                                                    <TableColumn fx:id="stt_tblColumn" prefWidth="75.0" text="STT" />
+                                                    <TableColumn fx:id="maHoaDon_tblColumn" prefWidth="124.19998931884766" text="Mã hóa đơn" />
+                                                    <TableColumn fx:id="ngayTao_tblColumn" prefWidth="111.39999389648438" text="Ngày tạo" />
+                                                    <TableColumn fx:id="soDienThoai_tblColumn" prefWidth="117.39996337890625" text="Số điện thoại" />
+                                                    <TableColumn fx:id="phuongThuc_tblColumn" prefWidth="117.59994506835938" text="Phương thức" />
+                                                    <TableColumn fx:id="thanhTien_tblColumn" prefWidth="146.40006103515623" text="Thành tiền" />
+                                                </columns>
+                                            </TableView>
+                                            <ToggleButton fx:id="thanhVien_toggle" layoutX="487.0" layoutY="27.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" styleClass="toggle-button" text="ToggleButton">
+                                                <graphic>
+                                                    <!-- Pane cho nút chuyển động -->
+                                                    <Pane prefHeight="23.0" prefWidth="39.0" styleClass="toggle-button-circle" />
+                                                </graphic>
+                                            </ToggleButton>
+                                            <Label fx:id="thanhVien_lbl" layoutX="569.0" layoutY="30.0" style="-fx-font-weight: bold; -fx-text-fill: red;" styleClass="thanhVien-label" text="Không Thành viên">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Label>
+                                        </children>
+                                    </AnchorPane>
+                                </content>
+                            </Tab>
+                            <Tab fx:id="hoaDonTam_tab" text="Hóa đơn tạm">
+                                <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <children>
+                                            <TableView fx:id="hoaDonTam_tableView" layoutX="4.0" layoutY="75.0" prefHeight="402.0" prefWidth="700.0">
+                                                <columns>
+                                                    <TableColumn fx:id="sttTam_tblColumn" prefWidth="75.0" text="STT" />
+                                                    <TableColumn fx:id="maHoaDonTam_tblColumn" prefWidth="124.19998931884766" text="Mã hóa đơn" />
+                                                    <TableColumn fx:id="ngayTaoTam_tblColumn" prefWidth="111.39999389648438" text="Ngày tạo" />
+                                                    <TableColumn fx:id="soDienThoaiTam_tblColumn" prefWidth="117.39996337890625" text="Số điện thoại" />
+                                                    <TableColumn fx:id="phuongThucTam_tblColumn" prefWidth="117.59994506835938" text="Phương thức" />
+                                                    <TableColumn fx:id="thanhTienTam_tblColumn" prefWidth="146.40006103515623" text="Thành tiền" />
+                                                </columns>
+                                            </TableView>
+                                            <ToggleButton fx:id="thanhVienTam_toggle" layoutX="481.0" layoutY="27.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" styleClass="toggle-button" text="ToggleButton">
+                                                <graphic>
+                                                    <!-- Pane cho nút chuyển động -->
+                                                    <Pane prefHeight="23.0" prefWidth="39.0" styleClass="toggle-button-circle" />
+                                                </graphic>
+                                            </ToggleButton>
+                                            <Label fx:id="thanhVienTam_lbl" layoutX="567.0" layoutY="30.0" style="-fx-font-weight: bold; -fx-text-fill: red;" styleClass="thanhVienTam-label" text="Không Thành viên">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Label>
+                                        </children>
+                                    </AnchorPane>
+                                </content>
+                            </Tab>
+                            <Tab fx:id="khac_tab" text="Khác">
+                                <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <children>
+                                            <TableView fx:id="khac_tableView" layoutX="-2.0" layoutY="1.0" prefHeight="476.0" prefWidth="706.0">
+                                                <columns>
+                                                    <TableColumn fx:id="sttKhac_tblColumn" prefWidth="43.0" text="STT" />
+                                                    <TableColumn fx:id="maHoaDonKhac_tblColumn" prefWidth="124.0" text="Mã hóa đơn" />
+                                                    <TableColumn fx:id="ngayTaoKhac_tblColumn" prefWidth="99.0" text="Ngày tạo" />
+                                                    <TableColumn fx:id="soDienThoaiKhac_tblColumn" prefWidth="111.0" text="Số điện thoại" />
+                                                    <TableColumn fx:id="phuongThucKhac_tblColumn" prefWidth="97.0" text="Phương thức" />
+                                                    <TableColumn fx:id="thanhTienKhac_tblColumn" prefWidth="116.0" text="Thành tiền" />
+                                       <TableColumn fx:id="trangThaiKhac_tblColumn" maxWidth="114.0" prefWidth="114.0" text="Trạng Thái" />
+                                                </columns>
+                                            </TableView>
+                                        </children></AnchorPane>
+                                </content>
+                            </Tab>
+                        </tabs>
+                    </TabPane>
+                    <Label layoutX="423.0" layoutY="29.0" style="-fx-font-weight: bold;" text="XEM HÓA ĐƠN" textFill="#2093a5">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Label>
+                    <TableView fx:id="chiTietHoaDon_tableView" layoutX="755.0" layoutY="83.0" prefHeight="360.0" prefWidth="522.0" style="-fx-border-color: rgba(32, 147, 165, 1);;">
+                        <columns>
+                            <TableColumn fx:id="sttChiTiet_tblColumn" prefWidth="75.0" text="STT" />
+                            <TableColumn fx:id="maSanPham_tblColumn" prefWidth="111.2000732421875" text="Mã sản phẩm" />
+                            <TableColumn fx:id="tenSanPham_tblColumn" prefWidth="114.199951171875" text="Tên sản phẩm" />
+                            <TableColumn fx:id="soLuong_tblColumn" prefWidth="99.199951171875" text="Số lượng" />
+                            <TableColumn fx:id="thanhTienChiTiet_tblColumn" prefWidth="118.7999267578125" text="Thành tiền" />
+                        </columns>
+                    </TableView>
+                    <Pane layoutX="755.0" layoutY="452.0" prefHeight="157.0" prefWidth="519.0" style="-fx-border-color: rgba(32, 147, 165, 1);; -fx-border-radius: 10px;">
+                        <children>
+                            <Label id="tongTien" layoutX="28.0" layoutY="23.0" style="-fx-font-weight: bold;" text="Tổng tiền">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="32.0" layoutY="116.0" style="-fx-font-weight: bold;" text="Thành tiền">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="32.0" layoutY="69.0" style="-fx-font-weight: bold;" text="Giảm giá">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="tongTien_lbl" layoutX="185.0" layoutY="23.0" prefHeight="17.0" prefWidth="150.0" text="0.0 VNĐ">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="giamGia_lbl" layoutX="185.0" layoutY="70.0" prefHeight="27.0" prefWidth="145.0" text="0.0 VNĐ">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="thanhTien_lbl" layoutX="185.0" layoutY="116.0" prefHeight="27.0" prefWidth="145.0" text="0.0 VNĐ">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </Pane>
+                    <Button fx:id="thanhToan_btn" layoutX="845.0" layoutY="636.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="124.0" style="-fx-border-radius: 10px; -fx-background-color: #90e0ef;-fx-text-fill: white; -fx-font-weight: bold" text="Thanh toán">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Button>
+               <Button layoutX="1044.0" layoutY="636.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="141.0" style="-fx-border-radius: 10px; -fx-background-color: #90e0ef;-fx-text-fill: white; -fx-font-weight: bold" text="Xuất hóa đơn" fx:id="xuatHoaDon_btn">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Button>
+   
+                   <AnchorPane fx:id="loadingPane" layoutX="1.0" prefHeight="762.0" prefWidth="1294.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
+                       <!-- Căn giữa ProgressIndicator và điều chỉnh kích thước -->
+                       <ProgressIndicator fx:id="progressIndicator" layoutX="647.0" layoutY="285.0" prefHeight="79.0" prefWidth="78.0" styleClass="progressIndicator" />
+                   </AnchorPane>
+                </Pane>
+            </StackPane>
+
+        </center>
+
+    </BorderPane>
+
+
+</AnchorPane>

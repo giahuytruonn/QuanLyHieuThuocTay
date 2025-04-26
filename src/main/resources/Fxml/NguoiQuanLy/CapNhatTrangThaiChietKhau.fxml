@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #ffffff; " stylesheets="@../Styles/CapNhatTrangThaiChietKhau.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.CapNhatChietKhauController">
+            <Pane layoutX="84.0" layoutY="103.2" prefHeight="624.0" prefWidth="1090.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.topAnchor="103.0">
+
+                    <TableView fx:id="tblChietKhau_CapNhat" layoutX="16.0" layoutY="25.0" prefHeight="589.0" prefWidth="1057.0">
+                        <columns>
+                            <TableColumn fx:id="colMaChietKhau_CapNhat" prefWidth="240.00001525878906" text="TÊN CHIẾT KHẤU" />
+                            <TableColumn fx:id="colNgayBatDau_CapNhat" prefWidth="183.99996948242188" text="NGÀY BẮT ĐẦU" />
+                            <TableColumn fx:id="colNgayKetThuc_CapNhat" prefWidth="191.20001220703125" text="NGÀY KẾT THÚC" />
+                            <TableColumn fx:id="colGiaTri_CapNhat" prefWidth="114.39996337890625" text="GIÁ TRỊ" />
+                            <TableColumn fx:id="colSoLuong_CapNhat" prefWidth="116.0" text="SỐ LƯỢNG" />
+                            <TableColumn fx:id="colTrangThai_CapNhat" prefWidth="204.00006103515625" text="TRẠNG THÁI " />
+                        </columns>
+                    </TableView>
+
+            </Pane>
+            <Label layoutX="418.0" layoutY="33.0" text="CẬP NHẬT TRẠNG THÁI CHIẾT KHẤU" textFill="#00b4d8">
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+            </Label>
+</AnchorPane>

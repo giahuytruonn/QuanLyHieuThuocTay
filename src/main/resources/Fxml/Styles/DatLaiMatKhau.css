@@ -1,0 +1,10 @@
+.back_ground{
+    -fx-background-color: #ffffff;
+}
+
+.btn_XacNhan{
+    -fx-background-color: #096909;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}

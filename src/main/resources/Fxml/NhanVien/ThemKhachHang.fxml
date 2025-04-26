@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="488.0" prefWidth="650.0" stylesheets="@../Styles/ThemKhachHang.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.ThemKhachHangController">
+   <VBox prefHeight="484.0" prefWidth="650.0" style="-fx-background-color: #eff2f7;" styleClass="VBox" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label contentDisplay="CENTER" text="Thêm Khách Hàng">
+         <styleClass>
+            <String fx:value="lbl_ThemKhachHang" />
+            <String fx:value="label" />
+         </styleClass>
+         <VBox.margin>
+            <Insets left="210.0" />
+         </VBox.margin></Label>
+      <Label styleClass="label_title" text="Họ tên" />
+      <TextField fx:id="txt_HoTen" />
+      <HBox prefHeight="67.0" prefWidth="630.0">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="300.0">
+               <children>
+                  <Label styleClass="label_title" text="Giới tính" />
+                  <ChoiceBox fx:id="chb_GioiTinh" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></ChoiceBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
+               <children>
+                  <Label styleClass="label_title" text="Ngày sinh" />
+                  <DatePicker fx:id="dpk_NgaySinh">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </DatePicker>
+               </children>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </VBox>
+         </children></HBox>
+      <Label styleClass="label_title" text="Số điện thoại" />
+      <TextField fx:id="txt_SoDienThoai" />
+      <Label styleClass="label_title" text="Email" />
+      <TextField fx:id="txt_Email" />
+      <HBox prefHeight="72.0" prefWidth="430.0">
+         <Button fx:id="btn_Huy" mnemonicParsing="false" styleClass="btn_Huy" text="Hủy">
+            <HBox.margin>
+               <Insets left="150.0" right="10.0" top="5.0" />
+            </HBox.margin></Button>
+         <Button fx:id="btn_LamMoi" layoutX="210.0" layoutY="15.0" mnemonicParsing="false" styleClass="btn_LamMoi" text="Làm mới">
+            <HBox.margin>
+               <Insets right="10.0" top="5.0" />
+            </HBox.margin></Button>
+         <Button fx:id="btn_Them" mnemonicParsing="false" styleClass="btn_Them" text="Thêm">
+            <HBox.margin>
+               <Insets top="5.0" />
+            </HBox.margin></Button>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <padding>
+         <Insets left="10.0" right="10.0" top="10.0" />
+      </padding>
+   </VBox>
+</AnchorPane>

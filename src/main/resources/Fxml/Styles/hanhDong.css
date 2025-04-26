@@ -1,0 +1,40 @@
+/* CSS cho TableView */
+.table-view .column-header-background {
+    -fx-background-color: #4A90E2; /* Màu nền cho tiêu đề cột */
+}
+
+.table-view .table-cell {
+    -fx-background-color: #F9F9F9; /* Màu nền cho các ô */
+    -fx-border-color: #E1E1E1; /* Màu viền giữa các ô */
+    -fx-padding: 8px; /* Tăng padding để tạo không gian */
+}
+
+.table-view .table-row-cell:filled:selected,
+.table-view .table-cell:selected {
+    -fx-background-color: #D6EAF8; /* Màu nền khi chọn hàng */
+}
+
+/* CSS cho ChoiceBox */
+.choice-box {
+    -fx-background-color: #E9E9E9; /* Màu nền của ChoiceBox */
+    -fx-padding: 2px 8px; /* Tăng padding để tạo không gian bên trong */
+    -fx-border-radius: 5px; /* Bo tròn góc cho ChoiceBox */
+    -fx-background-radius: 5px;
+    -fx-font-size: 12px; /* Đặt cỡ chữ */
+}
+
+.choice-box .list-cell {
+    -fx-background-color: #F4F6F6; /* Màu nền các mục trong danh sách khi mở */
+    -fx-text-fill: #333333; /* Màu chữ */
+}
+
+.choice-box .list-cell:hover {
+    -fx-background-color: #D6EAF8; /* Đổi màu nền khi di chuột qua */
+    -fx-text-fill: #1F618D; /* Màu chữ khi di chuột qua */
+}
+
+/* CSS cho nút khi hover */
+.button:hover {
+    -fx-background-color: #5DADE2; /* Màu nền khi hover */
+    -fx-text-fill: #FFFFFF; /* Màu chữ khi hover */
+}

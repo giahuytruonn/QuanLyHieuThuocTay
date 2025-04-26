@@ -1,0 +1,25 @@
+/* Áp dụng bo góc và viền cho TableView */
+.table-view {
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+/* Định dạng tiêu đề của các cột (TableColumn) */
+.table-view .column-header-background {
+    -fx-background-color: #d4f0f7; /* Màu nền của tiêu đề cột */
+    -fx-font-weight: bold;
+    -fx-text-fill: #0086b3; /* Màu chữ */
+    -fx-font-size: 14px;
+}
+
+.table-view .column-header-background .label{
+    -fx-text-fill: rgba(32, 147, 165, 1);
+}
+
+.table-view .column-header{
+    -fx-background-color: white;
+}
+.table-row-cell {
+    -fx-font-size: 17px ;
+}

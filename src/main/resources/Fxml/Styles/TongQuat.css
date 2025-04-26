@@ -1,0 +1,53 @@
+.table-view {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #a9a9a9;
+    -fx-border-width: 2px;
+}
+
+/* Header của TableView */
+.table-view .column-header-background {
+    -fx-background-color: #ffffff;
+}
+
+.table-view .column-header {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-size: 50px;
+    -fx-background-color: #ffffff;
+}
+
+/* Các hàng lẻ (odd rows) */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #e6e6e6;
+    -fx-pref-height: 50px;
+}
+
+/* Các hàng chẵn (even rows) */
+.table-view .table-row-cell:even {
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 50px;
+}
+
+/* Các cell (ô) của TableView */
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+    -fx-font-size: 1.2em;
+}
+
+/* Khi hover vào hàng */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #86b5ef;
+    -fx-cursor: hand;
+}
+
+/* Khi chọn hàng */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #4682b4;
+    -fx-text-fill: white;
+}
+
+
+.table-view .table-cell {
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 0 0 1px 0;
+}

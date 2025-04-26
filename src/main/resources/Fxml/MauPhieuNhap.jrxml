@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 9.0.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MauPhieuNhap" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1df36541-5341-4b90-b537-3b19036cb5e5">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[IlNhblBoYW0iICwzOTQsMTUsNGVjZWMyOGItNjYwZi00OTI5LWJiODAtOTUzMGNiNmVkZjhjOyJQ
+aGlldU5oYXAiICwxNSw0OTMsYjZkNmM3MzYtODFjOC00NjA3LTkzOWEtMjVjYmYzYmFlYmY0OyJO
+aGFDdW5nQ2FwIiAsNjAyLDUwOSxiNjAwY2ViZi1mZGY3LTRjNjgtODhmMy04Zjk0YmRmOWU0Mzg7
+IkNoaVRpZXRQaGlldU5oYXAiICwyMTYsMjYzLDlmZTFiNjQxLWQzNzAtNDg4Ni04MzcyLTM1NDBi
+NDBlYmQ1MDs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<subDataset name="Dataset1" uuid="1d2ab541-47a9-44f7-9974-9e6bf1711d0d">
+		<property name="com.jaspersoft.studio.data.sql.tables">
+			<![CDATA[IkNoaVRpZXRQaGlldU5oYXAiICwxNSw1NjQsMTcwMzU0YjItYmQ0NC00ZGNkLTgzNGQtMzRhZTgy
+MWFkMjA1OyJQaGlldU5oYXAiICwxOTMsNjEwLDhiMmJiOThmLWNkYjAtNDIwMi04OTE4LWE0ODE1
+YmJhOTY3ZTsiU2FuUGhhbSIgLDE5MywxNSxkY2JjNTM0Ni1jZDllLTQ0YjEtODMwMy1jZDcyYTdj
+NzVhNDA7]]>
+		</property>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT *
+FROM "SanPham"
+INNER JOIN	"ChiTietPhieuNhap"
+ON  "ChiTietPhieuNhap"."maSanPham"  = "SanPham"."maSanPham" 
+INNER JOIN  "PhieuNhap" 
+ON  "ChiTietPhieuNhap"."maPhieuNhap" =  "PhieuNhap"."maPhieuNhap"
+WHERE "PhieuNhap"."maPhieuNhap" = (
+    SELECT MAX("maPhieuNhap")
+    FROM "PhieuNhap"
+)]]>
+		</queryString>
+		<field name="maSanPham" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maSanPham"/>
+			<property name="com.jaspersoft.studio.field.label" value="maSanPham"/>
+		</field>
+		<field name="chiDinhSuDung" class="java.lang.Short">
+			<property name="com.jaspersoft.studio.field.name" value="chiDinhSuDung"/>
+			<property name="com.jaspersoft.studio.field.label" value="chiDinhSuDung"/>
+		</field>
+		<field name="donGia" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="donGia"/>
+			<property name="com.jaspersoft.studio.field.label" value="donGia"/>
+		</field>
+		<field name="soLuong" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="soLuong"/>
+			<property name="com.jaspersoft.studio.field.label" value="soLuong"/>
+		</field>
+		<field name="dangBaoChe" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="dangBaoChe"/>
+			<property name="com.jaspersoft.studio.field.label" value="dangBaoChe"/>
+		</field>
+		<field name="doiTuongSuDung" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="doiTuongSuDung"/>
+			<property name="com.jaspersoft.studio.field.label" value="doiTuongSuDung"/>
+		</field>
+		<field name="duongDung" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="duongDung"/>
+			<property name="com.jaspersoft.studio.field.label" value="duongDung"/>
+		</field>
+		<field name="hamLuong" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="hamLuong"/>
+			<property name="com.jaspersoft.studio.field.label" value="hamLuong"/>
+		</field>
+		<field name="moTaSanPham" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="moTaSanPham"/>
+			<property name="com.jaspersoft.studio.field.label" value="moTaSanPham"/>
+		</field>
+		<field name="nhaSanXuat" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nhaSanXuat"/>
+			<property name="com.jaspersoft.studio.field.label" value="nhaSanXuat"/>
+		</field>
+		<field name="quocGiaSanXuat" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="quocGiaSanXuat"/>
+			<property name="com.jaspersoft.studio.field.label" value="quocGiaSanXuat"/>
+		</field>
+		<field name="quyCachDongGoi" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="quyCachDongGoi"/>
+			<property name="com.jaspersoft.studio.field.label" value="quyCachDongGoi"/>
+		</field>
+		<field name="tenSanPham" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="tenSanPham"/>
+			<property name="com.jaspersoft.studio.field.label" value="tenSanPham"/>
+		</field>
+		<field name="thanhPhan" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="thanhPhan"/>
+			<property name="com.jaspersoft.studio.field.label" value="thanhPhan"/>
+		</field>
+		<field name="maDonViTinh" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maDonViTinh"/>
+			<property name="com.jaspersoft.studio.field.label" value="maDonViTinh"/>
+		</field>
+		<field name="maNhomSanPham" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maNhomSanPham"/>
+			<property name="com.jaspersoft.studio.field.label" value="maNhomSanPham"/>
+		</field>
+		<field name="maLoaiSanPham" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maLoaiSanPham"/>
+			<property name="com.jaspersoft.studio.field.label" value="maLoaiSanPham"/>
+		</field>
+		<field name="maPhieuNhap" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maPhieuNhap"/>
+			<property name="com.jaspersoft.studio.field.label" value="maPhieuNhap"/>
+		</field>
+		<field name="COLUMN_19" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maSanPham"/>
+			<property name="com.jaspersoft.studio.field.label" value="maSanPham"/>
+		</field>
+		<field name="giaNhap" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="giaNhap"/>
+			<property name="com.jaspersoft.studio.field.label" value="giaNhap"/>
+		</field>
+		<field name="hanSuDung" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="hanSuDung"/>
+			<property name="com.jaspersoft.studio.field.label" value="hanSuDung"/>
+		</field>
+		<field name="ngaySanXuat" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="ngaySanXuat"/>
+			<property name="com.jaspersoft.studio.field.label" value="ngaySanXuat"/>
+		</field>
+		<field name="COLUMN_23" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="soLuong"/>
+			<property name="com.jaspersoft.studio.field.label" value="soLuong"/>
+		</field>
+		<field name="thanhTien" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="thanhTien"/>
+			<property name="com.jaspersoft.studio.field.label" value="thanhTien"/>
+		</field>
+		<field name="donViTinh" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="donViTinh"/>
+			<property name="com.jaspersoft.studio.field.label" value="donViTinh"/>
+		</field>
+		<field name="soLo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="soLo"/>
+			<property name="com.jaspersoft.studio.field.label" value="soLo"/>
+		</field>
+		<field name="COLUMN_27" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maPhieuNhap"/>
+			<property name="com.jaspersoft.studio.field.label" value="maPhieuNhap"/>
+		</field>
+		<field name="ngayTao" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="ngayTao"/>
+			<property name="com.jaspersoft.studio.field.label" value="ngayTao"/>
+		</field>
+		<field name="tongTien" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="tongTien"/>
+			<property name="com.jaspersoft.studio.field.label" value="tongTien"/>
+		</field>
+		<field name="trangThaiPhieuNhap" class="java.lang.Boolean">
+			<property name="com.jaspersoft.studio.field.name" value="trangThaiPhieuNhap"/>
+			<property name="com.jaspersoft.studio.field.label" value="trangThaiPhieuNhap"/>
+		</field>
+		<field name="maNhaCungCap" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maNhaCungCap"/>
+			<property name="com.jaspersoft.studio.field.label" value="maNhaCungCap"/>
+		</field>
+		<field name="maNhanVien" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maNhanVien"/>
+			<property name="com.jaspersoft.studio.field.label" value="maNhanVien"/>
+		</field>
+	</subDataset>
+	<parameter name="maPhieuNhap1" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM "ChiTietPhieuNhap"
+	inner join "PhieuNhap" ON 
+	 "PhieuNhap"."maPhieuNhap" = "ChiTietPhieuNhap"."maPhieuNhap" 
+	inner join "SanPham" ON 
+	 "ChiTietPhieuNhap"."maSanPham" = "SanPham"."maSanPham" 
+	inner join "NhaCungCap" ON 
+	 "PhieuNhap"."maNhaCungCap" = "NhaCungCap"."maNhaCungCap" 
+WHERE 
+	 "PhieuNhap"."maPhieuNhap" = $P{maPhieuNhap1}]]>
+	</queryString>
+	<field name="maPhieuNhap" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maPhieuNhap"/>
+		<property name="com.jaspersoft.studio.field.label" value="maPhieuNhap"/>
+	</field>
+	<field name="maSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="maSanPham"/>
+	</field>
+	<field name="giaNhap" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="giaNhap"/>
+		<property name="com.jaspersoft.studio.field.label" value="giaNhap"/>
+	</field>
+	<field name="hanSuDung" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="hanSuDung"/>
+		<property name="com.jaspersoft.studio.field.label" value="hanSuDung"/>
+	</field>
+	<field name="ngaySanXuat" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="ngaySanXuat"/>
+		<property name="com.jaspersoft.studio.field.label" value="ngaySanXuat"/>
+	</field>
+	<field name="soLuong" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="soLuong"/>
+		<property name="com.jaspersoft.studio.field.label" value="soLuong"/>
+	</field>
+	<field name="thanhTien" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="thanhTien"/>
+		<property name="com.jaspersoft.studio.field.label" value="thanhTien"/>
+	</field>
+	<field name="donViTinh" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="donViTinh"/>
+		<property name="com.jaspersoft.studio.field.label" value="donViTinh"/>
+	</field>
+	<field name="soLo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="soLo"/>
+		<property name="com.jaspersoft.studio.field.label" value="soLo"/>
+	</field>
+	<field name="COLUMN_10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maPhieuNhap"/>
+		<property name="com.jaspersoft.studio.field.label" value="maPhieuNhap"/>
+	</field>
+	<field name="ngayTao" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="ngayTao"/>
+		<property name="com.jaspersoft.studio.field.label" value="ngayTao"/>
+	</field>
+	<field name="tongTien" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="tongTien"/>
+		<property name="com.jaspersoft.studio.field.label" value="tongTien"/>
+	</field>
+	<field name="trangThaiPhieuNhap" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="trangThaiPhieuNhap"/>
+		<property name="com.jaspersoft.studio.field.label" value="trangThaiPhieuNhap"/>
+	</field>
+	<field name="maNhaCungCap" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maNhaCungCap"/>
+		<property name="com.jaspersoft.studio.field.label" value="maNhaCungCap"/>
+	</field>
+	<field name="maNhanVien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maNhanVien"/>
+		<property name="com.jaspersoft.studio.field.label" value="maNhanVien"/>
+	</field>
+	<field name="COLUMN_16" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="maSanPham"/>
+	</field>
+	<field name="chiDinhSuDung" class="java.lang.Short">
+		<property name="com.jaspersoft.studio.field.name" value="chiDinhSuDung"/>
+		<property name="com.jaspersoft.studio.field.label" value="chiDinhSuDung"/>
+	</field>
+	<field name="donGia" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="donGia"/>
+		<property name="com.jaspersoft.studio.field.label" value="donGia"/>
+	</field>
+	<field name="COLUMN_19" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="soLuong"/>
+		<property name="com.jaspersoft.studio.field.label" value="soLuong"/>
+	</field>
+	<field name="dangBaoChe" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dangBaoChe"/>
+		<property name="com.jaspersoft.studio.field.label" value="dangBaoChe"/>
+	</field>
+	<field name="doiTuongSuDung" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doiTuongSuDung"/>
+		<property name="com.jaspersoft.studio.field.label" value="doiTuongSuDung"/>
+	</field>
+	<field name="duongDung" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="duongDung"/>
+		<property name="com.jaspersoft.studio.field.label" value="duongDung"/>
+	</field>
+	<field name="hamLuong" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="hamLuong"/>
+		<property name="com.jaspersoft.studio.field.label" value="hamLuong"/>
+	</field>
+	<field name="moTaSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="moTaSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="moTaSanPham"/>
+	</field>
+	<field name="nhaSanXuat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nhaSanXuat"/>
+		<property name="com.jaspersoft.studio.field.label" value="nhaSanXuat"/>
+	</field>
+	<field name="quocGiaSanXuat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="quocGiaSanXuat"/>
+		<property name="com.jaspersoft.studio.field.label" value="quocGiaSanXuat"/>
+	</field>
+	<field name="quyCachDongGoi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="quyCachDongGoi"/>
+		<property name="com.jaspersoft.studio.field.label" value="quyCachDongGoi"/>
+	</field>
+	<field name="tenSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenSanPham"/>
+	</field>
+	<field name="thanhPhan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="thanhPhan"/>
+		<property name="com.jaspersoft.studio.field.label" value="thanhPhan"/>
+	</field>
+	<field name="maDonViTinh" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maDonViTinh"/>
+		<property name="com.jaspersoft.studio.field.label" value="maDonViTinh"/>
+	</field>
+	<field name="maNhomSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maNhomSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="maNhomSanPham"/>
+	</field>
+	<field name="maLoaiSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maLoaiSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="maLoaiSanPham"/>
+	</field>
+	<field name="COLUMN_33" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maNhaCungCap"/>
+		<property name="com.jaspersoft.studio.field.label" value="maNhaCungCap"/>
+	</field>
+	<field name="diaChi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="diaChi"/>
+		<property name="com.jaspersoft.studio.field.label" value="diaChi"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+	</field>
+	<field name="soDienThoai" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="soDienThoai"/>
+		<property name="com.jaspersoft.studio.field.label" value="soDienThoai"/>
+	</field>
+	<field name="tenNhaCungCap" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenNhaCungCap"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenNhaCungCap"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="660" y="0" width="140" height="85" uuid="3232c833-5f1d-4afc-938f-28b2339aaf5c"/>
+				<imageExpression><![CDATA["src/main/resources/Fxml/Images/image.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="40" width="450" height="30" uuid="46adfe6f-be23-478a-a85b-789b4b93decc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số 1 Phạm A, Phường B, Quận C, Thành Phố S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="450" height="30" uuid="4bcc4a1a-8fd7-49d8-beae-ba046955eb63"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2H2D PHARMACY]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="222" y="10" width="359" height="50" uuid="328f1eac-6350-4367-a75b-0f2da5da819e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHIẾU NHẬP KHO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="116" width="153" height="22" uuid="72d248ed-155e-49e4-9d29-c8e821689600"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Nhà cung cấp :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="116" width="130" height="22" uuid="610da7a4-5501-4400-b9e1-9020a259a96f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tenNhaCungCap}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="234" y="64" width="61" height="22" uuid="b5d1725a-d272-4baf-af84-c7685b39362f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="64" width="61" height="22" uuid="ed428b22-4635-4f7e-ae93-2124383a8a41"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tháng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="64" width="61" height="22" uuid="9dfe8d1b-4997-44fa-9109-56d1e6fbfb1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Năm]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="64" width="49" height="22" uuid="9104f7fc-f7d9-4b4f-b0ae-133d29f9f234"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd").format($F{ngayTao})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="64" width="49" height="22" uuid="14969661-e7e3-4ad0-afb7-bf7d5c408cab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("MM").format($F{ngayTao})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="515" y="64" width="49" height="22" uuid="27e07c8f-6a33-45c5-b5e3-d2ada6a574dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy").format($F{ngayTao})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="231" y="86" width="153" height="22" uuid="bf00536f-6570-426a-8b54-c6eac547f374"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã phiếu nhập:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="384" y="86" width="190" height="22" uuid="07c305ba-85cd-4d68-8d98-b1d907a0485f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maPhieuNhap}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="630" y="3" width="60" height="30" uuid="ac83232d-c0d5-4ac6-84bc-4f89a8450249">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1ee05b8f-2af4-4dce-9f7f-17979be51cb3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Đơn vị]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="3" width="243" height="30" uuid="5ec71878-8406-4c1e-bf75-c29ef51ee966">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f66dd8-38ec-4c96-85fd-ed11d7d49cff"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="690" y="3" width="110" height="30" uuid="06d662c5-ef5b-4e99-af4e-b848fcf527c9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="887098de-20c1-4599-b66b-79b74dc375bb"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thành tiền]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="3" width="103" height="30" uuid="f6cf71c5-063c-4ef5-9a6f-ae193f105930">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="22899880-30d5-46bb-83fb-8214b734098b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hạn sử dụng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="3" width="124" height="30" uuid="96210282-b4d6-4812-83cf-7d0e44f7c35f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e1dc643-1582-4f77-b92b-aa40e7502ec1"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày sản xuất]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="3" width="44" height="30" uuid="9c972ef0-7e02-456b-b17f-6b4f953f0a9e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f06cecab-b0a7-4fbc-937f-16813268f43b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số lô]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="553" y="3" width="77" height="30" uuid="4b98939e-02e4-4a04-a58f-7ed582dd6a62">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="585fa13a-1319-4871-a086-ed0123eb3403"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3" width="39" height="30" uuid="796d5cbf-f912-426f-aa40-b8758a0ed885">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f66dd8-38ec-4c96-85fd-ed11d7d49cff"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="630" y="3" width="60" height="30" uuid="28be9a08-aff1-40c3-bffa-363619521b42">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1ee05b8f-2af4-4dce-9f7f-17979be51cb3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{donViTinh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="3" width="103" height="30" uuid="3eef3980-7dcd-45e6-a732-e678985dc1d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="22899880-30d5-46bb-83fb-8214b734098b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hanSuDung}.toLocalDate()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="3" width="124" height="30" uuid="0c364f7c-780a-48f1-a9c1-c1a8ce3326d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e1dc643-1582-4f77-b92b-aa40e7502ec1"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngaySanXuat}.toLocalDate()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="509" y="3" width="44" height="30" uuid="372c54c9-f9a0-4221-8184-31b42aeb7e82">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f06cecab-b0a7-4fbc-937f-16813268f43b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{soLo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="553" y="3" width="77" height="30" uuid="9628974b-1410-4ca8-8c13-222cc9152fef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="585fa13a-1319-4871-a086-ed0123eb3403"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{soLuong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="3" width="243" height="30" uuid="a7d48bde-0385-4d92-98b0-d05b045cee17">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f66dd8-38ec-4c96-85fd-ed11d7d49cff"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tenSanPham}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="690" y="3" width="110" height="30" uuid="7d40e9de-6f0b-40cd-8921-2b73d4c1e882">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="887098de-20c1-4599-b66b-79b74dc375bb"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{thanhTien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="3" width="39" height="30" uuid="c57945ea-0b05-40c2-8da0-676a8c63dec1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f66dd8-38ec-4c96-85fd-ed11d7d49cff"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="60" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="40" width="279" height="22" uuid="d5a7daf3-a386-441a-9433-0e59772a0a31"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tongTien}.toString() + " VNĐ"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="40" width="198" height="22" uuid="d460a502-32ce-48be-b5cc-3f1b6ef99212"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Tổng tiền : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="560" y="20" width="198" height="22" uuid="8af706f1-5286-4792-aad7-ba0ad7083a8e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Người lập phiếu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="560" y="42" width="198" height="22" uuid="bdd56e43-8946-4fba-84eb-cb86075ebf44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Ký, họ tên)]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

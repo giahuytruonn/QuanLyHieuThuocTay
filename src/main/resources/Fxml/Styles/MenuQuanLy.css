@@ -1,0 +1,18 @@
+
+.btn-menu {
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10px;
+    -fx-padding: 6 10 6 10;
+    -fx-focus-traversable: false;
+}
+
+.btn-menu:hover {
+    -fx-background-color: #caf0f8;
+    -fx-cursor: hand;
+    -fx-text-fill: black;
+}
+
+.btn-menu:pressed {
+    -fx-background-color: #caf0f8;
+}
