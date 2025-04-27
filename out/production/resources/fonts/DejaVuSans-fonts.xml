@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="DejaVu Sans">
+        <normal>src/main/resources/fonts/DejaVuSans.ttf</normal>
+        <bold>src/main/resources/fonts/DejaVuSans-Bold.ttf</bold>
+        <italic>src/main/resources/fonts/DejaVuSans-Oblique.ttf</italic>
+        <boldItalic>src/main/resources/fonts/DejaVuSans-BoldOblique.ttf</boldItalic>
+        <pdfEncoding>Identity-H</pdfEncoding>
+        <isPdfEmbedded>true</isPdfEmbedded>
+    </fontFamily>
+</fontFamilies>
+

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="760.0" maxWidth="1290.0" minHeight="760.0" minWidth="1290.0" prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #eff2f7;" styleClass="" stylesheets="@../Styles/ThongKeSanPham.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.ThongKeSanPhamController">
+   <CubicCurve controlX1="385.8980712890625" controlX2="632.90869140625" controlY1="-91.42379760742188" controlY2="411.9563903808594" endX="-166.0" endY="601.576171875" fill="#90e0ef" layoutX="166.0" layoutY="-101.0" startX="-166.0" startY="35.8310546875" stroke="TRANSPARENT" />
+   <AnchorPane layoutX="749.0" layoutY="173.0" prefHeight="224.0" prefWidth="225.0" style="-fx-background-color: caf0f8; -fx-background-radius: 20px;">
+      <children>
+         <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="180.0" text="Số lượng sản phẩm">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="180.0" text="bán được trong">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="95.0" fitWidth="86.0" layoutX="125.0" layoutY="112.0">
+            <image>
+               <Image url="@../Images/medication.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="sanPhamBanDuoc" layoutX="14.0" layoutY="141.0" prefHeight="45.0" prefWidth="118.0" text="0">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+         <Label fx:id="label_NgaySP" layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="198.0" text="hôm nay">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutX="14.0" layoutY="126.0" prefHeight="224.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+      <children>
+         <Label layoutX="14.0" layoutY="7.0" prefHeight="30.0" prefWidth="232.0" text="Top sản phẩm bán chạy">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <AnchorPane layoutX="14.0" layoutY="38.0" prefHeight="29.0" prefWidth="546.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+            <children>
+               <Label layoutX="14.0" layoutY="4.0" prefHeight="21.0" prefWidth="598.0" text="#         Tên                                              Số lượng                                                              %">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Label>
+            </children>
+         </AnchorPane>
+         <Label layoutX="25.0" layoutY="67.0" prefHeight="30.0" prefWidth="15.0" text="1">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label layoutX="26.0" layoutY="106.0" prefHeight="30.0" prefWidth="15.0" text="2">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label layoutX="26.0" layoutY="147.0" prefHeight="30.0" prefWidth="15.0" text="3">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label fx:id="sp1" layoutX="72.0" layoutY="67.0" prefHeight="30.0" prefWidth="198.0">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label fx:id="sp2" layoutX="72.0" layoutY="106.0" prefHeight="30.0" prefWidth="198.0">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label fx:id="sp3" layoutX="72.0" layoutY="147.0" prefHeight="30.0" prefWidth="198.0">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <ProgressBar fx:id="bar_sp1" layoutX="287.0" layoutY="78.0" prefHeight="9.0" prefWidth="282.0" progress="0.0" />
+         <Label fx:id="pt_sp1" layoutX="595.0" layoutY="67.0" prefHeight="30.0" prefWidth="64.0" text="100%">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label fx:id="pt_sp2" layoutX="595.0" layoutY="106.0" prefHeight="30.0" prefWidth="64.0" text="100%">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label fx:id="pt_sp3" layoutX="595.0" layoutY="147.0" prefHeight="30.0" prefWidth="64.0" text="100%">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <ProgressBar fx:id="bar_sp2" layoutX="287.0" layoutY="117.0" prefHeight="9.0" prefWidth="282.0" progress="0.0" />
+         <ProgressBar fx:id="bar_sp3" layoutX="287.0" layoutY="158.0" prefHeight="9.0" prefWidth="282.0" progress="0.0" />
+      </children></AnchorPane>
+   <AnchorPane layoutX="14.0" layoutY="375.0" prefHeight="361.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+      <children>
+         <PieChart fx:id="pieChart_nhomHetHan" layoutX="26.0" layoutY="49.0" legendVisible="false" prefHeight="303.0" prefWidth="440.0" />
+         <Label layoutX="26.0" layoutY="14.0" prefHeight="30.0" prefWidth="258.0" text="Nhóm sản phẩm sắp hết hạn">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </children></AnchorPane>
+   <AnchorPane layoutX="532.0" layoutY="425.0" prefHeight="311.0" prefWidth="692.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+      <children>
+         <BarChart fx:id="barChart_sanPham" layoutX="24.0" layoutY="44.0" legendVisible="false" prefHeight="255.0" prefWidth="651.0" style="-fx-background-color: transparent;">
+           <xAxis>
+             <CategoryAxis side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+             <NumberAxis side="LEFT" />
+           </yAxis>
+         </BarChart>
+         <Label layoutX="24.0" layoutY="14.0" prefHeight="30.0" prefWidth="395.0" text="Thống kê số lượng sản phẩm bán theo ngày">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </children></AnchorPane>
+   <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="75.0" prefWidth="383.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+      <children>
+
+          <Label layoutX="36.0" layoutY="16.0" prefHeight="45.0" prefWidth="320.0" text="THỐNG KÊ SẢN PHẨM">
+              <font>
+                  <Font size="30.0" />
+              </font>
+         </Label>
+      </children>
+   </AnchorPane>
+    <AnchorPane layoutX="802.0" layoutY="27.0" prefHeight="118.0" prefWidth="427.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+        <children>
+            <DatePicker fx:id="datePicker" layoutX="21.0" layoutY="45.0" prefHeight="29.0" prefWidth="180.0" />
+            <JFXButton fx:id="btn_timKiem" alignment="CENTER_LEFT" ellipsisString="0" layoutX="232.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getDate" prefHeight="30.0" prefWidth="159.0" style="-fx-background-radius: 20px; -fx-background-color: #0077b6;" text="Tìm kiếm theo thời gian" textAlignment="CENTER" textFill="WHITE">
+                <padding>
+                    <Insets bottom="6.0" left="10.0" top="6.0" />
+                </padding>
+                <font>
+                    <Font name="System Bold" size="10.0" />
+                </font>
+                <graphic>
+                    <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+                </graphic>
+            </JFXButton>
+        </children>
+    </AnchorPane>
+   <AnchorPane layoutX="1005.0" layoutY="173.0" prefHeight="224.0" prefWidth="225.0" style="-fx-background-color: #0077b6; -fx-background-radius: 20px;">
+      <children>
+         <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="173.0" text="Số sản phẩm" textFill="WHITE">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="198.0" text="sắp hết hạn" textFill="WHITE">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="75.0" fitWidth="86.0" layoutX="125.0" layoutY="126.0">
+            <image>
+               <Image url="@../Images/outdate.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="soLuongHetHan" layoutX="21.0" layoutY="141.0" prefHeight="45.0" prefWidth="118.0" text="0" textFill="WHITE">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+      </children></AnchorPane>
+
+   <Button layoutX="739.0" layoutY="74.0" mnemonicParsing="false" onMouseClicked="#restart" prefHeight="25.0" prefWidth="49.0" text=" " />
+   <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="753.0" layoutY="75.0" onMouseClicked="#restart" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Images/refresh-01.png" />
+      </image>
+   </ImageView>
+
+
+</AnchorPane>

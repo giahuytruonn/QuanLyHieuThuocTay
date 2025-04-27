@@ -1,0 +1,24 @@
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.chart-bar {
+    -fx-background-radius: 20;
+}
+
+
+.chart-category-gap {
+    -fx-category-gap: 20;
+}
+
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #0077b6;
+}
+
+.data.chart-bar{
+    -fx-min-width: 15px;
+    -fx-max-width: 15px;
+}
+

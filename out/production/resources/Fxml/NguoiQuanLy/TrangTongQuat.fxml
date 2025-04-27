@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #eff2f7;" stylesheets="@../Styles/TongQuat.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.TrangTongQuatController">
+    <children>
+        <AnchorPane layoutX="23.0" layoutY="78.0" prefHeight="222.0" prefWidth="1245.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+            <children>
+                <AnchorPane layoutX="1023.0" layoutY="27.0" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 10px;" AnchorPane.topAnchor="27.0">
+                    <children>
+                        <ImageView layoutX="40.0" layoutY="62.0">
+                            <image>
+                                <Image url="@../Images/tongQuatNhanVien.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="26.0" layoutY="114.0" prefHeight="42.0" prefWidth="149.0" text="Nhân viên hoạt động" textFill="#357ac9">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="nhanVienHD_tongQuat" layoutX="117.0" layoutY="66.0" prefHeight="45.0" prefWidth="71.0" text="0" textFill="#357ac9">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                    </children></AnchorPane>
+                <AnchorPane layoutX="791.0" layoutY="26.0" prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 10px;" AnchorPane.topAnchor="26.0">
+                    <children>
+
+                        <Label layoutX="26.0" layoutY="114.0" prefHeight="42.0" prefWidth="149.0" text="Tài khoản hoạt động" textFill="#357ac9">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <ImageView layoutX="29.0" layoutY="62.0">
+                            <image>
+                                <Image url="@../Images/tongQuatTaiKhoan.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="taiKhoanHD_tongQuat" layoutX="129.0" layoutY="63.0" prefHeight="45.0" prefWidth="60.0" text="0" textFill="#357ac9">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                    </children></AnchorPane>
+                <AnchorPane layoutX="14.0" layoutY="40.0" prefHeight="145.0" prefWidth="214.0" style="-fx-background-color: #90e0ef; -fx-background-radius: 20px;">
+                    <children>
+                        <Label layoutX="15.0" layoutY="14.0" prefHeight="30.0" prefWidth="153.0" text="Tổng doanh thu">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_tongDoanhThu" layoutX="15.0" layoutY="50.0" prefHeight="45.0" prefWidth="180.0" text="0">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="15.0" layoutY="86.0" prefHeight="45.0" prefWidth="56.0" text="VNĐ">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="252.0" layoutY="40.0" prefHeight="145.0" prefWidth="214.0" style="-fx-background-color: #00b4d8; -fx-background-radius: 20px;">
+                    <children>
+                        <Label layoutX="15.0" layoutY="14.0" prefHeight="30.0" prefWidth="153.0" text="Tổng hóa đơn">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_soHoaDon" layoutX="15.0" layoutY="50.0" prefHeight="45.0" prefWidth="180.0" text="0">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="15.0" layoutY="86.0" prefHeight="45.0" prefWidth="172.0" text="Số hóa đơn">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="503.0" layoutY="40.0" prefHeight="145.0" prefWidth="231.0" style="-fx-background-color: #0077b6; -fx-background-radius: 20px;">
+                    <children>
+                        <Label layoutX="15.0" layoutY="14.0" prefHeight="30.0" prefWidth="206.0" text="Số sản phẩm bán" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_soSuDung" layoutX="15.0" layoutY="50.0" prefHeight="45.0" prefWidth="180.0" text="0" textFill="WHITE">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="15.0" layoutY="86.0" prefHeight="45.0" prefWidth="172.0" text="Sản phẩm" textFill="WHITE">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children></AnchorPane>
+        <Label fx:id="timeLabel" layoutX="1034.0" layoutY="26.0" prefHeight="38.0" prefWidth="231.0" style="-fx-font-size: 20px;" text="0" textFill="#357ac9">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Label>
+        <AnchorPane layoutX="23.0" layoutY="317.0" prefHeight="413.0" prefWidth="493.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+            <children>
+                <PieChart fx:id="pieChart_nhomHetHan" layoutX="6.0" layoutY="42.0" legendVisible="false" prefHeight="366.0" prefWidth="484.0" />
+                <Label layoutX="20.0" layoutY="7.0" prefHeight="30.0" prefWidth="258.0" text="Nhóm sản phẩm sắp hết hạn">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <TableView fx:id="tableView_hoaDon" layoutX="528.0" layoutY="326.0" prefHeight="404.0" prefWidth="740.0" style="-fx-background-color: #caf0f8;">
+            <columns>
+                <TableColumn fx:id="ngayTao_tblColumn" prefWidth="100.0" text="Ngày tạo" />
+                <TableColumn fx:id="maHoaDon_tblColumn" prefWidth="113.0" text="Mã hóa đơn" />
+                <TableColumn fx:id="maSanPham_tblColumn" prefWidth="142.0" text="Mã sản phẩm" />
+                <TableColumn fx:id="soLuong_tblColumn" minWidth="0.0" prefWidth="37.0" text="SL" />
+                <TableColumn fx:id="phuongThuc_tblColumn" prefWidth="146.0" text="Phương thức thanh toán" />
+                <TableColumn fx:id="tongTien_tblColumn" prefWidth="71.0" text="Tổng tiền" />
+                <TableColumn fx:id="trangThaiThanhToan_tblColumn" prefWidth="128.0" text="Trạng thái hóa đơn" />
+            </columns>
+        </TableView>
+        <Label layoutX="23.0" layoutY="27.0" prefHeight="36.0" prefWidth="297.0" text="TRANG TỔNG QUÁT" textFill="#0077b6">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+          <Button layoutX="962.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#restart" prefHeight="0.0" prefWidth="49.0" style="-fx-background-color: #caf0f8;" text=" " />
+          <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="976.0" layoutY="34.0" onMouseClicked="#restart" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@../Images/refresh-01.png" />
+              </image>
+          </ImageView>
+    </children>
+</AnchorPane>

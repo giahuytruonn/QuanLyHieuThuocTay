@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="762.0" prefWidth="1293.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" stylesheets="@../Styles/TaoChietKhau.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.TaoChietKhauController">
+
+            <Pane layoutX="109.0" layoutY="106.0" prefHeight="575.0" prefWidth="1026.0" style="-fx-border-color: #68CFFF; -fx-border-radius: 15px; -fx-background-color: #f1f1f1;">
+
+                <Pane layoutX="60.0" layoutY="118.0" prefHeight="370.0" prefWidth="430.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+
+                    <Label layoutX="45.0" layoutY="25.0" text="Ngày bắt đầu: " textFill="#00b4d8">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="dpNgayBatDau_Tao" layoutX="45.0" layoutY="82.0" prefHeight="36.0" prefWidth="341.0" />
+                    <Label layoutX="45.0" layoutY="131.0" text="Ngày kết thúc: " textFill="#00b4d8">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="dpNgayKetThuc_Tao" layoutX="45.0" layoutY="185.0" prefHeight="36.0" prefWidth="341.0" />
+                    <Label layoutX="45.0" layoutY="243.0" text="Giá trị chiết khấu: " textFill="#00b4d8">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="txtGiaTri_Tao" layoutX="45.0" layoutY="297.0" prefHeight="36.0" prefWidth="341.0" />
+
+                </Pane>
+                <Pane layoutX="538.0" layoutY="118.0" prefHeight="370.0" prefWidth="430.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+
+                    <Label layoutX="45.0" layoutY="131.0" text="Mô tả: " textFill="#00b4d8">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                    <TextArea fx:id="txaMoTa_Tao" layoutX="45.0" layoutY="181.0" prefHeight="153.0" prefWidth="341.0">
+            <font>
+               <Font size="18.0" />
+            </font></TextArea>
+                    <Label layoutX="45.0" layoutY="25.0" text="Số lượng" textFill="#00b4d8">
+                        <font>
+                            <Font size="25.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="txtSoLuong_Tao" layoutX="45.0" layoutY="82.0" prefHeight="36.0" prefWidth="341.0" />
+
+                </Pane>
+                <Label layoutX="368.0" layoutY="38.0" text="TẠO CHIẾT KHẤU" textFill="#00b4d8">
+                    <font>
+                        <Font name="System Bold" size="35.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="btnHuy_Tao" layoutX="563.0" layoutY="507.0" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #ff007f; -fx-background-radius: 15PX;" text="HỦY" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnXacNhan_Tao" layoutX="773.0" layoutY="507.0" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #90e0ef; -fx-background-radius: 15PX;" text="XÁC NHẬN" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </JFXButton>
+
+            </Pane>
+
+</AnchorPane>

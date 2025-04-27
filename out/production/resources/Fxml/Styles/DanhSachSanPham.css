@@ -1,0 +1,147 @@
+.text-field{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 40;
+    -fx-font-size: 1.2em;
+    -fx-border-radius: 15;
+    -fx-pref-width: 400;
+    -fx-background-radius: 15;
+    -fx-border-color: #816969;
+}
+
+.lbl_HienThi{
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #090000;
+    -fx-font-weight: bold;
+}
+
+.lbl_TieuDe{
+    -fx-text-fill: #0077b6;
+    -fx-font-weight: bold;
+}
+
+.btn_TimKiem{
+    -fx-background-color: #50ee99;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.2em;
+    -fx-border-radius: 10;
+}
+
+.btn_ThemMoi{
+    -fx-background-color: #696dbd;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.3em;
+    -fx-border-radius: 10;
+    -fx-font-weight: bold;
+}
+
+.btn_ThemMoi:hover{
+    -fx-background-color: #90e0ef;
+    -fx-cursor: hand;
+}
+
+.btn_Loc{
+    -fx-background-color: #a1893f;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.2em;
+    -fx-border-radius: 10;
+    -fx-font-weight: bold;
+}
+
+.btn_LamMOi{
+    -fx-background-color: #0fb7d7;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.2em;
+    -fx-border-radius: 10;
+    -fx-font-weight: bold;
+}
+
+.btn_DieuKhien{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.4em;
+    -fx-border-radius: 10;
+    -fx-font-weight: bold;
+    -fx-border-color: #816969;
+    -fx-background-radius: 10;
+}
+
+.btn_DieuKhien:hover{
+    -fx-background-color: #90e0ef;
+    -fx-text-fill: #ffffff;
+}
+
+.choice-box{
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10;
+    -fx-border-color: #816969;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+    -fx-text-fill: #000000;
+}
+
+#choice-box-popup-menu{
+    -fx-pref-width: 110;
+}
+
+.choice-box .label{
+    -fx-text-fill: #000000;
+    -fx-font-size: 12px;
+}
+
+/* style.css */
+
+/* Toàn bộ TableView */
+.table-view {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #a9a9a9;
+    -fx-border-width: 2px;
+}
+
+/* Header của TableView */
+.table-view .column-header-background {
+    -fx-background-color: #ffffff;
+}
+
+.table-view .column-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-size: 50px;
+    -fx-background-color: #ffffff;
+}
+
+/* Các hàng lẻ (odd rows) */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #e6e6e6;
+    -fx-pref-height: 50px;
+}
+
+/* Các hàng chẵn (even rows) */
+.table-view .table-row-cell:even {
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 50px;
+}
+
+/* Các cell (ô) của TableView */
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+    -fx-font-size: 1.2em;
+}
+
+/* Khi hover vào hàng */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #90e0ef;
+    -fx-cursor: hand;
+}
+
+/* Khi chọn hàng */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #4682b4;
+    -fx-text-fill: white;
+}
+
+/* Đường viền của ô */
+.table-view .table-cell {
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 0 0 1px 0; /* Đường viền dưới */
+}
+

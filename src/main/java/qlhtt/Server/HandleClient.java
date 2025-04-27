@@ -3,6 +3,8 @@ package qlhtt.Server;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
+import net.sf.jasperreports.engine.*;
+import qlhtt.ConnectDB.ConnectDB;
 import qlhtt.Controllers.LoginController;
 import qlhtt.Controllers.NhanVien.*;
 import qlhtt.Controllers.TaiKhoanController;
@@ -14,10 +16,14 @@ import qlhtt.Models.Model;
 
 import java.io.*;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import qlhtt.DAO.SanPhamDAO;
 
@@ -103,6 +109,8 @@ public class HandleClient implements Runnable {
                 return handleUpdateSoLuongCK(parts);
             case "GET_CK":
                 return handleGetCK(parts);
+            case "CREATE_HOADONPDF":
+                return handleTaoHoaDonPDF(parts);
             default:
                 return "UNKNOWN_COMMAND";
         }
@@ -546,4 +554,48 @@ public class HandleClient implements Runnable {
         }
     }
 
+    private String handleTaoHoaDonPDF(String[] parts) {
+        if (parts.length < 2) {
+            return "ERROR Thiếu mã hóa đơn";
+        }
+
+        String maHD = parts[1];
+        String pdfPath = "src/main/resources/HoaDon/" + maHD + ".pdf";
+
+        try {
+            // Kết nối đến cơ sở dữ liệu
+
+            ConnectDB connectDB = ConnectDB.getInstance();
+            connectDB.connect();
+            Connection connection = connectDB.getConnection();
+
+            // Biên dịch báo cáo Jasper
+            JasperReport jasperReport = JasperCompileManager.compileReport("src/main/resources/Fxml/MauHoaDon.jrxml");
+
+            // Đặt tham số cho báo cáo
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("ReportTitle", "Hóa Đơn");
+            parameters.put("maHoaDonParam", maHD);  // Truyền mã hóa đơn vào báo cáo
+
+            // Điền dữ liệu vào báo cáo
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
+
+            // Xuất báo cáo ra file PDF
+            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfPath);
+
+            System.out.println("Đã tạo hóa đơn PDF: " + pdfPath);
+
+            return "SUCCESS " + pdfPath;
+
+        } catch (JRException e) {
+            e.printStackTrace();
+            return "ERROR JasperReports: " + e.getMessage();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "ERROR Database: " + e.getMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR Unexpected: " + e.getMessage();
+        }
+    }
 }

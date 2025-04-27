@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<AnchorPane minHeight="780.0" minWidth="248.0" prefHeight="780.0" prefWidth="248.0" style="-fx-background-color: linear-gradient(to bottom right, #00B4D8, #90E0EF)" stylesheets="@../Styles/MenuQuanLy.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.MenuNhanVienController">
+    <ImageView id="avatarMenu" fx:id="avatarMenu" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+<!--        <image>-->
+<!--            <Image url="@../Images/NDuy.png" />-->
+<!--        </image>-->
+    </ImageView>
+    <Label layoutX="14.0" layoutY="110.0" prefHeight="21.0" prefWidth="142.0" text="Quản lý bán hàng" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <JFXButton fx:id="btn_BanHang" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="131.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Bán hàng" AnchorPane.leftAnchor="14.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="CART_PLUS" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <JFXButton fx:id="btn_DanhSachHoaDon" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="174.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Danh sách hóa đơn" AnchorPane.leftAnchor="14.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="FILE_TEXT" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <JFXButton fx:id="btn_CapNhatThongTinKhachHang" alignment="CENTER_LEFT" ellipsisString="0" layoutX="12.0" layoutY="534.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Cập nhật thông tin khách hàng" AnchorPane.leftAnchor="12.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="USER_MD" layoutX="36.0" layoutY="204.0" selectionFill="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" text="" />
+        </graphic>
+    </JFXButton>
+    <Label layoutX="14.0" layoutY="362.0" prefHeight="21.0" prefWidth="142.0" text="Thống kê" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <JFXButton fx:id="btn_ThongKeDoanhThu" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="382.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Thống kê doanh thu" AnchorPane.leftAnchor="14.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="BAR_CHART" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <JFXButton fx:id="btn_ThongKeHoaDon" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Thống kê hóa đơn" AnchorPane.leftAnchor="14.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="LINE_CHART" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <JFXButton fx:id="btn_ThongKePhieuNhap" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="472.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Thống kê phiếu nhập" AnchorPane.leftAnchor="14.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="PIE_CHART" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <Label layoutX="14.0" layoutY="512.0" prefHeight="21.0" prefWidth="142.0" text="Quản lý thông tin" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <JFXButton fx:id="btn_CapNhatThongTin" alignment="CENTER_LEFT" ellipsisString="0" layoutX="12.0" layoutY="625.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Cập nhật thông tin người dùng" AnchorPane.leftAnchor="12.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="USER_CIRCLE" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <JFXButton fx:id="btn_DoiMatKhau" alignment="CENTER_LEFT" ellipsisString="0" layoutX="12.0" layoutY="670.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Đổi mật khẩu" AnchorPane.leftAnchor="12.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView fill="#68cfff" glyphName="EXCHANGE" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+        </graphic>
+    </JFXButton>
+    <JFXButton fx:id="btn_DangXuat" alignment="CENTER_LEFT" ellipsisString="0" layoutX="17.0" layoutY="728.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="112.0" style=" -fx-background-radius: 10px; -fx-background-color: #e84656" styleClass="btn-menu" text="Đăng xuất" AnchorPane.leftAnchor="17.0">
+        <padding>
+            <Insets bottom="6.0" left="10.0" top="6.0" />
+        </padding>
+        <font>
+            <Font size="7.0" />
+        </font>
+        <graphic>
+            <FontAwesomeIconView glyphName="SIGN_OUT" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" text="" />
+        </graphic>
+    </JFXButton>
+    <Label fx:id="tenMenu" layoutX="73.0" layoutY="18.0" prefHeight="21.0" prefWidth="142.0" text="Hi, Trần Nhật Duy" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <Label fx:id="mailMenu" layoutX="73.0" layoutY="39.0" prefHeight="21.0" prefWidth="198.0" text="trannhatduy2000@gmail.com" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+   <JFXButton fx:id="btn_CapNhatThongTinNhaCungCap" alignment="CENTER_LEFT" ellipsisString="0" layoutX="12.0" layoutY="579.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style="-fx-background-radius: 10px;" styleClass="btn-menu" text="Cập nhật thông tin nhà cung cấp" AnchorPane.leftAnchor="12.0">
+      <padding>
+         <Insets bottom="6.0" left="10.0" top="6.0" />
+      </padding>
+      <font>
+         <Font size="7.0" />
+      </font>
+      <graphic>
+         <FontAwesomeIconView fill="#68cfff" glyphName="USER_SECRET" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+      </graphic>
+   </JFXButton>
+   <JFXButton fx:id="btn_QuanLySanPham" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style="-fx-background-radius: 10px;" styleClass="btn-menu" text="Quản lý sản phẩm" AnchorPane.leftAnchor="14.0">
+      <padding>
+         <Insets bottom="6.0" left="10.0" top="6.0" />
+      </padding>
+      <font>
+         <Font size="7.0" />
+      </font>
+      <graphic>
+         <FontAwesomeIconView fill="#68cfff" glyphName="MEDKIT" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+      </graphic>
+   </JFXButton>
+   <Label layoutX="14.0" layoutY="258.0" prefHeight="21.0" prefWidth="186.0" text="Quản lý nhập hàng" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <JFXButton fx:id="btn_NhapHang" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="279.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style="-fx-background-radius: 10px;" styleClass="btn-menu" text="Nhập hàng" AnchorPane.leftAnchor="14.0">
+      <padding>
+         <Insets bottom="6.0" left="10.0" top="6.0" />
+      </padding>
+      <font>
+         <Font size="7.0" />
+      </font>
+      <graphic>
+         <FontAwesomeIconView fill="#68cfff" glyphName="SHOPPING_BAG" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+      </graphic>
+   </JFXButton>
+   <JFXButton fx:id="btn_DanhSachPhieuNhap" alignment="CENTER_LEFT" ellipsisString="0" layoutX="15.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style="-fx-background-radius: 10px;" styleClass="btn-menu" text="Danh sách phiếu nhập" AnchorPane.leftAnchor="15.0">
+      <padding>
+         <Insets bottom="6.0" left="10.0" top="6.0" />
+      </padding>
+      <font>
+         <Font size="7.0" />
+      </font>
+      <graphic>
+         <FontAwesomeIconView fill="#68cfff" glyphName="FILE_TEXT" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+      </graphic>
+   </JFXButton>
+   <JFXButton fx:id="btn_TrangTongQuat" alignment="CENTER_LEFT" ellipsisString="0" layoutX="14.0" layoutY="71.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="225.0" style=" -fx-background-radius: 10px;" styleClass="btn-menu" text="Trang tổng quát">
+      <padding>
+         <Insets bottom="6.0" left="10.0" top="6.0" />
+      </padding>
+      <font>
+         <Font size="7.0" />
+      </font>
+      <graphic>
+         <FontAwesomeIconView fill="#68cfff" glyphName="BOOK" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+      </graphic>
+   </JFXButton>
+</AnchorPane>

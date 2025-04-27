@@ -1,0 +1,24 @@
+.back_ground {
+    -fx-background-color: #ffffff;
+}
+
+.btn_GuiHoaDon{
+    -fx-background-color: #184b8a;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}
+
+.btn_Huy {
+    -fx-background-color: #ff0000;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}
+
+.btn_XuatHoaDon {
+    -fx-background-color: #096909;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}

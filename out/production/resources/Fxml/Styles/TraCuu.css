@@ -1,0 +1,81 @@
+.anchor_pane{
+    -fx-background-color: #ffffff;
+}
+
+.choice-box{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #816969;
+    -fx-font-size: 1.2em;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.label_txtField{
+    -fx-font-weight: bold;
+}
+
+.label_HienThiGia{
+    -fx-cursor: hand;
+    -fx-text-fill: #006FFD;
+    -fx-font-weight: bold;
+}
+
+/*.btn{*/
+/*    -fx-background-color: #ffffff;*/
+/*    -fx-border-color: #816969;*/
+/*    -fx-font-size: 1.1em;*/
+/*    -fx-border-radius: 10;*/
+/*    -fx-background-radius: 10;*/
+/*}*/
+
+.toggle-button {
+    -fx-cursor: hand;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #816969;
+    -fx-font-size: 1.1em;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.toggle-button:selected {
+    -fx-cursor: hand;
+    -fx-background-color: #4CAF50; /* Màu xanh khi được chọn */
+    -fx-border-color: #816969;
+    -fx-font-size: 1.1em;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.btn_MinMax{
+   -fx-cursor: hand;
+}
+
+.btn_Loc{
+    -fx-cursor: hand;
+    -fx-background-color: #2da81a;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.btn_LamMoi{
+    -fx-cursor: hand;
+    -fx-background-color: #006FFD;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.btn_Huy{
+    -fx-cursor: hand;
+    -fx-background-color: #ED3241;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.3em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

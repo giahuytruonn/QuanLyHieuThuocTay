@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane prefHeight="430.0" prefWidth="800.0" style="-fx-background-color: #eff2f7;" stylesheets="@../Styles/TraCuu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.TraCuuSanPhamController">
+   <AnchorPane layoutX="391.0" prefHeight="340.0" prefWidth="370.0" AnchorPane.leftAnchor="391.0" AnchorPane.rightAnchor="20.0">
+      <ToggleButton fx:id="btn_200_500" layoutX="22.0" layoutY="128.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Từ 200 - 500 nghìn" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="128.0" />
+      <ToggleButton fx:id="btn_10_50" layoutX="200.0" layoutY="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Từ 10 - 50 nghìn" AnchorPane.rightAnchor="35.0" />
+      <Label layoutX="3.0" layoutY="7.0" styleClass="label_txtField" text="Giá" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ToggleButton fx:id="btn_10" layoutX="22.0" layoutY="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Dưới 10 nghìn" AnchorPane.leftAnchor="35.0" />
+      <ToggleButton fx:id="btn_50_100" layoutX="22.0" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Từ 50 - 100 nghìn" AnchorPane.leftAnchor="35.0" />
+      <ToggleButton fx:id="btn_500" layoutX="200.0" layoutY="128.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Trên 500 nghìn" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="128.0" />
+      <ToggleButton fx:id="btn_100_200" layoutX="200.0" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn" text="Từ 100 - 200 nghìn" AnchorPane.rightAnchor="35.0" />
+      <Label fx:id="lbl_ChonGia" layoutY="187.0" styleClass="label_HienThiGia" text="Hoặc chọn mức giá phù hợp" textFill="#0077b6">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <RangeSlider fx:id="range_slider" disable="true" layoutX="33.0" layoutY="278.0" prefHeight="35.0" prefWidth="310.0" />
+      <TextField fx:id="txt_Min" layoutX="34.0" layoutY="226.0" prefHeight="35.0" prefWidth="130.0" AnchorPane.bottomAnchor="78.57142857142857" />
+      <TextField fx:id="txt_Max" layoutX="224.0" layoutY="231.0" prefHeight="35.0" prefWidth="130.0" AnchorPane.bottomAnchor="78.5" />
+   </AnchorPane>
+   <AnchorPane layoutX="35.0" prefHeight="340.0" prefWidth="370.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="414.0">
+      <Label layoutY="14.0" styleClass="label_txtField" text="Loại sản phẩm" textFill="#0077b6" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="chb_LoaiSanPham" layoutY="36.0" prefHeight="35.0" prefWidth="310.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="40.0" />
+      <Label layoutX="17.0" layoutY="244.0" styleClass="label_txtField" text="Nhóm Sản Phẩm" textFill="#0077b6" AnchorPane.leftAnchor="17.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="chb_NhomSanPham" layoutX="15.0" layoutY="276.0" prefHeight="35.0" prefWidth="310.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="40.0" />
+      <Label layoutX="15.0" layoutY="82.0" styleClass="label_txtField" text="Đơn vị tính" textFill="#0077b6" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="chb_DonViTinh" layoutX="15.0" layoutY="110.0" prefHeight="35.0" prefWidth="310.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="110.0" />
+      <Label layoutX="14.0" layoutY="160.0" styleClass="label_txtField" text="Quốc gia sản xuất" textFill="#0077b6">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="chb_QuocGiaSanXuat" layoutX="15.0" layoutY="190.0" prefHeight="35.0" prefWidth="310.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="190.0" />
+   </AnchorPane>
+   <Button fx:id="btn_Loc" layoutX="631.0" layoutY="366.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" styleClass="btn_Loc" text="Lọc" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="350.0" />
+   <Button fx:id="btn_LamMoi" layoutX="536.0" layoutY="366.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" styleClass="btn_LamMoi" text="Làm mới" AnchorPane.topAnchor="350.0" />
+   <Button fx:id="btn_Huy" layoutX="426.0" layoutY="366.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #ff007f;" styleClass="btn_Huy" text="Hủy" AnchorPane.topAnchor="350.0" />
+</AnchorPane>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hóa Đơn Bán Thuốc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .highlight {
+            color: #007bff;
+            /* Màu xanh dương */
+            font-weight: bold;
+        }
+
+        .success-icon {
+            color: #28a745;
+            /* Màu xanh lá */
+            font-size: 2rem;
+        }
+
+        .total-row th,
+        .total-row td {
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: #f8f9fa;
+        }
+
+        .text-important {
+            color: #dc3545;
+            /* Màu đỏ đậm */
+        }
+
+
+    </style>
+</head>
+
+<body>
+<div class="container my-5">
+    <div class="text-center">
+        <h2 style="color: red;"><b>Hóa Đơn Bán Thuốc</b></h2>
+        <p class="text-muted">Cửa hàng thuốc tây 2H2D</p>
+        <div class="my-3">
+            <i class="bi bi-check-circle-fill success-icon"></i>
+            <p class="text-success">Thanh toán thành công</p>
+        </div>
+    </div>
+
+    <!-- Thông tin khách hàng -->
+    <div class="mb-4">
+        <p><strong>Tên khách hàng:</strong> <span class="highlight">Nguyễn Văn A</span></p>
+        <p><strong>Email:</strong> <span class="highlight">nguyenvana@example.com</span></p>
+        <p><strong>Ngày lập hóa đơn:</strong> <span class="highlight">05/12/2024</span></p>
+        <p><strong>Phương thức thanh toán:</strong> <span class="text-important">VNPay</span></p>
+    </div>
+
+    <!-- Bảng thông tin thuốc -->
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Tên thuốc</th>
+                <th>Đơn vị</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Giảm đau</td>
+                <td>Hộp</td>
+                <td>2</td>
+                <td>50,000 VNĐ</td>
+                <td>100,000 VNĐ</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Vitamin</td>
+                <td>Hộp</td>
+                <td>1</td>
+                <td>80,000 VNĐ</td>
+                <td>80,000 VNĐ</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Chữa ho</td>
+                <td>Chai</td>
+                <td>1</td>
+                <td>60,000 VNĐ</td>
+                <td>60,000 VNĐ</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr class="total-row">
+                <td colspan="7" class="text-start">Tổng cộng: <span class="text-important">240,000 VNĐ</span>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- Ghi chú -->
+    <p class="mt-4"><strong>Ghi chú:</strong> Cảm ơn quý khách đã mua hàng tại cửa hàng chúng tôi. Hẹn gặp lại!</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+.container_CapNhatThongTinKhachHang{
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10px;
+}
+
+.container{
+    -fx-background-color: #f2f2f2;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+.label_title{
+    -fx-font-weight: bold;
+
+}
+.text-field{
+    -fx-background-color: #ffffff;
+
+    -fx-border-radius: 5px;
+    -fx-font-size: 1.2em;
+}
+
+.btn_LamMoi{
+    -fx-background-color: #6772ad;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 10px;
+}
+
+.btn_CapNhat{
+
+    -fx-text-fill: white;
+    -fx-border-radius: 10px;
+    -fx-font-weight: bold;
+}
+
+.choice-box{
+    -fx-background-color:  #ffffff;
+
+    -fx-border-radius: 5px;
+    -fx-font-size: 1.2em;
+}
+
+.date-picker{
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 5px;
+    -fx-font-size: 1.2em;
+}
+
+.label_Child{
+
+    -fx-font-weight: bold;
+}
+
+.btn_TimKiem{
+
+    -fx-text-fill: white;
+    -fx-border-radius: 10px;
+    -fx-font-weight: bold;
+}
