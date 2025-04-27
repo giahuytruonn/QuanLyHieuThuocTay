@@ -1,0 +1,42 @@
+#btn_timKiem:hover {
+    -fx-background-color: linear-gradient(to right, #0aacf7, #196ae3);
+}
+#btn_timKiem{
+    -fx-background-color: linear-gradient(to bottom right, #68CFFF, #0066FF);
+}
+.axis{
+    -fx-stroke: black;
+    -fx-fill: #fff;
+    -fx-font-size: 24;
+    -fx-tick-label-fill: black;
+}
+
+.pane_bar {
+    -fx-border-color: transparent transparent  #0aacf7 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.chart-bar {
+    -fx-background-radius: 20;
+}
+
+
+.chart-category-gap {
+    -fx-category-gap: 20;
+}
+
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #0077b6;
+}
+
+.data.chart-bar{
+    -fx-min-width: 15px;
+    -fx-max-width: 15px;
+}
+

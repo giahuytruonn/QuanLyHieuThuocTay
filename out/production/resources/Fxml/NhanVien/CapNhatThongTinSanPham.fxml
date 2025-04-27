@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="760.0" minWidth="1290.0" prefHeight="900.0" prefWidth="1290.0" style="-fx-background-color: #eff2f7;" styleClass="anchor_pane" stylesheets="@../Styles/ThemSanPham.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.CapNhatThongTinSanPhamController">
+    <HBox layoutX="25.0" layoutY="25.0" prefHeight="850.0" prefWidth="1275.0">
+        <VBox prefHeight="872.0" prefWidth="635.0" style="-fx-background-color: #eff2f7;" styleClass="VBox">
+            <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+            </HBox.margin>
+            <Label text="Mã sản phẩm" />
+            <TextField fx:id="txt_MaSanPham" prefHeight="44.0" prefWidth="584.0" />
+            <Label text="Đối Tượng Sử dụng" />
+            <TextField fx:id="txt_DoiTuongSuDung" prefHeight="44.0" prefWidth="584.0" />
+            <Label text="Hàm lượng" />
+            <TextField fx:id="txt_HamLuong" prefHeight="44.0" prefWidth="584.0" />
+            <Label text="Nhà sản xuất" />
+            <TextField fx:id="txt_NhaSanXuat" prefHeight="44.0" prefWidth="584.0" />
+            <Label text="Dạng bào chế" />
+            <TextField fx:id="txt_DangBaoChe" prefHeight="44.0" prefWidth="584.0" />
+            <Label text="Đường dùng" />
+            <TextField fx:id="txt_DuongDung" prefHeight="39.0" prefWidth="613.0" />
+            <Label text="Đơn giá" />
+            <TextField fx:id="txtDonGia" prefHeight="44.0" prefWidth="613.0" />
+            <Label text="Mô tả sản phẩm" />
+            <TextArea fx:id="txa_MoTaSanPham" prefHeight="200.0" prefWidth="584.0" styleClass="text-area_background" />
+        </VBox>
+        <VBox prefHeight="872.0" prefWidth="646.0" style="-fx-background-color: #eff2f7;" styleClass="VBox">
+            <HBox.margin>
+                <Insets left="30.0" />
+            </HBox.margin>
+            <Label text="Tên Sản phẩm" />
+            <TextField fx:id="txt_TenSanPham" maxWidth="580.0" prefHeight="44.0" prefWidth="580.0" />
+            <HBox maxWidth="600.0" prefHeight="81.0" prefWidth="600.0">
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <VBox maxHeight="84.0" maxWidth="300.0" prefHeight="84.0" prefWidth="300.0">
+                    <Label text="Chỉ định sử dụng">
+                        <VBox.margin>
+                            <Insets bottom="10.0" />
+                        </VBox.margin>
+                    </Label>
+                    <ChoiceBox fx:id="chb_ChiDinhSuDung" maxHeight="40.0" maxWidth="280.0" prefHeight="40.0" prefWidth="280.0" styleClass="choice_box_background" />
+                </VBox>
+                <VBox prefHeight="82.0" prefWidth="280.0">
+                    <children>
+                        <Label text="Quy cách đóng gói">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="chb_QuyCachDongGoi" maxWidth="300.0" prefWidth="156.0" styleClass="choice_box_background" />
+                    </children>
+                </VBox>
+            </HBox>
+            <Label text="Quốc gia sản xuất">
+                <VBox.margin>
+                    <Insets top="-10.0" />
+                </VBox.margin></Label>
+            <ChoiceBox fx:id="chb_QuocGiaSanXuat" prefWidth="150.0" styleClass="choice_box_background" />
+            <Label text="Số lượng" />
+            <Spinner fx:id="spn_SoLuong" />
+            <Label text="Loại sản phẩm" />
+            <ChoiceBox fx:id="chb_LoaiSanPham" prefWidth="150.0" styleClass="choice_box_background" />
+            <Label text="Nhóm sản phẩm" />
+            <ChoiceBox fx:id="chb_NhomSanPham" prefWidth="150.0" styleClass="choice_box_background" />
+            <Label text="Đơn vị tính" />
+            <ChoiceBox fx:id="chb_DonViTinh" prefWidth="150.0" styleClass="choice_box_background" />
+            <Label text="Thành phần" />
+            <TextArea fx:id="txa_ThanhPhan" maxWidth="580.0" prefHeight="200.0" prefWidth="560.0" styleClass="text-area_background" />
+            <HBox prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: #eff2f7;">
+                <Button fx:id="btn_Huy" mnemonicParsing="false" prefHeight="55.0" prefWidth="129.0" style="-fx-background-color: #ff007f;" styleClass="btn_Huy" text="Hủy">
+                    <HBox.margin>
+                        <Insets left="240.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="btn_LamMoi" mnemonicParsing="false" style="-fx-background-color: #00b4d8;" styleClass="btn_LamMoi" text="Làm mới">
+                    <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="btn_CapNhat" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #90e0ef;" text="Cập Nhật">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </HBox>
+</AnchorPane>

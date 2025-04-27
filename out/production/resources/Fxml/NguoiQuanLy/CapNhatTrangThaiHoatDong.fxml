@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" stylesheets="@../Styles/CapNhatTrangThaiHoatDong.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.CapNhatTrangThaiController">
+            <Pane layoutX="86.0" layoutY="82.0" prefHeight="121.0" prefWidth="1089.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="82.0">
+                    <Label alignment="CENTER" layoutX="31.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: #90e0ef; -fx-background-radius: 10;" text="Số điện thoại nhân viên cần tìm:" textAlignment="RIGHT" textFill="#fff">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="txtSDT_CapNhat" layoutX="353.0" layoutY="36.0" prefHeight="55.0" prefWidth="562.0" style="-fx-background-color: #fff; -fx-border-color: #000000; -fx-border-radius: 10;">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+                    <JFXButton fx:id="btnTim_CapNhat" layoutX="939.0" layoutY="36.0" onAction="#btnTim_CapNhat_Click" prefHeight="55.0" prefWidth="119.0" style="-fx-background-color: #90e0ef; -fx-background-radius: 10;" text="TÌM" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+                    </JFXButton>
+            </Pane>
+            <Pane layoutX="84.0" layoutY="242.0" prefHeight="488.0" prefWidth="1089.0" style="-fx-background-color: #fff; -fx-border-color: #B8ECF4; -fx-border-radius: 20px;" AnchorPane.topAnchor="239.0">
+                    <TableView fx:id="tblNhanVien_CapNhat" layoutX="16.0" layoutY="26.0" prefHeight="425.0" prefWidth="1063.0">
+                        <columns>
+                            <TableColumn fx:id="colTen_CapNhat" prefWidth="290.3999938964844" text="TÊN NHÂN VIÊN" />
+                            <TableColumn fx:id="colGioiTinh_CapNhat" prefWidth="120.0" text="GIỚI TÍNH" />
+                            <TableColumn fx:id="colSDT_CapNhat" prefWidth="187.99993896484375" text="SỐ ĐIỆN THOẠI" />
+                            <TableColumn fx:id="colVaiTro_CapNhat" prefWidth="178.39996337890625" text="VAI TRÒ" />
+                            <TableColumn fx:id="colTrangThai_CapNhat" prefWidth="285.4000244140625" text="TRẠNG THÁI HOẠT ĐỘNG" />
+                        </columns>
+                    </TableView>
+            </Pane>
+         <Label layoutX="402.0" layoutY="40.0" text="CẬP NHẬT TRẠNG THÁI HOẠT ĐỘNG" textFill="#00b4d8">
+            <font>
+               <Font name="System Bold" size="25.0" />
+            </font>
+         </Label>
+</AnchorPane>

@@ -1,0 +1,101 @@
+.anchor_pane{
+    -fx-background-color: #ffffff;
+}
+
+.VBox{
+    -fx-background-color: #ffffff;
+    -fx-spacing: 10;
+    -fx-alignment: top_left;
+}
+
+.lbl_ThemKhachHang{
+    -fx-font-size: 2em;
+    -fx-text-fill: #0077b6;
+    -fx-font-weight: bold;
+}
+
+.date-picker{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 40;
+    -fx-pref-width: 400;
+    -fx-border-radius: 10;
+    -fx-font-size: 1.2em;
+}
+
+.choice-box{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #816969;
+    -fx-pref-height: 40;
+    -fx-pref-width: 400;
+    -fx-border-radius: 10;
+}
+
+.choice-box .label{
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.3em;
+}
+
+.choice_box_background{
+    -fx-background-color: #ffffff;
+}
+
+.choice-box .arrow{
+    -fx-background-color: #816969;
+}
+
+#choice-box-popup-menu{
+    -fx-background-color: #ffffff;
+}
+
+#choice-prompt-text{
+    -fx-font-weight: 300;
+}
+
+.label_title{
+    -fx-text-fill: #816969;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+
+.text-field{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 40;
+    -fx-font-size: 1.2em;
+    -fx-border-color: #816969;
+    -fx-border-radius: 10;
+    -fx-pref-width: 400;
+}
+
+.btn_Them{
+    -fx-background-color: #0e6e0e;
+    -fx-text-fill: #ffffff;
+    -fx-pref-width: 100;
+    -fx-pref-height: 60;
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+.btn_Huy{
+    -fx-background-color: #ff0000;
+    -fx-text-fill: #ffffff;
+    -fx-pref-width: 100;
+    -fx-pref-height: 60;
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+.btn_LamMoi{
+    -fx-background-color: #696dbd;
+    -fx-text-fill: #ffffff;
+    -fx-pref-width: 100;
+    -fx-pref-height: 60;
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+

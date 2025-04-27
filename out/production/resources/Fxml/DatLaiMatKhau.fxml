@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="500.0" styleClass="back_ground" stylesheets="@Styles/DatLaiMatKhau.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.DatLaiMatKhauController">
+   <Button fx:id="btn_TiepTheo" layoutX="50.0" layoutY="160.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="399.0" styleClass="btn_XacNhan" text="TIẾP THEO">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Button>
+   <TextField fx:id="txt_Email" layoutX="50.0" layoutY="85.0" prefHeight="40.0" prefWidth="399.0" promptText="Nhập vào email" />
+   <Label layoutX="178.0" layoutY="27.0" text="Đặt lại mật khẩu">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label fx:id="lbl_Back" layoutX="22.0" layoutY="30.0">
+      <graphic>
+         <FontAwesomeIconView glyphName="ARROW_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </FontAwesomeIconView>
+      </graphic>
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="lbl_Loi" layoutX="50.0" layoutY="133.0" text="Nhập vào email để đặt lại mật khẩu!" textFill="#f30000" />
+</AnchorPane>

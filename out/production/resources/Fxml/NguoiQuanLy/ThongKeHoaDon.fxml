@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1290.0" style="-fx-background-color: #eff2f7;" styleClass="" stylesheets="@../Styles/ThongKeHoaDon.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NguoiQuanLy.ThongKeHoaDonController">
+
+    <AnchorPane layoutX="31.0" layoutY="173.0" prefHeight="178.0" prefWidth="202.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px;">
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="180.0" text="Số hóa đơn">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="145.0" text="đã thanh toán">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_soThanhToan" layoutX="14.0" layoutY="112.0" prefHeight="45.0" prefWidth="180.0" text="0">
+                <font>
+                    <Font size="30.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_ngayThanhToan" layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="180.0" text="hôm nay">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+
+    <AnchorPane layoutX="280.0" layoutY="173.0" prefHeight="178.0" prefWidth="202.0" style="-fx-background-color: #90e0ef; -fx-background-radius: 20px;">
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="180.0" text="Số hóa đơn chưa">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="145.0" text="thanh toán">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_soChuaThanhToan" layoutX="14.0" layoutY="112.0" prefHeight="45.0" prefWidth="180.0" text="0">
+                <font>
+                    <Font size="30.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_ngayChuaThanhToan" layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="180.0" text="hôm nay">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="747.0" layoutY="173.0" prefHeight="145.0" prefWidth="261.0" style="-fx-background-color: #90e0ef; -fx-background-radius: 20px;">
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="236.0" text="Thanh toán bằng tiền mặt">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="145.0">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_tienMat" layoutX="14.0" layoutY="80.0" prefHeight="45.0" prefWidth="202.0" text="0">
+                <font>
+                    <Font size="30.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_ngayTienMat" layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="228.0" text="hôm nay">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="1031.0" layoutY="173.0" prefHeight="145.0" prefWidth="214.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px;">
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="196.0" text="Thanh toán bằng QR">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="145.0">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_QR" layoutX="14.0" layoutY="80.0" prefHeight="45.0" prefWidth="168.0" text="0">
+                <font>
+                    <Font size="30.0" />
+                </font>
+            </Label>
+            <Label fx:id="label_ngayQR" layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="212.0" text="hôm nay">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+
+    <AnchorPane layoutX="802.0" layoutY="27.0" prefHeight="118.0" prefWidth="427.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+        <children>
+            <DatePicker fx:id="datePicker" layoutX="21.0" layoutY="45.0" prefHeight="29.0" prefWidth="180.0" />
+            <JFXButton fx:id="btn_timKiem" alignment="CENTER_LEFT" ellipsisString="0" layoutX="232.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getDate" prefHeight="30.0" prefWidth="159.0" style="-fx-background-radius: 20px; -fx-background-color: #0077b6;" text="Tìm kiếm theo thời gian" textAlignment="CENTER" textFill="WHITE">
+                <padding>
+                    <Insets bottom="6.0" left="10.0" top="6.0" />
+                </padding>
+                <font>
+                    <Font name="System Bold" size="10.0" />
+                </font>
+                <graphic>
+                    <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" layoutX="36.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="icon" />
+                </graphic>
+            </JFXButton>
+        </children>
+    </AnchorPane>
+
+    <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="75.0" prefWidth="383.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+        <children>
+            <Label layoutX="40.0" layoutY="15.0" prefHeight="45.0" prefWidth="303.0" text="THỐNG KÊ HÓA ĐƠN">
+                <font>
+                    <Font size="30.0" />
+                </font></Label>
+        </children>
+    </AnchorPane>
+   <ComboBox fx:id="comboBox_PTTT" layoutX="820.0" layoutY="393.0" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: white;" />
+   <Label layoutX="591.0" layoutY="391.0" prefHeight="30.0" prefWidth="221.0" text="Phương thức thanh toán">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <AnchorPane layoutX="589.0" layoutY="432.0" prefHeight="304.0" prefWidth="670.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+      <children>
+         <BarChart fx:id="barChart_PTTT" layoutX="35.0" layoutY="11.0" legendVisible="false" prefHeight="283.0" prefWidth="635.0">
+           <xAxis>
+             <CategoryAxis side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+             <NumberAxis side="LEFT" />
+           </yAxis>
+         </BarChart>
+      </children></AnchorPane>
+   <AnchorPane layoutX="31.0" layoutY="432.0" prefHeight="304.0" prefWidth="537.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+      <children>
+         <BarChart fx:id="barChart_hoaDonNhanVien" layoutX="9.0" layoutY="11.0" legendVisible="false" prefHeight="283.0" prefWidth="511.0">
+            <xAxis>
+                <NumberAxis side="BOTTOM" tickUnit="1" />
+            </xAxis>
+            <yAxis>
+                <CategoryAxis side="LEFT" />
+
+            </yAxis>
+         </BarChart>
+      </children></AnchorPane>
+   <AnchorPane layoutX="519.0" layoutY="173.0" prefHeight="178.0" prefWidth="202.0" style="-fx-background-color: #00b4d8; -fx-background-radius: 20px;">
+      <children>
+         <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="180.0" text="Tổng số hóa đơn">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="label_tongHoaDon" layoutX="14.0" layoutY="52.0" prefHeight="45.0" prefWidth="180.0" text="0">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+         <Label layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="85.0" text="Hóa đơn">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <Button layoutX="723.0" layoutY="74.0" mnemonicParsing="false" onMouseClicked="#restart" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: #caf0f8;" text=" " />
+    <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="737.0" layoutY="75.0" onMouseClicked="#restart" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../Images/refresh-01.png" />
+        </image>
+    </ImageView>
+   <Label layoutX="31.0" layoutY="392.0" prefHeight="30.0" prefWidth="244.0" text="Số hóa đơn nhân viên lập">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+
+</AnchorPane>

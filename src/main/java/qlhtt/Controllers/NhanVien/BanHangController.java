@@ -27,11 +27,19 @@ import qlhtt.Enum.PhuongThucThanhToan;
 import qlhtt.Models.Model;
 import qlhtt.ThongBao.ThongBao;
 
+import java.awt.*;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -39,6 +47,8 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
+
+import javafx.application.Platform;
 
 public class BanHangController implements Initializable {
 
@@ -984,33 +994,37 @@ public class BanHangController implements Initializable {
         Model.getInstance().setBanHangController(this);
     }
 
-    public void suKienTaoHoaDon(HoaDon JRhoaDon) {
-        String maHD = JRhoaDon.getMaHoaDon();
-        try {
-            connectDB.connect();
-            Connection connection = connectDB.getConnection();
+    public String suKienTaoHoaDon(HoaDon hoaDon) {
 
-            // Biên dịch báo cáo Jasper
-            JasperReport jasperReport = JasperCompileManager.compileReport("src/main/resources/Fxml/MauHoaDon.jrxml");
+        String maHD = hoaDon.getMaHoaDon();
 
-            // Đặt tham số cho báo cáo
-            Map<String, Object> parameters = new HashMap<>();
-            parameters.put("ReportTitle", "My Report Title");
-            parameters.put("maHoaDonParam", maHD);  // Truyền maHoaDon vào báo cáo
-            // Điền dữ liệu vào báo cáo
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
-            // Xuất báo cáo ra file PDF
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/main/resources/HoaDon/" + maHD + ".pdf");
+            // Gửi lệnh đến server
+            String command = "CREATE_HOADONPDF " + maHD;
+            out.println(command);
 
-            System.out.println("src/main/resources/HoaDon/" + maHD + ".pdf");
+            // Nhận phản hồi
+            String response = in.readLine();
 
-        } catch (JRException | SQLException e) {
+            if (response.startsWith("SUCCESS")) {
+                String pdfPath = response.substring(8).trim();
+                System.out.println("Hóa đơn đã được tạo: " + pdfPath);
+                return pdfPath;
+            } else {
+                System.err.println("Lỗi khi tạo hóa đơn: " + response);
+                return null;
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Lỗi kết nối đến server: " + e.getMessage());
+            return null;
         }
     }
 
-    //
     public void suKienLuuHoaDonTamThoi() {
         lapHoaDonTamThoi_btn.setOnAction(event -> {
             if (!sanPhamList.isEmpty()) {

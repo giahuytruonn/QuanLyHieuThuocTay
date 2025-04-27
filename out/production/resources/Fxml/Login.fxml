@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="781.0" styleClass="anchor_pane" stylesheets="@Styles/Login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.LoginController">
+   <VBox prefHeight="376.0" prefWidth="309.0" styleClass="login_form_container" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="447.0">
+      <HBox prefHeight="69.0" prefWidth="309.0">
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <ImageView fitHeight="55.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/image.png" />
+            </image>
+               <VBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </VBox.margin>
+         </ImageView>
+         </VBox>
+         <VBox prefHeight="69.0" prefWidth="166.0">
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
+            <Label text="Chọn loại tài khoản" textOverrun="CLIP">
+               <VBox.margin>
+                  <Insets left="8.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="chonloaitaikhoan_choicebox" prefWidth="150.0" styleClass="chonloaitaikhoan_choicebox">
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </ChoiceBox>
+         </VBox>
+      </HBox>
+      <Label fx:id="dangnhap_lbl" alignment="CENTER" contentDisplay="CENTER" styleClass="dangnhap_lbl" text="ĐĂNG NHẬP" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets bottom="10.0" left="85.0" />
+         </VBox.margin></Label>
+      <TextField fx:id="tendangnhap_fld" maxWidth="370.0" promptText="Tên Đăng Nhập" styleClass="input_field">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" />
+         </VBox.margin></TextField>
+      <PasswordField fx:id="matkhau_fld" maxWidth="370.0" promptText="Mật Khẩu" styleClass="input_field">
+         <VBox.margin>
+            <Insets left="10.0" top="5.0" />
+         </VBox.margin></PasswordField>
+      <Label fx:id="lbl_QuenMatKhau" styleClass="lbl_quenmatkhau" text="Quên mật khẩu?">
+         <VBox.margin>
+            <Insets bottom="-30.0" left="205.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="err_lbl" styleClass="error-lbl">
+         <VBox.margin>
+            <Insets left="10.0" top="-20.0" />
+         </VBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Label>
+      <Button fx:id="login_btn" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" styleClass="login_form_container" text="Đăng nhập">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin></Button>
+   </VBox>
+   <ImageView fitHeight="372.0" fitWidth="439.0" layoutX="342.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+      <image>
+         <Image url="@Images/img.jpg" />
+      </image>
+   </ImageView>
+</AnchorPane>

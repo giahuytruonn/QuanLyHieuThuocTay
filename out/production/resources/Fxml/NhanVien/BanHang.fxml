@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="banHang_Page" stylesheets="@../Styles/BanHang.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.NhanVien.BanHangController">
+   <BorderPane fx:id="client_parent" style="-fx-background-color: rgba(32, 147, 165, 1);" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+      <center>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="760.0" minWidth="1290.0" prefHeight="760.0" prefWidth="1290.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="27.0" prefWidth="1293.0" style="-fx-font-weight: bold;" text="BÁN HÀNG" textAlignment="CENTER" textFill="#2093a5">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="752.0" prefWidth="1293.0" style="-fx-background-color: #eff2f7;">
+                        <TableView fx:id="sanPham_tableView" editable="true" layoutX="15.0" layoutY="157.0" prefHeight="532.0" prefWidth="837.0" style="-fx-border-color: rgba(32, 147, 165, 1);">
+                           <columns>
+                              <TableColumn fx:id="stt_tblColumn" prefWidth="56.20001220703125" text="STT" />
+                              <TableColumn fx:id="maSP_tblColumn" prefWidth="135.0" text="MÃ SẢN PHẨM" />
+                              <TableColumn fx:id="tenSP_tblColumn" prefWidth="179.80001831054688" text="TÊN SẢN PHẨM" />
+                              <TableColumn fx:id="chiDinhSuDung_tblColumn" prefWidth="155.39996337890625" text="CHỈ ĐỊNH SỬ DỤNG" />
+                              <TableColumn fx:id="donViTinh_tblColumn" minWidth="0.0" prefWidth="97.5999755859375" text="ĐƠN VỊ TÍNH" />
+                              <TableColumn fx:id="soLuong_tblColumn" prefWidth="80.4000244140625" text="SỐ LƯỢNG" />
+                               <TableColumn fx:id="thanhTien_tblColumn" prefWidth="128.4000244140625" text="THÀNH TIỀN" />
+                           </columns>
+                        </TableView>
+                        <Pane layoutX="862.0" layoutY="84.0" prefHeight="147.0" prefWidth="412.0" style="-fx-border-radius: 20PX; -fx-border-color: rgba(32, 147, 165, 1);">
+
+                              <Label layoutX="14.0" layoutY="19.0" text="Số điện thoại:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="soDienThoai_tf" layoutX="152.0" layoutY="20.0" prefHeight="25.0" prefWidth="141.0" style="-fx-background-radius: 10px;" />
+                              <Label layoutX="14.0" layoutY="57.0" text="Tên Khách hàng:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="98.0" text="Điểm tích lũy:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tenKhachHang_lbl" layoutX="152.0" layoutY="57.0" text="">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="diemTichLuy_lbl" layoutX="152.0" layoutY="98.0" text="">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                  <Button fx:id="themKhachHang_btn" layoutX="347.0" layoutY="12.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="45.0" style="-fx-background-color: #eff2f7;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/addUser.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="timKiemKhachHang_btn" layoutX="293.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="54.0" style="-fx-background-color: #eff2f7;">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/icons8-search-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                        </Pane>
+                        <Pane layoutX="861.0" layoutY="238.0" prefHeight="451.0" prefWidth="412.0" style="-fx-border-radius: 20PX; -fx-border-color: rgba(32, 147, 165, 1);">
+                              <Label layoutX="14.0" layoutY="19.0" text="Tổng tiền ">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tongTien_lbl" layoutX="152.0" layoutY="20.0" prefHeight="25.0" prefWidth="229.0" text="0.0 VNĐ">
+                                  <font>
+                                      <Font size="18.0" />
+                                  </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="57.0" text="Mã giảm">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="98.0" text="Điểm áp dụng:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="maChietKhau_tf" layoutX="152.0" layoutY="58.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-radius: 10px;" />
+                              <Label layoutX="14.0" layoutY="148.0" text="Thành tiền">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="199.0" text="Phương thức">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="phuongThuc_cb" layoutX="152.0" layoutY="200.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-radius: 10px; -fx-background-color: white;" />
+                              <Label layoutX="14.0" layoutY="252.0" text="Khách đưa">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="khachDua_tf" layoutX="152.0" layoutY="253.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-radius: 10px;" />
+                              <Button fx:id="tien1_btn" layoutX="156.0" layoutY="286.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #90e0ef;" textFill="#0077b6" />
+                              <Button fx:id="tien2_btn" layoutX="282.0" layoutY="286.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #90e0ef;" textFill="#0077b6" />
+                              <Button fx:id="tien3_btn" layoutX="156.0" layoutY="327.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #90e0ef;" textFill="#0077b6" />
+                              <Button fx:id="tien4_btn" layoutX="281.0" layoutY="327.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #90e0ef;" textFill="#0077b6" />
+                              <Label layoutX="14.0" layoutY="384.0" text="Trả lại">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tienTraLai_tf" disable="true" layoutX="152.0" layoutY="385.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-radius: 10px;">
+                                  <font>
+                                      <Font size="18.0" />
+                                  </font>
+                              </TextField>
+                              <Label fx:id="thanhTien_lbl" layoutX="152.0" layoutY="148.0" text="0.0 VNĐ">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                  <TextField fx:id="diemApDung_tf" layoutX="152.0" layoutY="99.0" prefHeight="25.0" prefWidth="228.0" style="-fx-background-radius: 10px;" />
+                        </Pane>
+                        <Button fx:id="lapHoaDonTamThoi_btn" layoutX="866.0" layoutY="699.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: rgba(165, 32, 34, 1); -fx-text-fill: white; -fx-font-weight: bold;" text="Lưu tạm" />
+                        <Button fx:id="thanhToan_btn" layoutX="1052.0" layoutY="699.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: rgba(32, 147, 165, 1); -fx-text-fill: white; -fx-font-weight: bold;" text="Thanh Toán" />
+               <Pane layoutX="14.0" layoutY="84.0" minHeight="68.0" minWidth="836.0" style="-fx-border-color: rgba(32, 147, 165, 1); -fx-border-radius: 10px;">
+                  <children>
+                     <Button layoutX="481.0" layoutY="18.0" minHeight="32.0" minWidth="107.0" prefHeight="40.0" prefWidth="107.0" style="-fx-background-color: #00B4D8; -fx-font-weight: bold;" text="Xóa" textAlignment="JUSTIFY" textFill="#fffdfd" fx:id="xoa_btn">
+                        <graphic>
+                           <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../Images/icons8-remove-48.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                         <Label style="-fx-font-size: 19; -fx-font-weight: bold;" text="Xóa" textFill="#fffdfd" />
+                     </Button>
+                     <Button fx:id="reset_btn" layoutX="600.0" layoutY="19.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #00B4D8; -fx-font-weight: bold;" text="Làm Mới" textFill="#faf8f8">
+                        <graphic>
+                           <ImageView fitHeight="28.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../Images/icons8-refresh-50.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                              <TextField fx:id="maSanPham_tf" layoutX="29.0" layoutY="17.0" prefHeight="34.0" prefWidth="341.0" promptText="Mã Sản Phẩm" style="-fx-border-radius: 20px;" />
+                     <Button fx:id="datLai_btn" layoutX="712.0" layoutY="19.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #00B4D8; -fx-font-weight: bold;" text="Đặt Lại" textFill="#faf8f8">
+                        <graphic>
+                           <ImageView fitHeight="28.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../Images/icons8-refresh-50.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                  </children>
+               </Pane>
+               <Label layoutX="589.0" layoutY="21.0" styleClass="label_title" text="Bán Hàng" textFill="#00b4d8">
+                  <font>
+                     <Font name="System Bold" size="30.0" />
+                  </font>
+               </Label>
+                  </Pane>
+            </Pane>
+      </center>
+   </BorderPane>
+</AnchorPane>

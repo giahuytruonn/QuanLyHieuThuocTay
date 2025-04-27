@@ -1,0 +1,70 @@
+.table-view{
+    -fx-background-color: #fff;
+}
+.table-view .column-header{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 44px;
+}
+.table-view .column-header-background .label{
+    -fx-font-size: 20px;
+    -fx-text-fill: #009EE2;
+}
+.table-row-cell:filled {
+    -fx-background-color: #fff;
+}
+.table-row-cell:selected:filled {
+    -fx-text-fill: #000;
+    -fx-background-color: #68CFFF;
+}
+.table-row-cell{
+    -fx-font-size: 20px ;
+    -fx-font-weight: bold;
+}
+/* Căn giữa các ô trong TableView */
+.table-row-cell {
+    -fx-alignment: CENTER; /* Căn giữa nội dung các ô */
+}
+
+/* Căn giữa từng cell trong TableColumn */
+.table-column {
+    -fx-alignment: CENTER; /* Căn giữa nội dung trong cột */
+}
+.combo-box{
+    -fx-max-width: 250px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #00b4d8;
+}/* Tùy chỉnh kiểu dáng của ComboBox */
+
+/* Tùy chỉnh khi ComboBox được chọn */
+.combo-box:focused {
+    -fx-background-radius: 10px;
+    -fx-border-color: #00b4d8; /* Màu viền khi được chọn */
+    -fx-background-color: #ffffff; /* Màu nền khi được chọn */
+}
+
+/* Tùy chỉnh các option trong ComboBox */
+.combo-box .list-cell {
+    -fx-background-radius: 10px;
+    -fx-background-color: #ffffff; /* Màu nền của từng option */
+    -fx-text-fill: #333; /* Màu chữ cho option */
+}
+
+/* Tùy chỉnh khi di chuột qua option */
+.combo-box .list-cell:hover {
+    -fx-background-radius: 10px;
+    -fx-background-color: #0077b6; /* Màu nền khi di chuột qua */
+    -fx-text-fill: #ffffff; /* Màu chữ khi di chuột qua */
+}
+
+/* Tùy chỉnh option được chọn */
+.combo-box .list-cell:focused {
+    -fx-background-radius: 10px;
+    -fx-background-color: #0077b6; /* Màu nền khi option được chọn */
+    -fx-text-fill: #ffffff; /* Màu chữ khi option được chọn */
+}
+
+#txtSDT_CapNhat{
+    -fx-font-size: 20px ;
+    -fx-font-weight: bold;
+}

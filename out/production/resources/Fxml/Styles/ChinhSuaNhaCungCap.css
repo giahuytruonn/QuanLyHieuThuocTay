@@ -1,0 +1,33 @@
+.table-view{
+    -fx-background-color: #fff;
+}
+.table-view .column-header{
+    -fx-background-color: #ffffff;
+    -fx-pref-height: 44px;
+}
+.table-view .column-header-background .label{
+    -fx-font-size: 20px;
+    -fx-text-fill: #00b4d8;
+}
+.table-row-cell:filled {
+    -fx-background-color: #fff;
+}
+.table-row-cell:selected:filled {
+    -fx-background-color: #abd0ff;
+}
+.table-row-cell{
+    -fx-font-size: 20px ;
+    -fx-font-weight: bold;
+}
+/* Căn giữa các ô trong TableView */
+.table-row-cell {
+    -fx-alignment: CENTER; /* Căn giữa nội dung các ô */
+}
+
+/* Căn giữa từng cell trong TableColumn */
+.table-column {
+    -fx-alignment: CENTER; /* Căn giữa nội dung trong cột */
+}
+.text-field {
+    -fx-font-size: 15px;
+}

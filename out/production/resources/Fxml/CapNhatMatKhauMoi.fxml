@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="back_ground" stylesheets="@Styles/DatLaiMatKhau.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qlhtt.Controllers.CapNhatMatKhauMoiController">
+   <children>
+      <PasswordField fx:id="txt_MatKhau" layoutX="113.0" layoutY="68.0" prefHeight="40.0" prefWidth="399.0" />
+      <PasswordField fx:id="txt_XacThucMatKhau" layoutX="113.0" layoutY="171.0" prefHeight="40.0" prefWidth="399.0" />
+      <Button fx:id="btn_DoiMatKhau" layoutX="113.0" layoutY="244.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="399.0" styleClass="btn_XacNhan" text="Đổi mật khẩu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="113.0" layoutY="38.0" text="Mật khẩu mới">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="113.0" layoutY="141.0" text="Xác thực mật khẩu">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
