@@ -91,10 +91,11 @@ public class ThongKeDoanhThuController {
 
     @FXML
     private PieChart pieChart_DoanhThuQuy;
+
+
     private static final Dotenv dotenv = Dotenv.load();
     private static final String SERVER_HOST = dotenv.get("SERVER_HOST");// Địa chỉ server
     private static final int SERVER_PORT = Integer.parseInt(dotenv.get("SERVER_PORT"));
-
 
     //BUTTON EVENT
     @FXML
@@ -230,6 +231,7 @@ public class ThongKeDoanhThuController {
         List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
 
         Model.getInstance().setThongKeDoanhThuController(this);
+
         HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDonHienTai,dsCTHD);
         HashMap<LocalDate, Double> dsDoanhThu7Ngay = loadDataThongKeDoanhThu(dsHoaDon7Ngay,dsCTHD);
         chooseDate();
@@ -306,7 +308,7 @@ public class ThongKeDoanhThuController {
     private void doanhThuTheoQuy() {
         ObservableList<Integer> options = FXCollections.observableArrayList();
         int currentYear = LocalDate.now().getYear();
-        comboBox_DoanhThuQuy.setValue(2024);
+        comboBox_DoanhThuQuy.setValue(2025);
         for (int i = currentYear; i >= currentYear - 3; i--) {
             options.add(i);
         }

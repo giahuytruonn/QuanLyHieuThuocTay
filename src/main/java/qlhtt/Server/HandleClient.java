@@ -52,6 +52,7 @@ public class HandleClient implements Runnable {
         }
     }
 
+
     private String handleRequest(String request) {
         // Phân tích yêu cầu từ client
         String[] parts = request.split(" ");
@@ -117,6 +118,7 @@ public class HandleClient implements Runnable {
         VaiTro vaiTroTaiKhoan;
         if(vaiTro == 0) vaiTroTaiKhoan = VaiTro.NGUOIQUANLY;
         else vaiTroTaiKhoan = VaiTro.NHANVIEN;
+
 
         for (TaiKhoan taiKhoan : dsTaiKhoan) {
             if (taiKhoan.getTenDangNhap().equals(tenDangNhap)
