@@ -7,7 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -25,6 +27,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Base64;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import io.github.cdimascio.dotenv.Dotenv;
@@ -47,11 +50,22 @@ public class NguoiQuanLyController implements Initializable {
                 case CAPNHATTHONGTINNGUOIDUNG -> nguoiQuanLy.setCenter(Model.getInstance().getViewFactory().hienTrangCapNhatThongTinNguoiQuanLy());
                 case DOI_MAT_KHAU -> nguoiQuanLy.setCenter(Model.getInstance().getViewFactory().hienTrangDoiMatKhauNguoiQuanLy());
                 default -> {
-                    Model.getInstance().getViewFactory().closeStage(
-                            (Stage) nguoiQuanLy.getScene().getWindow()
-                    );
-                    Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
-                    Model.getInstance().getViewFactory().showLoginWindow();
+                    javafx.stage.Window window = nguoiQuanLy.getScene().getWindow();
+
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Xác nhận đăng xuất");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Bạn có chắc chắn muốn đăng xuất không?");
+
+                    // Hiển thị hộp thoại và chờ kết quả
+                    Optional<ButtonType> result = alert.showAndWait();
+
+                    if (result.isPresent() && result.get() == ButtonType.OK) {
+                        Model.getInstance().getViewFactory().closeStage((javafx.stage.Stage) window);
+                        Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
+                        Model.getInstance().getViewFactory().showLoginWindow();
+                        Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
+                    }
                 }
 
             }

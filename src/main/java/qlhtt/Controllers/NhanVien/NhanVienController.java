@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -18,6 +20,7 @@ import qlhtt.Models.Model;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class NhanVienController implements Initializable {
@@ -49,14 +52,24 @@ public class NhanVienController implements Initializable {
                 case NHAPHANG -> nhanVien.setCenter(Model.getInstance().getViewFactory().hienTrangNhapHang());
                 case DANHSACHPHIEUNHAP -> nhanVien.setCenter(Model.getInstance().getViewFactory().hienTrangDanhSachPhieuNhap());
                 default -> {
-                    Model.getInstance().getViewFactory().closeStage(
-                            (javafx.stage.Stage) nhanVien.getScene().getWindow()
-                    );
-                    Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
-                    Model.getInstance().getViewFactory().showLoginWindow();
-                    Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
-//                    Model.getInstance().getViewFactory().hienMaQR("20000");
+                    javafx.stage.Window window = nhanVien.getScene().getWindow();
+
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Xác nhận đăng xuất");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Bạn có chắc chắn muốn đăng xuất không?");
+
+                    // Hiển thị hộp thoại và chờ kết quả
+                    Optional<ButtonType> result = alert.showAndWait();
+
+                    if (result.isPresent() && result.get() == ButtonType.OK) {
+                        Model.getInstance().getViewFactory().closeStage((javafx.stage.Stage) window);
+                        Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
+                        Model.getInstance().getViewFactory().showLoginWindow();
+                        Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
+                    }
                 }
+
 
             }
         });
