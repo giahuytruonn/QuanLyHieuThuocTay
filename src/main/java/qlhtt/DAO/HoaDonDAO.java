@@ -50,8 +50,6 @@ public class HoaDonDAO {
 
 
     public List<HoaDon> getDanhSachHoaDonTheo7Ngay() {
-        long startTime = System.currentTimeMillis();
-
         LocalDate endDate = LocalDate.now();
         LocalDate startDate = endDate.minusDays(7);
 
@@ -66,7 +64,6 @@ public class HoaDonDAO {
                 .setParameter("endDate", endDate)
                 .getResultList();
 
-        System.out.println("Thời gian xử lý getDanhSachHoaDonTheo7Ngay(): " + (System.currentTimeMillis() - startTime) + "ms");
 
         return dsHoaDon;
     }

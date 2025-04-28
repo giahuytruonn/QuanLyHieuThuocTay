@@ -19,4 +19,8 @@ public class ChiTietHoaDonController {
     public void xoaChiTietHoaDon(String maHoaDon){
         chiTietHoaDonDAO.xoaChiTietHoaDonBangMaHoaDon(maHoaDon);
     }
+
+    public List<ChiTietHoaDon> getDsChiTietHoaDon(){
+        return chiTietHoaDonDAO.getDanhSachChiTietHoaDon();
+    }
 }

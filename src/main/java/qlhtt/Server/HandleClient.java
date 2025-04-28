@@ -66,8 +66,8 @@ public class HandleClient implements Runnable {
         switch (command) {
             case "LOGIN":
                 return handleLogin(parts);
-            case "THONG_KE_DOANH_THU":
-                return handleThongKeDoanhThu(parts);
+//            case "THONG_KE_DOANH_THU":
+//                return handleThongKeDoanhThu(parts);
             case "THONG_KE_SAN_PHAM":
                 return handleThongKeSanPham(parts);
             case "SEARCH":
@@ -110,8 +110,63 @@ public class HandleClient implements Runnable {
                 return handleGetCK(parts);
             case "CREATE_HOADONPDF":
                 return handleTaoHoaDonPDF(parts);
+            case "GET_LIST_CTHD":
+                return handleGetListCTHD();
+            case "GET_LIST_HD_YEU_CAU":
+                return handleGetListHD(parts);
+            case "GET_LIST_HD_7_NGAY":
+                return handleGetListHD7Ngay();
             default:
                 return "UNKNOWN_COMMAND";
+        }
+    }
+
+    private String handleGetListHD7Ngay() {
+        try{
+            HoaDonController hoaDonController = new HoaDonController();
+            List<HoaDon> dsHoaDonYeuCau = hoaDonController.getDSHoaDon7Ngay();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsHoaDonYeuCau);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleGetListHD(String[] parts) {
+        LocalDate startDate = LocalDate.parse(parts[1]);
+        LocalDate endDate = LocalDate.parse(parts[2]);
+
+        try{
+            HoaDonController hoaDonController = new HoaDonController();
+            List<HoaDon> dsHoaDonYeuCau = hoaDonController.getDsHoaDonTheoYeuCau(startDate,endDate);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsHoaDonYeuCau);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+
+    }
+
+    private String handleGetListCTHD() {
+        try {
+            ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
+            List<ChiTietHoaDon> dsChiTietHoaDon = chiTietHoaDonController.getDsChiTietHoaDon();
+
+            // Chuyển dữ liệu thành JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsChiTietHoaDon);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
@@ -150,25 +205,25 @@ public class HandleClient implements Runnable {
         return "FAIL";
     }
 
-    private String handleThongKeDoanhThu(String[] parts) {
-        try {
-            LocalDate startDate = LocalDate.parse(parts[1]);
-            LocalDate endDate = LocalDate.parse(parts[2]);
-
-            // Lấy dữ liệu thống kê
-            List<HoaDon> dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(startDate, endDate);
-            List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
-            HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDon, dsCTHD);
-
-            // Chuyển dữ liệu thành JSON
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.registerModule(new JavaTimeModule());
-            return objectMapper.writeValueAsString(dsDoanhThu);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "ERROR";
-        }
-    }
+//    private String handleThongKeDoanhThu(String[] parts) {
+//        try {
+//            LocalDate startDate = LocalDate.parse(parts[1]);
+//            LocalDate endDate = LocalDate.parse(parts[2]);
+//
+//            // Lấy dữ liệu thống kê
+//            List<HoaDon> dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(startDate, endDate);
+//            List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
+//            HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDon, dsCTHD);
+//
+//            // Chuyển dữ liệu thành JSON
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            objectMapper.registerModule(new JavaTimeModule());
+//            return objectMapper.writeValueAsString(dsDoanhThu);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return "ERROR";
+//        }
+//    }
 
     private HashMap<LocalDate, Double> loadDataThongKeDoanhThu(List<HoaDon> dsHD, List<ChiTietHoaDon> dsCTHD) {
         HashMap<LocalDate, Double> dsDoanhThu = new HashMap<>();
