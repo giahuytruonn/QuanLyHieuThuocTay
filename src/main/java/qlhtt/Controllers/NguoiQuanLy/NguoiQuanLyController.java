@@ -23,8 +23,8 @@ import javafx.embed.swing.SwingFXUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.net.Socket;
 import java.net.URL;
 import java.util.Base64;
 import java.util.Optional;
@@ -34,6 +34,10 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 public class NguoiQuanLyController implements Initializable {
     public BorderPane nguoiQuanLy;
+
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String SERVER_HOST = dotenv.get("SERVER_HOST");
+    private static final int SERVER_PORT = Integer.parseInt(dotenv.get("SERVER_PORT"));
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().layLuaChonNguoiQuanLy().addListener((observableValue,oldVal,newVal)->{
@@ -61,8 +65,19 @@ public class NguoiQuanLyController implements Initializable {
                     Optional<ButtonType> result = alert.showAndWait();
 
                     if (result.isPresent() && result.get() == ButtonType.OK) {
+                        // Gửi request đến server để thông báo đăng xuất
+                        String maNhanVien = Model.getInstance().getTaiKhoan().getNhanVien().getMaNhanVien();
+                        String response = sendRequestToServer("LOGOUT " + maNhanVien);
+                        if (!response.equals("SUCCESS")) {
+                            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                            errorAlert.setTitle("Lỗi");
+                            errorAlert.setHeaderText(null);
+                            errorAlert.setContentText("Lỗi khi đăng xuất trên server");
+                            errorAlert.showAndWait();
+                        }
+
+                        // Đóng cửa sổ và chuyển về màn hình đăng nhập
                         Model.getInstance().getViewFactory().closeStage((javafx.stage.Stage) window);
-                        Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
                         Model.getInstance().getViewFactory().showLoginWindow();
                         Model.getInstance().getViewFactory().lamMoiCacGiaoDien();
                     }
@@ -70,5 +85,17 @@ public class NguoiQuanLyController implements Initializable {
 
             }
         });
+    }
+
+    private String sendRequestToServer(String request) {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+            out.println(request);
+            return in.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
     }
 }

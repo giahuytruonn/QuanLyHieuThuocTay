@@ -8,8 +8,7 @@ import qlhtt.ConnectDB.ConnectDB;
 import qlhtt.Controllers.LoginController;
 import qlhtt.Controllers.NhanVien.*;
 import qlhtt.Controllers.TaiKhoanController;
-import qlhtt.DAO.ChiTietHoaDonDAO;
-import qlhtt.DAO.HoaDonDAO;
+import qlhtt.DAO.*;
 import qlhtt.Entity.*;
 import qlhtt.Enum.VaiTro;
 import qlhtt.Models.Model;
@@ -24,8 +23,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import qlhtt.DAO.SanPhamDAO;
 
 public class HandleClient implements Runnable {
     private final Socket clientSocket;
@@ -42,10 +39,8 @@ public class HandleClient implements Runnable {
             String message;
             while ((message = in.readLine()) != null) {
                 System.out.println("Nhận từ client: " + message);
-
-                // Xử lý yêu cầu từ client
                 String response = handleRequest(message);
-                out.println(response); // Gửi phản hồi tới client
+                out.println(response);
             }
         } catch (IOException e) {
             System.err.println("Lỗi khi xử lý client: " + e.getMessage());
@@ -58,73 +53,277 @@ public class HandleClient implements Runnable {
         }
     }
 
-
     private String handleRequest(String request) {
-        // Phân tích yêu cầu từ client
-        String[] parts = request.split(" ");
+        String[] parts = request.split(" ", 2);
         String command = parts[0];
 
         switch (command) {
             case "LOGIN":
-                return handleLogin(parts);
-//            case "THONG_KE_DOANH_THU":
-//                return handleThongKeDoanhThu(parts);
+                return handleLogin(parts[1].split(" "));
             case "THONG_KE_SAN_PHAM":
-                return handleThongKeSanPham(parts);
+                return handleThongKeSanPham(parts[1].split(" "));
             case "SEARCH":
-                return handleSearchSanPham(parts);
+                return handleSearchSanPham(parts[1].split(" "));
             case "PAGE":
-                return handlePageSanPham(parts);
+                return handlePageSanPham(parts[1].split(" "));
             case "CAPNHAT_SANPHAM":
-                return handleCapNhatSanPham(request.substring("CAPNHAT_SANPHAM ".length()));
+                return handleCapNhatSanPham(parts[1]);
             case "THEM_SANPHAM":
-                return handleThemSanPham(request.substring("THEM_SANPHAM ".length()));
+                return handleThemSanPham(parts[1]);
             case "CAPNHAT_KHACHHANG":
-                return handleCapNhatKhachHang(request.substring("CAPNHAT_KHACHHANG ".length()));
+                return handleCapNhatKhachHang(parts[1]);
             case "TIM_KHACHHANG":
                 return handleTimKhachHang(parts[1]);
             case "GET_SANPHAM":
-                return handleGetSanPham(parts);
+                return handleGetSanPham(parts[1].split(" "));
             case "GET_CTPNNOW":
-                return handleGetChiTietPhieuNhapHienTai(parts);
+                return handleGetChiTietPhieuNhapHienTai(parts[1].split(" "));
             case "UPDATE_PRICE":
-                return handleUpdatePrice(parts);
+                return handleUpdatePrice(parts[1].split(" "));
             case "GET_KHACHHANGBYSODIENTHOAI":
-                return handleGetKhachHangBySoDienThoai(parts);
+                return handleGetKhachHangBySoDienThoai(parts[1].split(" "));
             case "GET_LISTCTHD":
-                return handleGetListChiTietHoaDon(parts);
+                return handleGetListChiTietHoaDon(parts[1].split(" "));
             case "GET_HOADONMOINHAT":
-                return handleGetHoaDonMoiNhat(parts);
+                return handleGetHoaDonMoiNhat(parts[1].split(" "));
             case "CREATE_HOADON":
-                return handleCreateHoaDon(parts);
+                return handleCreateHoaDon(parts[1].split(" "));
             case "DELETE_CTHD":
-                return handleDeleteCTHD(parts);
+                return handleDeleteCTHD(parts[1].split(" "));
             case "CREATE_CTHD":
-                return handleCreateCTHD(parts);
+                return handleCreateCTHD(parts[1].split(" "));
             case "UPDATE_HD":
-                return handleUpdateHD(parts);
+                return handleUpdateHD(parts[1].split(" "));
             case "UPDATE_DTL":
-                return handleUpdateDTL(parts);
+                return handleUpdateDTL(parts[1].split(" "));
             case "UPDATE_SOLUONG_CK":
-                return handleUpdateSoLuongCK(parts);
+                return handleUpdateSoLuongCK(parts[1].split(" "));
             case "GET_CK":
-                return handleGetCK(parts);
+                return handleGetCK(parts[1].split(" "));
             case "CREATE_HOADONPDF":
-                return handleTaoHoaDonPDF(parts);
+                return handleTaoHoaDonPDF(parts[1].split(" "));
             case "GET_LIST_CTHD":
                 return handleGetListCTHD();
             case "GET_LIST_HD_YEU_CAU":
-                return handleGetListHD(parts);
+                return handleGetListHD(parts[1].split(" "));
             case "GET_LIST_HD_7_NGAY":
                 return handleGetListHD7Ngay();
             case "GET_LIST_PHIEU_NHAP_YEU_CAU":
-                return handleGetPhieuNhap(parts);
+                return handleGetPhieuNhap(parts[1].split(" "));
             case "GET_LIST_SAN_PHAM":
                 return handleGetListSanPham();
             case "GET_LIST_SAN_PHAM_HET_HAN":
                 return handleGetListSanPhamHetHan();
+            case "THEM_NHACUNGCAP":
+                return handleThemNhaCungCap(parts[1]);
+            case "GET_DONVITINH":
+                return handleGetDonViTinh();
+            case "GET_NHACUNGCAP":
+                return handleGetNhaCungCap();
+            case "GET_NHANVIEN":
+                return handleGetNhanVien(parts[1]);
+            case "GET_NHACUNGCAP_BY_TEN":
+                return handleGetNhaCungCapByTen(parts[1]);
+            case "CREATE_PHIEUNHAP":
+                return handleCreatePhieuNhap(parts[1]);
+            case "GET_PHIEUNHAP_MOINHAT":
+                return handleGetPhieuNhapMoiNhat();
+            case "CREATE_CHITIETPHIEUNHAP":
+                return handleCreateChiTietPhieuNhap(parts[1]);
+            case "UPDATE_PHIEUNHAP_STATUS":
+                return handleUpdatePhieuNhapStatus(parts[1].split(" "));
+            case "UPDATE_SANPHAM_SOLUONG":
+                return handleUpdateSanPhamSoLuong(parts[1].split(" "));
+            case "CREATE_PHIEUNHAP_PDF":
+                return handleTaoPhieuNhapPDF(parts[1].split(" "));
+            case "LOGOUT":
+                if (parts.length < 2) {
+                    return "ERROR";
+                }
+                String maNhanVien = parts[1];
+                return handleLogout(maNhanVien);
             default:
                 return "UNKNOWN_COMMAND";
+        }
+    }
+
+    private String handleLogout(String maNhanVien) {
+        try {
+                System.out.println("Nhân viên " + maNhanVien + " đã đăng xuất");
+                return "SUCCESS";
+        } catch (Exception e) {
+            System.err.println("Lỗi khi xử lý đăng xuất: " + e.getMessage());
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+
+
+    private String handleGetDonViTinh() {
+        try {
+            DonViTinhController donViTinhController = new DonViTinhController();
+            List<DonViTinh> dsDonViTinh = donViTinhController.getDsDonViTinh();
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsDonViTinh);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleGetNhaCungCap() {
+        try {
+            NhaCungCapController nhaCungCapController = new NhaCungCapController();
+            List<NhaCungCap> dsNhaCungCap = nhaCungCapController.getDsNhaCungCap();
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsNhaCungCap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleGetNhanVien(String maNhanVien) {
+        try {
+            NhanVienController nhanVienController = new NhanVienController();
+            NhanVien nhanVien = nhanVienController.getNhanVienBangMa(maNhanVien);
+            if (nhanVien == null) {
+                return "NOT_FOUND";
+            }
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(nhanVien);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleGetNhaCungCapByTen(String tenNhaCungCap) {
+        try {
+            NhaCungCapController nhaCungCapController = new NhaCungCapController();
+            NhaCungCap nhaCungCap = nhaCungCapController.getNhaCungCapBangTen(tenNhaCungCap);
+            if (nhaCungCap == null) {
+                return "NOT_FOUND";
+            }
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(nhaCungCap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleCreatePhieuNhap(String phieuNhapJson) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            PhieuNhap phieuNhap = objectMapper.readValue(phieuNhapJson, PhieuNhap.class);
+            PhieuNhapController phieuNhapController = new PhieuNhapController();
+            phieuNhapController.taoPhieuNhap(phieuNhap);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleGetPhieuNhapMoiNhat() {
+        try {
+            PhieuNhapController phieuNhapController = new PhieuNhapController();
+            PhieuNhap phieuNhap = phieuNhapController.getPhieuNhapVuaTao();
+            if (phieuNhap == null) {
+                return "NOT_FOUND";
+            }
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(phieuNhap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleCreateChiTietPhieuNhap(String chiTietJson) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            ChiTietPhieuNhap chiTietPhieuNhap = objectMapper.readValue(chiTietJson, ChiTietPhieuNhap.class);
+            ChiTietPhieuNhapController chiTietPhieuNhapController = new ChiTietPhieuNhapController();
+            chiTietPhieuNhapController.taoChiTietPhieuNhap(chiTietPhieuNhap);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleUpdatePhieuNhapStatus(String[] parts) {
+        try {
+            String maPhieuNhap = parts[0];
+            boolean trangThai = Boolean.parseBoolean(parts[1]);
+            PhieuNhapController phieuNhapController = new PhieuNhapController();
+            phieuNhapController.capNhatTrangThaiPhieuNhap(maPhieuNhap, trangThai);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleUpdateSanPhamSoLuong(String[] parts) {
+        try {
+            String maSanPham = parts[0];
+            int soLuong = Integer.parseInt(parts[1]);
+            SanPhamController sanPhamController = new SanPhamController();
+            sanPhamController.capNhatSoLuongSanPham(maSanPham, soLuong);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleTaoPhieuNhapPDF(String[] parts) {
+        if (parts.length < 1) {
+            return "ERROR Thiếu mã phiếu nhập";
+        }
+
+        String maPN = parts[0];
+        String pdfPath = "src/main/resources/PhieuNhap/" + maPN + ".pdf";
+
+        try {
+            ConnectDB connectDB = ConnectDB.getInstance();
+            connectDB.connect();
+            Connection connection = connectDB.getConnection();
+
+            JasperReport jasperReport = JasperCompileManager.compileReport("src/main/resources/Fxml/MauPhieuNhap.jrxml");
+
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("ReportTitle", "Phiếu Nhập");
+            parameters.put("maPhieuNhap1", maPN);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
+
+            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfPath);
+
+            System.out.println("Đã tạo phiếu nhập PDF: " + pdfPath);
+
+            return "SUCCESS " + pdfPath;
+
+        } catch (JRException e) {
+            e.printStackTrace();
+            return "ERROR JasperReports: " + e.getMessage();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "ERROR Database: " + e.getMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR Unexpected: " + e.getMessage();
         }
     }
 
@@ -132,12 +331,9 @@ public class HandleClient implements Runnable {
         try {
             ChiTietPhieuNhapController chiTietPhieuNhapController = new ChiTietPhieuNhapController();
             List<ChiTietPhieuNhap> dsCTPN = chiTietPhieuNhapController.getDSSanPhamHetHan();
-
-            // Chuyển dữ liệu thành JSON
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsCTPN);
-
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
@@ -148,12 +344,9 @@ public class HandleClient implements Runnable {
         try {
             SanPhamController sanPhamController = new SanPhamController();
             List<SanPham> dsSP = sanPhamController.getDsSanPham();
-
-            // Chuyển dữ liệu thành JSON
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsSP);
-
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
@@ -161,63 +354,54 @@ public class HandleClient implements Runnable {
     }
 
     private String handleGetPhieuNhap(String[] parts) {
-        LocalDate startDate = LocalDate.parse(parts[1]);
-        LocalDate endDate = LocalDate.parse(parts[2]);
+        LocalDate startDate = LocalDate.parse(parts[0]);
+        LocalDate endDate = LocalDate.parse(parts[1]);
 
-        try{
+        try {
             PhieuNhapController phieuNhapController = new PhieuNhapController();
             List<PhieuNhap> dsPhieuNhap = phieuNhapController.getDSPhieuNhapYeuCau(startDate, endDate);
-
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsPhieuNhap);
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
         }
     }
 
     private String handleGetListHD7Ngay() {
-        try{
+        try {
             HoaDonController hoaDonController = new HoaDonController();
             List<HoaDon> dsHoaDonYeuCau = hoaDonController.getDSHoaDon7Ngay();
-
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsHoaDonYeuCau);
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
         }
     }
 
     private String handleGetListHD(String[] parts) {
-        LocalDate startDate = LocalDate.parse(parts[1]);
-        LocalDate endDate = LocalDate.parse(parts[2]);
+        LocalDate startDate = LocalDate.parse(parts[0]);
+        LocalDate endDate = LocalDate.parse(parts[1]);
 
-        try{
+        try {
             HoaDonController hoaDonController = new HoaDonController();
-            List<HoaDon> dsHoaDonYeuCau = hoaDonController.getDsHoaDonTheoYeuCau(startDate,endDate);
-
+            List<HoaDon> dsHoaDonYeuCau = hoaDonController.getDsHoaDonTheoYeuCau(startDate, endDate);
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsHoaDonYeuCau);
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "ERROR";
         }
-
     }
 
     private String handleGetListCTHD() {
         try {
             ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
             List<ChiTietHoaDon> dsChiTietHoaDon = chiTietHoaDonController.getDsChiTietHoaDon();
-
-            // Chuyển dữ liệu thành JSON
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsChiTietHoaDon);
@@ -228,28 +412,21 @@ public class HandleClient implements Runnable {
     }
 
     private String handleLogin(String[] parts) {
-        String tenDangNhap = parts[1];
-        String matKhau = parts[2];
-        int vaiTro = Integer.parseInt(parts[3]);
+        String tenDangNhap = parts[0];
+        String matKhau = parts[1];
+        int vaiTro = Integer.parseInt(parts[2]);
 
         List<TaiKhoan> dsTaiKhoan = TaiKhoanController.layDanhSachTaiKhoan();
-
-        VaiTro vaiTroTaiKhoan;
-        if(vaiTro == 0) vaiTroTaiKhoan = VaiTro.NGUOIQUANLY;
-        else vaiTroTaiKhoan = VaiTro.NHANVIEN;
-
+        VaiTro vaiTroTaiKhoan = vaiTro == 0 ? VaiTro.NGUOIQUANLY : VaiTro.NHANVIEN;
 
         for (TaiKhoan taiKhoan : dsTaiKhoan) {
             if (taiKhoan.getTenDangNhap().equals(tenDangNhap)
                     && TaiKhoanController.kiemTraMatKhau(matKhau, taiKhoan.getMatKhau())
                     && taiKhoan.getNhanVien().getVaiTro() == vaiTroTaiKhoan) {
-                if (taiKhoan.getTrangThaiTaiKhoan() ) {
+                if (taiKhoan.getTrangThaiTaiKhoan()) {
                     try {
-                        // Tạo ObjectMapper và đăng ký JavaTimeModule
                         ObjectMapper objectMapper = new ObjectMapper();
                         objectMapper.registerModule(new JavaTimeModule());
-
-                        // Chuyển đổi đối tượng TaiKhoan thành JSON
                         return objectMapper.writeValueAsString(taiKhoan);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -263,51 +440,12 @@ public class HandleClient implements Runnable {
         return "FAIL";
     }
 
-//    private String handleThongKeDoanhThu(String[] parts) {
-//        try {
-//            LocalDate startDate = LocalDate.parse(parts[1]);
-//            LocalDate endDate = LocalDate.parse(parts[2]);
-//
-//            // Lấy dữ liệu thống kê
-//            List<HoaDon> dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(startDate, endDate);
-//            List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
-//            HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDon, dsCTHD);
-//
-//            // Chuyển dữ liệu thành JSON
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            objectMapper.registerModule(new JavaTimeModule());
-//            return objectMapper.writeValueAsString(dsDoanhThu);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return "ERROR";
-//        }
-//    }
-
-    private HashMap<LocalDate, Double> loadDataThongKeDoanhThu(List<HoaDon> dsHD, List<ChiTietHoaDon> dsCTHD) {
-        HashMap<LocalDate, Double> dsDoanhThu = new HashMap<>();
-        for (HoaDon hoaDon : dsHD) {
-            LocalDate ngayTao = hoaDon.getNgayTao();
-            double tongTien = 0.0;
-            for (ChiTietHoaDon chiTietHoaDon : dsCTHD) {
-                if (chiTietHoaDon.getHoaDon().getMaHoaDon().equals(hoaDon.getMaHoaDon())) {
-                    tongTien += chiTietHoaDon.getTongTien();
-                }
-            }
-            dsDoanhThu.put(ngayTao, dsDoanhThu.getOrDefault(ngayTao, 0.0) + tongTien);
-        }
-        return dsDoanhThu;
-    }
-
     private String handleThongKeSanPham(String[] parts) {
         try {
-            LocalDate startDate = LocalDate.parse(parts[1]);
-            LocalDate endDate = LocalDate.parse(parts[2]);
-
-            // Lấy dữ liệu thống kê sản phẩm
+            LocalDate startDate = LocalDate.parse(parts[0]);
+            LocalDate endDate = LocalDate.parse(parts[1]);
             List<HoaDon> dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(startDate, endDate);
             HashMap<LocalDate, Integer> dsSPTheoNgay = loadDataThongKeSPTheoNgay(dsHoaDon);
-
-            // Chuyển dữ liệu thành JSON
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(dsSPTheoNgay);
@@ -334,9 +472,8 @@ public class HandleClient implements Runnable {
     }
 
     private String handleSearchSanPham(String[] parts) {
-        if (parts.length < 2) return "INVALID_SEARCH";
-        String maSanPham = parts[1];
-
+        if (parts.length < 1) return "INVALID_SEARCH";
+        String maSanPham = parts[0];
         List<SanPham> result = SanPhamDAO.getInstance().timKiemSanPhamTheoMa(maSanPham);
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -349,9 +486,8 @@ public class HandleClient implements Runnable {
     }
 
     private String handlePageSanPham(String[] parts) {
-        if (parts.length < 2) return "INVALID_PAGE";
-        int trang = Integer.parseInt(parts[1]);
-
+        if (parts.length < 1) return "INVALID_PAGE";
+        int trang = Integer.parseInt(parts[0]);
         List<SanPham> result = SanPhamDAO.getInstance().laySanPhamTheoSoTrang(trang);
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -362,11 +498,11 @@ public class HandleClient implements Runnable {
             return "ERROR";
         }
     }
+
     private String handleCapNhatSanPham(String sanPhamJson) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-
             SanPham sanPham = objectMapper.readValue(sanPhamJson, SanPham.class);
             boolean result = SanPhamDAO.getInstance().capNhatSanPham(sanPham);
             return result ? "OK" : "FAIL";
@@ -375,11 +511,11 @@ public class HandleClient implements Runnable {
             return "ERROR";
         }
     }
+
     private String handleThemSanPham(String sanPhamJson) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-
             SanPham sanPham = objectMapper.readValue(sanPhamJson, SanPham.class);
             boolean result = SanPhamDAO.getInstance().themSanPham(sanPham);
             return result ? "OK" : "FAIL";
@@ -388,12 +524,13 @@ public class HandleClient implements Runnable {
             return "ERROR";
         }
     }
+
     private String handleCapNhatKhachHang(String khachHangJson) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
             KhachHang kh = mapper.readValue(khachHangJson, KhachHang.class);
-            boolean result = qlhtt.DAO.KhachHangDAO.getInstance().capNhatKhachHang(kh);
+            boolean result = KhachHangDAO.getInstance().capNhatKhachHang(kh);
             return result ? "OK" : "FAIL";
         } catch (Exception e) {
             e.printStackTrace();
@@ -403,9 +540,8 @@ public class HandleClient implements Runnable {
 
     private String handleTimKhachHang(String soDienThoai) {
         try {
-            KhachHang kh = qlhtt.DAO.KhachHangDAO.getInstance().getKhachHangBangSoDienThoai(soDienThoai);
+            KhachHang kh = KhachHangDAO.getInstance().getKhachHangBangSoDienThoai(soDienThoai);
             if (kh == null) return "NOT_FOUND";
-
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
             return mapper.writeValueAsString(kh);
@@ -416,155 +552,134 @@ public class HandleClient implements Runnable {
     }
 
     private String handleGetCK(String[] parts) {
-        String maChietKhau = "";
-        if(parts.length > 1) {
-            maChietKhau = parts[1];
-        }
+        String maChietKhau = parts.length > 0 ? parts[0] : "";
         ChietKhauController chietKhauController = new ChietKhauController();
-
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
             ChietKhau chietKhau = chietKhauController.getChietKhau(maChietKhau);
             if (chietKhau != null) {
-                // Chuyển đổi đối tượng ChietKhau thành JSON
                 return objectMapper.writeValueAsString(chietKhau);
             } else {
                 return "NOT_FOUND";
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleUpdateSoLuongCK(String[] parts) {
-        String payload = String.join(" ", Arrays.copyOfRange(parts, 1, parts.length));
+        String payload = String.join(" ", Arrays.copyOfRange(parts, 0, parts.length));
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
-        // Chuyển đổi JSON thành đối tượng ChiTietPhieuNhap
-        // parts[1] chứa JSON của ChiTietPhieuNhap
-        ChietKhau chietKhau;
         try {
-            chietKhau = objectMapper.readValue(payload, ChietKhau.class);
+            ChietKhau chietKhau = objectMapper.readValue(payload, ChietKhau.class);
             ChietKhauController chietKhauController = new ChietKhauController();
             chietKhauController.capNhatSoLuongChietKhau(chietKhau);
             return "SUCCESS";
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleUpdateDTL(String[] parts) {
-        if(parts.length > 2){
-            String maKhachHang = parts[1];
-            //System.out.println(parts[2]);
-            int diemTichLuy = Integer.parseInt(parts[2]);
+        if (parts.length > 1) {
+            String maKhachHang = parts[0];
+            int diemTichLuy = Integer.parseInt(parts[1]);
             KhachHangController khachHangController = new KhachHangController();
             khachHangController.capNhatDiemTichLuy(maKhachHang, diemTichLuy);
+            return "SUCCESS";
         }
-        else{
-            return "FAIL";
-        }
-        return "SUCCESS";
+        return "FAIL";
     }
 
     private String handleUpdateHD(String[] parts) {
-        String payload = String.join(" ", Arrays.copyOfRange(parts, 1, parts.length));
+        String payload = String.join(" ", Arrays.copyOfRange(parts, 0, parts.length));
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
-        // Chuyển đổi JSON thành đối tượng ChiTietPhieuNhap
-        // parts[1] chứa JSON của ChiTietPhieuNhap
-        HoaDon hoaDon;
         try {
-            hoaDon = objectMapper.readValue(payload, HoaDon.class);
+            HoaDon hoaDon = objectMapper.readValue(payload, HoaDon.class);
             HoaDonController hoaDonController = new HoaDonController();
-            if(hoaDon.getChietKhau().getMaChietKhau().equals("")){
+            if (hoaDon.getChietKhau().getMaChietKhau().equals("")) {
                 hoaDon.setChietKhau(null);
             }
-
-            if(hoaDon.getKhachHang().getMaKhachHang() == null){
+            if (hoaDon.getKhachHang().getMaKhachHang() == null) {
                 hoaDon.setKhachHang(null);
             }
             hoaDonController.capNhatHoaDon(hoaDon);
             return "SUCCESS";
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleCreateCTHD(String[] parts) {
-        String payload = String.join(" ", Arrays.copyOfRange(parts, 1, parts.length));
+        String payload = String.join(" ", Arrays.copyOfRange(parts, 0, parts.length));
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
-        // Chuyển đổi JSON thành đối tượng ChiTietPhieuNhap
-        // parts[1] chứa JSON của ChiTietPhieuNhap
-        ChiTietHoaDon chiTietHoaDon;
         try {
-            chiTietHoaDon = objectMapper.readValue(payload, ChiTietHoaDon.class);
+            ChiTietHoaDon chiTietHoaDon = objectMapper.readValue(payload, ChiTietHoaDon.class);
             ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
             chiTietHoaDonController.taoChiTietHoaDon(chiTietHoaDon);
             return "SUCCESS";
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleDeleteCTHD(String[] parts) {
-        String maHoaDon = parts[1];
+        String maHoaDon = parts[0];
         ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
         chiTietHoaDonController.xoaChiTietHoaDon(maHoaDon);
         return "SUCCESS";
     }
 
     private String handleCreateHoaDon(String[] parts) {
-        String payload = String.join(" ", Arrays.copyOfRange(parts, 1, parts.length));
+        String payload = String.join(" ", Arrays.copyOfRange(parts, 0, parts.length));
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
-        // Chuyển đổi JSON thành đối tượng ChiTietPhieuNhap
-        // parts[1] chứa JSON của ChiTietPhieuNhap
-        HoaDon hoaDon;
         try {
-            hoaDon = objectMapper.readValue(payload, HoaDon.class);
+            HoaDon hoaDon = objectMapper.readValue(payload, HoaDon.class);
             HoaDonController hoaDonController = new HoaDonController();
-            if(hoaDon.getChietKhau().getMaChietKhau().equals("")) {
+            if (hoaDon.getChietKhau().getMaChietKhau().equals("")) {
                 hoaDon.setChietKhau(null);
             }
-
-            if(hoaDon.getKhachHang().getMaKhachHang() == null) {
+            if (hoaDon.getKhachHang().getMaKhachHang() == null) {
                 hoaDon.setKhachHang(null);
             }
             hoaDonController.taoHoaDon(hoaDon);
             return "SUCCESS";
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleGetHoaDonMoiNhat(String[] parts) {
-        HoaDonController hoaDonController = new HoaDonController();
-        HoaDon hoaDon = hoaDonController.getHoaDonMoiNhat();
         try {
-
-            // Tạo ObjectMapper và đăng ký JavaTimeModule
+            HoaDonController hoaDonController = new HoaDonController();
+            HoaDon hoaDon = hoaDonController.getHoaDonMoiNhat();
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-            // Chuyển đổi đối tượng ChiTietPhieuNhap thành JSON
             return objectMapper.writeValueAsString(hoaDon);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleGetListChiTietHoaDon(String[] parts) {
-        String maHoaDon = parts[1];
+        String maHoaDon = parts[0];
         ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
         List<ChiTietHoaDon> chiTietHoaDons = chiTietHoaDonController.getDsChiTietHoaDonTheoMaHoaDon(maHoaDon);
         if (chiTietHoaDons != null) {
             try {
-                // Tạo ObjectMapper và đăng ký JavaTimeModule
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.registerModule(new JavaTimeModule());
-                // Chuyển đổi đối tượng ChiTietPhieuNhap thành JSON
                 return objectMapper.writeValueAsString(chiTietHoaDons);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -576,19 +691,13 @@ public class HandleClient implements Runnable {
     }
 
     private String handleGetKhachHangBySoDienThoai(String[] parts) {
-        String soDienThoai = "";
-        if(parts.length > 1) {
-            soDienThoai = parts[1];
-        }
+        String soDienThoai = parts.length > 0 ? parts[0] : "";
         KhachHangController khachHangController = new KhachHangController();
-        // Lấy số lượng sản phẩm từ controller
         KhachHang khachHang = khachHangController.getKhachHangBySoDienThoai(soDienThoai);
         if (khachHang != null) {
             try {
-                // Tạo ObjectMapper và đăng ký JavaTimeModule
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.registerModule(new JavaTimeModule());
-                // Chuyển đổi đối tượng ChiTietPhieuNhap thành JSON
                 return objectMapper.writeValueAsString(khachHang);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -601,36 +710,30 @@ public class HandleClient implements Runnable {
 
     private String handleUpdatePrice(String[] parts) {
         try {
-            String payload = String.join(" ", Arrays.copyOfRange(parts, 1, parts.length));
+            String payload = String.join(" ", Arrays.copyOfRange(parts, 0, parts.length));
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-            // Chuyển đổi JSON thành đối tượng ChiTietPhieuNhap
-            // parts[1] chứa JSON của ChiTietPhieuNhap
             ChiTietPhieuNhap chiTietPhieuNhap = objectMapper.readValue(payload, ChiTietPhieuNhap.class);
-            System.out.println(chiTietPhieuNhap);
             SanPhamController sanPhamController = new SanPhamController();
-            if(sanPhamController.capNhatGiaTienCuaSanPham(chiTietPhieuNhap)){
+            if (sanPhamController.capNhatGiaTienCuaSanPham(chiTietPhieuNhap)) {
                 return "SUCCESS";
             } else {
                 return "FAIL";
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 
     private String handleGetChiTietPhieuNhapHienTai(String[] parts) {
-        String maSanPham = parts[1];
+        String maSanPham = parts[0];
         ChiTietPhieuNhapController chiTietPhieuNhapController = new ChiTietPhieuNhapController();
-        // Lấy số lượng sản phẩm từ controller
         ChiTietPhieuNhap chiTietPhieuNhap = chiTietPhieuNhapController.getChiTietPhieuNhapHienTaiDangApDung(maSanPham);
         if (chiTietPhieuNhap != null) {
             try {
-                // Tạo ObjectMapper và đăng ký JavaTimeModule
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.registerModule(new JavaTimeModule());
-
-                // Chuyển đổi đối tượng ChiTietPhieuNhap thành JSON
                 return objectMapper.writeValueAsString(chiTietPhieuNhap);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -642,19 +745,13 @@ public class HandleClient implements Runnable {
     }
 
     private String handleGetSanPham(String[] parts) {
-        String maSanPham = parts[1];
-
+        String maSanPham = parts[0];
         SanPhamController sanPhamController = new SanPhamController();
-        // Lấy sản phẩm từ controller
         SanPham sanPham = sanPhamController.getSanPhamById(maSanPham);
-
         if (sanPham != null) {
             try {
-                // Tạo ObjectMapper và đăng ký JavaTimeModule
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.registerModule(new JavaTimeModule());
-
-                // Chuyển đổi đối tượng SanPham thành JSON
                 return objectMapper.writeValueAsString(sanPham);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -666,38 +763,23 @@ public class HandleClient implements Runnable {
     }
 
     private String handleTaoHoaDonPDF(String[] parts) {
-        if (parts.length < 2) {
+        if (parts.length < 1) {
             return "ERROR Thiếu mã hóa đơn";
         }
-
-        String maHD = parts[1];
+        String maHD = parts[0];
         String pdfPath = "src/main/resources/HoaDon/" + maHD + ".pdf";
-
         try {
-            // Kết nối đến cơ sở dữ liệu
-
             ConnectDB connectDB = ConnectDB.getInstance();
             connectDB.connect();
             Connection connection = connectDB.getConnection();
-
-            // Biên dịch báo cáo Jasper
             JasperReport jasperReport = JasperCompileManager.compileReport("src/main/resources/Fxml/MauHoaDon.jrxml");
-
-            // Đặt tham số cho báo cáo
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("ReportTitle", "Hóa Đơn");
-            parameters.put("maHoaDonParam", maHD);  // Truyền mã hóa đơn vào báo cáo
-
-            // Điền dữ liệu vào báo cáo
+            parameters.put("maHoaDonParam", maHD);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
-
-            // Xuất báo cáo ra file PDF
             JasperExportManager.exportReportToPdfFile(jasperPrint, pdfPath);
-
             System.out.println("Đã tạo hóa đơn PDF: " + pdfPath);
-
             return "SUCCESS " + pdfPath;
-
         } catch (JRException e) {
             e.printStackTrace();
             return "ERROR JasperReports: " + e.getMessage();
@@ -707,6 +789,19 @@ public class HandleClient implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
             return "ERROR Unexpected: " + e.getMessage();
+        }
+    }
+
+    private String handleThemNhaCungCap(String nhaCungCapJson) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            NhaCungCap nhaCungCap = objectMapper.readValue(nhaCungCapJson, NhaCungCap.class);
+            boolean result = NhaCungCapDAO.getInstance().themNhaCungCap(nhaCungCap);
+            return result ? "OK" : "FAIL";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 }

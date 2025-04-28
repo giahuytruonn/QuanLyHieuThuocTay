@@ -61,7 +61,6 @@ public class ExcelReader {
                     // Thêm vào danh sách
                     dsChiTietPhieuNhap.add(chiTietPhieuNhap);
                 }catch (Exception e) {
-                    ThongBao.thongBaoLoi("Dữ liệu không hợp lệ");
                     break;
                 }
             }

@@ -1,9 +1,17 @@
 package qlhtt.Controllers.NhanVien;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.jfoenix.controls.JFXButton;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -44,6 +52,10 @@ public class ThemNhaCungCapController implements Initializable {
     NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO();
     NhaCungCapController nhaCungCapController = new NhaCungCapController();
 
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String SERVER_HOST = dotenv.get("SERVER_HOST");// Địa chỉ server
+    private static final int SERVER_PORT = Integer.parseInt(dotenv.get("SERVER_PORT"));
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnThem_CC.setOnAction(event -> themNhaCungCap());
@@ -63,7 +75,7 @@ public class ThemNhaCungCapController implements Initializable {
         }
 
         // Kiểm tra tên nhà cung cấp (chữ cái đầu viết hoa)
-        if (!tenNhaCungCap.matches("^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(?: [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)*$")) {
+        if (!tenNhaCungCap.matches("^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(?: [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝÝÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)*$")) {
             showAlert("Tên nhà cung cấp không hợp lệ", "Tên nhà cung cấp phải bắt đầu bằng chữ cái viết hoa.");
             return;
         }
@@ -82,16 +94,28 @@ public class ThemNhaCungCapController implements Initializable {
 
         // Create a new NhaCungCap instance
         NhaCungCap nhaCungCap = new NhaCungCap();
-        try {
-            // Thiết lập các thuộc tính cho NhaCungCap
-            nhaCungCap.setTenNhaCungCap(tenNhaCungCap);
-            nhaCungCap.setDiaChi(diaChi);
-            nhaCungCap.setEmail(email);
-            nhaCungCap.setSoDienThoai(soDienThoai);
+        nhaCungCap.setTenNhaCungCap(tenNhaCungCap);
+        nhaCungCap.setDiaChi(diaChi);
+        nhaCungCap.setEmail(email);
+        nhaCungCap.setSoDienThoai(soDienThoai);
 
-            // Gọi phương thức thêm nhà cung cấp trong DAO
-            boolean isInserted = nhaCungCapDAO.themNhaCungCap(nhaCungCap);
-            if (isInserted) {
+        // Gửi yêu cầu tới server
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu thêm nhà cung cấp tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String nhaCungCapJson = objectMapper.writeValueAsString(nhaCungCap);
+
+            String request = String.format("THEM_NHACUNGCAP %s", nhaCungCapJson);
+            out.println(request);  // Gửi yêu cầu đến server
+
+            // Nhận phản hồi từ server
+            String response = in.readLine();
+
+            if ("OK".equals(response)) {
                 Model.getInstance().getTaoPhieuNhapController().setGiaTriCacComboBox();
                 showAlert("Thêm nhà cung cấp thành công!", Alert.AlertType.INFORMATION);
                 clearForm();
@@ -99,11 +123,12 @@ public class ThemNhaCungCapController implements Initializable {
                 showAlert("Thêm nhà cung cấp thất bại. Vui lòng thử lại.", Alert.AlertType.ERROR);
             }
 
-        } catch (IllegalArgumentException e) {
-            // Hiển thị thông báo lỗi khi có ngoại lệ từ các phương thức set
-            showAlert(e.getMessage(), Alert.AlertType.ERROR);
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Lỗi kết nối đến server", "Không thể kết nối tới server. Vui lòng thử lại.");
         }
     }
+
 
     private void showAlert(String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);

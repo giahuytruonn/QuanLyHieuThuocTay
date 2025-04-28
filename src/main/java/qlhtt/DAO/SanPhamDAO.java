@@ -143,13 +143,19 @@ public class SanPhamDAO {
 
     // Update the product stock quantity
     public void capNhatSoLuongSanPham(String maSanPham, int soLuong) {
+        EntityTransaction tx = entityManager.getTransaction();
         try {
+            tx.begin(); // Bắt đầu giao dịch
             String jpql = "UPDATE SanPham sp SET sp.soLuong = sp.soLuong + :soLuong WHERE sp.maSanPham = :maSanPham";
             Query query = entityManager.createQuery(jpql);
             query.setParameter("soLuong", soLuong);
             query.setParameter("maSanPham", maSanPham);
             query.executeUpdate();
+            tx.commit(); // Commit giao dịch
         } catch (Exception e) {
+            if (tx.isActive()) {
+                tx.rollback(); // Rollback nếu có lỗi
+            }
             e.printStackTrace();
         }
     }

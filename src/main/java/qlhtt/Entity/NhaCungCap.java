@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import qlhtt.DAO.NhaCungCapDAO;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Set;
 
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class NhaCungCap {
+public class NhaCungCap implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -65,11 +66,11 @@ public class NhaCungCap {
     }
 
     public void setMaNhaCungCap(String maNhaCungCap) {
-        if(maNhaCungCap.matches("NCC[0-9]{3}")){
+//        if(maNhaCungCap.matches("NCC[0-9]{3}")){
             this.maNhaCungCap = maNhaCungCap;
-        } else {
-            throw new IllegalArgumentException("Mã nhà cung cấp phải theo định dạng NCCXXX");
-        }
+//        } else {
+//            throw new IllegalArgumentException("Mã nhà cung cấp phải theo định dạng NCCXXX");
+//        }
     }
 
     public String getTenNhaCungCap() {
