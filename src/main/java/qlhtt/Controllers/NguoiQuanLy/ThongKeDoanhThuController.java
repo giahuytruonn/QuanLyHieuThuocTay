@@ -1,5 +1,8 @@
 package qlhtt.Controllers.NguoiQuanLy;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -25,16 +28,17 @@ import qlhtt.DAO.ChiTietHoaDonDAO;
 import qlhtt.DAO.HoaDonDAO;
 import qlhtt.DAO.SanPhamDAO;
 import qlhtt.Entity.ChiTietHoaDon;
+import qlhtt.Entity.ChietKhau;
 import qlhtt.Entity.HoaDon;
 import qlhtt.Entity.SanPham;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import qlhtt.Models.Model;
+import qlhtt.ThongBao.ThongBao;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
+import java.net.Socket;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
@@ -47,18 +51,16 @@ import java.util.List;
 
 public class ThongKeDoanhThuController {
 
-    private final List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
 
-    private final List<HoaDon> dsHoaDonHienTai = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(LocalDate.now(),LocalDate.now());
+
+
+    private final List<HoaDon> dsHoaDonHienTai = getDsHoaDonYeuCau(LocalDate.now(),LocalDate.now());
 
     private final List<HoaDon> dsHoaDon7Ngay = HoaDonDAO.getInstance().getDanhSachHoaDonTheo7Ngay();
 
     private final List<SanPham> dsSP = SanPhamDAO.getInstance().getDanhSachSanPham();
 
     //Hash Map Thống Kê
-    private final HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDonHienTai,dsCTHD);
-
-    private final HashMap<LocalDate, Double> dsDoanhThu7Ngay = loadDataThongKeDoanhThu(dsHoaDon7Ngay,dsCTHD);
 
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();
 
@@ -91,10 +93,15 @@ public class ThongKeDoanhThuController {
     @FXML
     private PieChart pieChart_DoanhThuQuy;
 
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String SERVER_HOST = dotenv.get("SERVER_HOST");// Địa chỉ server
+    private static final int SERVER_PORT = Integer.parseInt(dotenv.get("SERVER_PORT"));
 
-    //BUTTON EVENT
+
     @FXML
     void getDate(MouseEvent event) {
+        List<ChiTietHoaDon> dsCTHD = getDsCTHD(); //Request getDsChiTietHoaDon
+
         if (datePicker.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Thông báo lỗi");
@@ -113,9 +120,15 @@ public class ThongKeDoanhThuController {
             return;
         }
         Collections.sort(selectedDates);
+
         List<HoaDon> dsHoaDon = new ArrayList<>();
-        dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(selectedDates.get(0), selectedDates.get(1));
+        dsHoaDon = getDsHoaDonYeuCau(selectedDates.get(0), selectedDates.get(1)); //request server
+
+
         HashMap<LocalDate, Double> dsDoanhThuYC = loadDataThongKeDoanhThu(dsHoaDon,dsCTHD);
+        if(dsDoanhThuYC == null) {
+            return;
+        }
 
         taoDuLieuLineChartDoanhThu(dsDoanhThuYC);
         taoDuLieuBarChartDoanhThu(dsHoaDon,dsCTHD);
@@ -130,6 +143,8 @@ public class ThongKeDoanhThuController {
 
     @FXML
     void xuatExcel(MouseEvent event) {
+        List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
+
         List<HoaDon> dsHoaDonXuat;
         HashMap<String, Double> dsDT;
         if (selectedDates.size() >= 2) {
@@ -144,7 +159,11 @@ public class ThongKeDoanhThuController {
 
 
     public void restart(MouseEvent event) {
+        List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
+        HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDonHienTai,dsCTHD);
+        HashMap<LocalDate, Double> dsDoanhThu7Ngay = loadDataThongKeDoanhThu(dsHoaDon7Ngay,dsCTHD);
         doanhThuTheoQuy();
+        datePicker.setValue(null);
         taoDuLieuLineChartDoanhThu(dsDoanhThu7Ngay);
         taoDuLieuBarChartDoanhThu(dsHoaDonHienTai,dsCTHD);
         taoDuLieuPieChartNhomSanPham(dsHoaDonHienTai,dsCTHD);
@@ -158,11 +177,21 @@ public class ThongKeDoanhThuController {
 
     @FXML
     public void initialize() {
+        List<ChiTietHoaDon> dsCTHD = getDsCTHD();
+
+//        Model.getInstance().setThongKeDoanhThuController(this);
+
+        HashMap<LocalDate, Double> dsDoanhThu = loadDataThongKeDoanhThu(dsHoaDonHienTai,dsCTHD);
+        HashMap<LocalDate, Double> dsDoanhThu7Ngay = loadDataThongKeDoanhThu(dsHoaDon7Ngay,dsCTHD);
         chooseDate();
+
 //      Doanh Thu
         doanhThuTheoQuy();
+
         taoDuLieuLineChartDoanhThu(dsDoanhThu7Ngay);
+
         taoDuLieuBarChartDoanhThu(dsHoaDonHienTai,dsCTHD);
+
         taoDuLieuPieChartNhomSanPham(dsHoaDonHienTai,dsCTHD);
         taoDuLieuPieChartDoanhThuTheoQuy(LocalDate.now().getYear());
         double tongTien =  tinhTongDoanhThu(dsDoanhThu);
@@ -228,7 +257,7 @@ public class ThongKeDoanhThuController {
     private void doanhThuTheoQuy() {
         ObservableList<Integer> options = FXCollections.observableArrayList();
         int currentYear = LocalDate.now().getYear();
-        comboBox_DoanhThuQuy.setValue(2024);
+        comboBox_DoanhThuQuy.setValue(2025);
         for (int i = currentYear; i >= currentYear - 3; i--) {
             options.add(i);
         }
@@ -276,6 +305,7 @@ public class ThongKeDoanhThuController {
         HashMap<String, Double> dsDT = loadDataThongKeDoanhThuTheoNhanVien(dsHD, dsCTHD);
         barChart_DoanhThuNhanVien.getData().clear();
         barChart_DoanhThuNhanVien.setAnimated(false);
+
         XYChart.Series<Number, String> series = new XYChart.Series<>();
         for (Map.Entry<String, Double> entry : dsDT.entrySet()) {
             String maNhanVien = entry.getKey();
@@ -288,6 +318,7 @@ public class ThongKeDoanhThuController {
             Double doanhThu = entry.getValue();
             series.getData().add(new XYChart.Data<>(doanhThu, tenNhanVien));
         }
+
         barChart_DoanhThuNhanVien.getData().add(series);
         barChart_DoanhThuNhanVien.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
         Timeline timeline = new Timeline();
@@ -345,9 +376,9 @@ public class ThongKeDoanhThuController {
                 alert.setTitle("Thông tin các sản phẩm theo nhóm " + tenMaNhomSP);
                 alert.setHeaderText(null);
                 alert.setContentText("Tên Nhóm Sản Phẩm: " + tenMaNhomSP +
-                            "\nDoanh Thu: " + data.getPieValue() +
-                            "\nPhần Trăm: " + String.format("%.2f", percentage) + "%" +
-                            "\n");
+                        "\nDoanh Thu: " + data.getPieValue() +
+                        "\nPhần Trăm: " + String.format("%.2f", percentage) + "%" +
+                        "\n");
 
                 alert.showAndWait();
             });
@@ -401,6 +432,9 @@ public class ThongKeDoanhThuController {
 
     // Hash Map Thong Ke Doanh Thu
     private HashMap<LocalDate,Double> loadDataThongKeDoanhThu(List<HoaDon> dsHD, List<ChiTietHoaDon> dsCTHD) {
+        if(dsHD == null) {
+            return null;
+        }
         HashMap<LocalDate, Double> dsDoanhThu = new HashMap<>();
         for (HoaDon hoaDon : dsHD) {
             LocalDate ngayTao = hoaDon.getNgayTao();
@@ -415,18 +449,52 @@ public class ThongKeDoanhThuController {
         return dsDoanhThu;
     }
 
-    private HashMap<String,Double> loadDataThongKeDoanhThuTheoNhanVien(List<HoaDon> dsHD, List<ChiTietHoaDon> dsCTHD) {
+//    private HashMap<String,Double> loadDataThongKeDoanhThuTheoNhanVien(List<HoaDon> dsHD, List<ChiTietHoaDon> dsCTHD) {
+//        HashMap<String, Double> dsDoanhThu = new HashMap<>();
+//        String maNhanVien = LoginController.getTaiKhoan().getNhanVien().getMaNhanVien();
+//        for (HoaDon hoaDon : dsHD) {
+//            if(hoaDon.getNhanVien().getMaNhanVien().equals(maNhanVien)) {
+//                double tongTien = 0.0;
+//                for (ChiTietHoaDon chiTietHoaDon : dsCTHD) {
+//                    if (chiTietHoaDon.getHoaDon().getMaHoaDon().equals(hoaDon.getMaHoaDon())) {
+//                        tongTien += chiTietHoaDon.getTongTien();
+//                    }
+//                }
+//                dsDoanhThu.merge(maNhanVien,  tongTien, Double::sum);
+//            }
+//        }
+//        return dsDoanhThu;
+//    }
+
+    private HashMap<String, Double> loadDataThongKeDoanhThuTheoNhanVien(List<HoaDon> dsHD, List<ChiTietHoaDon> dsCTHD) {
         HashMap<String, Double> dsDoanhThu = new HashMap<>();
-        for (HoaDon hoaDon : dsHD) {
-            String maNhanVien = hoaDon.getNhanVien().getMaNhanVien();
-            double tongTien = 0.0;
-            for (ChiTietHoaDon chiTietHoaDon : dsCTHD) {
-                if (chiTietHoaDon.getHoaDon().getMaHoaDon().equals(hoaDon.getMaHoaDon())) {
-                    tongTien += chiTietHoaDon.getTongTien();
-                }
-            }
-            dsDoanhThu.put(maNhanVien, dsDoanhThu.getOrDefault(maNhanVien, 0.0) + tongTien);
+        String maNhanVien = Model.getInstance().getTaiKhoan().getNhanVien().getMaNhanVien();
+        ChiTietHoaDonController chiTietHoaDonController = new ChiTietHoaDonController();
+
+
+        List<HoaDon> hoaDonCuaNhanVien = dsHD.stream()
+                .filter(hoaDon -> hoaDon.getNhanVien().getMaNhanVien().equals(maNhanVien))
+                .toList();
+
+        System.out.println(maNhanVien);
+
+        double tongTien = 0.0;
+        for (HoaDon hoaDon : hoaDonCuaNhanVien) {
+            tongTien += dsCTHD.stream()
+                    .filter(chiTiet -> chiTiet.getHoaDon().getMaHoaDon().equals(hoaDon.getMaHoaDon()))
+                    .mapToDouble(ChiTietHoaDon::getTongTien)
+                    .sum();
+//            System.out.println(tongTien);
+//            tongTien += chiTietHoaDonController.getDsChiTietHoaDonTheoMaHoaDon(hoaDon.getMaHoaDon())
+//                    .stream().mapToDouble(ChiTietHoaDon::getTongTien).sum();
+//            System.out.println(tongTien);
+//            if(chiTietHoaDonController.getDsChiTietHoaDonTheoMaHoaDon(hoaDon.getMaHoaDon().isEmpty()) {
+//
+//            }
         }
+
+        dsDoanhThu.put(maNhanVien, tongTien);
+
         return dsDoanhThu;
     }
 
@@ -539,6 +607,101 @@ public class ThongKeDoanhThuController {
         style.setVerticalAlignment(VerticalAlignment.CENTER);
         return style;
     }
+
+    public List<ChiTietHoaDon> getDsCTHD(){
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_CTHD");
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang ChiTietPhieuNhap
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<ChiTietHoaDon> dsChiTietHoaDon = Arrays.asList(objectMapper.readValue(response, ChiTietHoaDon[].class));
+                if (dsChiTietHoaDon.size() > 0) {
+                    return dsChiTietHoaDon;
+                } else {
+                    ThongBao.thongBaoLoi("Không có dữ liệu để thống kê");
+                    return null;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+//    public static List<HoaDon> getDanhSachHoaDonTheo7Ngay() {
+//        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+//             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+//             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+//
+//            // Gửi yêu cầu đăng nhập tới server
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            objectMapper.registerModule(new JavaTimeModule());
+//            String request = String.format("GET_LIST_HD_7_NGAY");
+//            out.println(request);
+//
+//            //Nhan dữ liệu từ server
+//            String response = in.readLine();
+//            //Chuyen doi Json sang ChiTietPhieuNhap
+//            if(response.equals("NOT_FOUND")){
+//                return null;
+//            }else {
+//                List<HoaDon> dsHoaDon = Arrays.asList(objectMapper.readValue(response, HoaDon[].class));
+//                if (dsHoaDon.size() > 0) {
+//                    return dsHoaDon;
+//                } else {
+//                    ThongBao.thongBaoLoi("Không có dwx l");
+//                    return null;
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
+
+    public static List<HoaDon> getDsHoaDonYeuCau(LocalDate startDate, LocalDate endDate) {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_HD_YEU_CAU %s %s",startDate.toString(), endDate.toString());
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang ChiTietPhieuNhap
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<HoaDon> dsHoaDon = Arrays.asList(objectMapper.readValue(response, HoaDon[].class));
+                if (dsHoaDon.size() > 0) {
+                    return dsHoaDon;
+                } else {
+                    ThongBao.thongBaoLoi("Không có danh sách nào");
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
 }

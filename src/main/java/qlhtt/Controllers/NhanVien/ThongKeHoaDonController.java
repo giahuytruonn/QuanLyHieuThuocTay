@@ -1,5 +1,8 @@
 package qlhtt.Controllers.NhanVien;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -22,7 +25,12 @@ import qlhtt.Entity.HoaDon;
 import qlhtt.Entity.NhanVien;
 import qlhtt.Enum.PhuongThucThanhToan;
 import qlhtt.Models.Model;
+import qlhtt.ThongBao.ThongBao;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -77,6 +85,10 @@ public class ThongKeHoaDonController {
 
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();
 
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String SERVER_HOST = dotenv.get("SERVER_HOST");// Địa chỉ server
+    private static final int SERVER_PORT = Integer.parseInt(dotenv.get("SERVER_PORT"));
+
     @FXML
     private DatePicker datePicker;
 
@@ -125,16 +137,24 @@ public class ThongKeHoaDonController {
 
     @FXML
     public void initialize() {
-        setComboBox_PTTT();
-        chooseDate();
+        List<HoaDon> dsHD = getDanhSachHoaDonTheoYeuCau(LocalDate.now(), LocalDate.now());
+        if(dsHD != null) {
+            setComboBox_PTTT();
+            chooseDate();
+
+            tinhTongHoaDonHomNay(LocalDate.now(),LocalDate.now());
+            tinhHoaDonDaThanhToan(LocalDate.now(),LocalDate.now());
+            tinhHoaDonChuaThanhToan(LocalDate.now(),LocalDate.now());
+            tinhHoaDonTienMat(LocalDate.now(),LocalDate.now());
+            tinhHoaDonQR(LocalDate.now(),LocalDate.now());
+            taoDuLieuBarChartHoaDon(LocalDate.now(),LocalDate.now());
+            taoDuLieuBarChartPTTT(LocalDate.now(),LocalDate.now());
+        } else {
+            setComboBox_PTTT();
+            chooseDate();
+        }
         //Set cac label
-        tinhTongHoaDonHomNay(LocalDate.now(),LocalDate.now());
-        tinhHoaDonDaThanhToan(LocalDate.now(),LocalDate.now());
-        tinhHoaDonChuaThanhToan(LocalDate.now(),LocalDate.now());
-        tinhHoaDonTienMat(LocalDate.now(),LocalDate.now());
-        tinhHoaDonQR(LocalDate.now(),LocalDate.now());
-        taoDuLieuBarChartHoaDon(LocalDate.now(),LocalDate.now());
-        taoDuLieuBarChartPTTT(LocalDate.now(),LocalDate.now());
+
         //Set thongKeHoaDon
 
     }
@@ -155,8 +175,34 @@ public class ThongKeHoaDonController {
     }
 
     private List<HoaDon> getDanhSachHoaDonTheoYeuCau(LocalDate date, LocalDate date2) {
-        List<HoaDon> dsHoaDon = new ArrayList<>();
-        return dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(date, date2);
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_HD_YEU_CAU %s %s",date.toString(), date2.toString());
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<HoaDon> dsHoaDon = Arrays.asList(objectMapper.readValue(response, HoaDon[].class));
+                if (dsHoaDon.size() > 0) {
+                    return dsHoaDon;
+                } else {
+                    ThongBao.thongBaoLoi("Không có dữ liệu để thống kê");
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private void tinhTongHoaDonHomNay(LocalDate date, LocalDate date2) {
@@ -241,7 +287,6 @@ public class ThongKeHoaDonController {
     }
 
     //   THỐNG KÊ HÓA ĐƠN
-
     private void taoDuLieuBarChartPTTT(LocalDate date, LocalDate date2) {
         HashMap<PhuongThucThanhToan, Integer> dsHoaDonPTTT = getSoHoaDonTheoPTTT(date,date2);
 

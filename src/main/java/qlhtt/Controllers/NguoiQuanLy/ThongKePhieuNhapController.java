@@ -1,5 +1,8 @@
 package qlhtt.Controllers.NguoiQuanLy;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -21,7 +24,12 @@ import org.springframework.cglib.core.Local;
 import qlhtt.DAO.PhieuNhapDAO;
 import qlhtt.Entity.HoaDon;
 import qlhtt.Entity.PhieuNhap;
+import qlhtt.ThongBao.ThongBao;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -32,6 +40,9 @@ import java.util.*;
 
 public class ThongKePhieuNhapController {
 
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String SERVER_HOST = dotenv.get("SERVER_HOST");// Địa chỉ server
+    private static final int SERVER_PORT = Integer.parseInt(dotenv.get("SERVER_PORT"));
 
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();
 
@@ -43,6 +54,8 @@ public class ThongKePhieuNhapController {
 
     @FXML
     private Label label_ngayPhieuNhapMoi;
+
+    private List<PhieuNhap> dsPhieuNhap;
 
 
 
@@ -86,11 +99,14 @@ public class ThongKePhieuNhapController {
     public void initialize() {
         chooseDate();
 
+        List<PhieuNhap> dsPN = getDanhSachPhieuNhapTheoYeuCau(LocalDate.now(), LocalDate.now());
+        if(dsPN != null) {
 //        PhieuNhap
-        taoDuLieuBarChartPhieuNhap(LocalDate.now(), LocalDate.now());
-        taoDuLieuPieChartPhieuNhap(LocalDate.now(), LocalDate.now());
+            taoDuLieuBarChartPhieuNhap(LocalDate.now(), LocalDate.now());
+            taoDuLieuPieChartPhieuNhap(LocalDate.now(), LocalDate.now());
+            label_phieuNhapMoi.setText(tinhSoPhieuNhapYeuCau(LocalDate.now(),LocalDate.now())+ "");
+        }
 
-        label_phieuNhapMoi.setText(tinhSoPhieuNhapYeuCau(LocalDate.now(),LocalDate.now())+ "");
     }
 
     public void restart(MouseEvent event) {
@@ -211,7 +227,7 @@ public class ThongKePhieuNhapController {
 
 
     private HashMap<String , Double> getDSTongTienPhieuNhap(LocalDate date, LocalDate date1) {
-        List<PhieuNhap> dsPN = PhieuNhapDAO.getInstance().getDanhSachPhieuNhapTheoYeuCau(date,date1);
+        List<PhieuNhap> dsPN = getDanhSachPhieuNhapTheoYeuCau(date,date1);
         HashMap<String , Double> map = new HashMap<>();
         for( PhieuNhap pn :  dsPN) {
             map.put(pn.getMaPhieuNhap(), pn.getTongTien());
@@ -220,7 +236,7 @@ public class ThongKePhieuNhapController {
     }
 
     private HashMap<String, Integer> getSoPhieuNhapTheoNhaCungCap(LocalDate date, LocalDate date1) {
-        List<PhieuNhap> dsPhieuNhap = PhieuNhapDAO.getInstance().getDanhSachPhieuNhapTheoYeuCau(date, date1);
+        List<PhieuNhap> dsPhieuNhap = getDanhSachPhieuNhapTheoYeuCau(date, date1);
         HashMap<String, Integer> map = new HashMap<>();
         for (PhieuNhap phieuNhap : dsPhieuNhap) {
             String maNhaCungCap = phieuNhap.getNhaCungCap().getMaNhaCungCap();
@@ -230,8 +246,43 @@ public class ThongKePhieuNhapController {
     }
 
     private int tinhSoPhieuNhapYeuCau(LocalDate date, LocalDate date1) {
-        List<PhieuNhap> dsPhieuNhap = PhieuNhapDAO.getInstance().getDanhSachPhieuNhapTheoYeuCau(date, date1);
+        List<PhieuNhap> dsPhieuNhap = getDanhSachPhieuNhapTheoYeuCau(date, date1);
         return dsPhieuNhap.size();
     }
+
+
+    public static List<PhieuNhap> getDanhSachPhieuNhapTheoYeuCau(LocalDate date1, LocalDate date2) {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+
+            String request = String.format("GET_LIST_PHIEU_NHAP_YEU_CAU %s %s", date1.toString(), date2.toString());
+            out.println(request);
+
+            String response = in.readLine();
+
+            // Đến đây chắc chắn response là JSON hợp lệ
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<PhieuNhap> dsPN = Arrays.asList(objectMapper.readValue(response, PhieuNhap[].class));
+                if (dsPN.size() > 0) {
+                    return dsPN;
+                } else {
+                    ThongBao.thongBaoLoi("Không có danh sách nào");
+                    return null;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            ThongBao.thongBaoLoi("Lỗi khi lấy danh sách phiếu nhập: " + e.getMessage());
+        }
+        return null;
+    }
+
 
 }

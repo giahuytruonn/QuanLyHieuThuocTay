@@ -3,6 +3,7 @@ package qlhtt.Controllers.NhanVien;
 import qlhtt.DAO.HoaDonDAO;
 import qlhtt.Entity.HoaDon;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class HoaDonController {
@@ -10,6 +11,10 @@ public class HoaDonController {
 
     public List<HoaDon> getDsHoaDon() {
         return hoaDonDAO.getDanhSachHoaDon();
+    }
+
+    public List<HoaDon> getDsHoaDonTheoYeuCau(LocalDate startDate, LocalDate endDate) {
+        return hoaDonDAO.getDanhSachHoaDonTheoYeuCau(startDate, endDate);
     }
 
     public List<HoaDon> getDsHoaDonTheoTrangThai(boolean trangThaiThanhToan){
@@ -47,5 +52,8 @@ public class HoaDonController {
         }
     }
 
+    public List<HoaDon> getDSHoaDon7Ngay() {
+        return hoaDonDAO.getDanhSachHoaDonTheo7Ngay();
+    }
 
 }

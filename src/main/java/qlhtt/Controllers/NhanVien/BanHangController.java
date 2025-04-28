@@ -1295,7 +1295,7 @@ public class BanHangController implements Initializable {
             // Gửi yêu cầu đăng nhập tới server
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-            String request = String.format("GET_CK %s ",maChietKhau);
+            String request = String.format("GET_CK %s ",maChietKhau); //GET_CK maChietKhau
             out.println(request);
 
             //Nhan dữ liệu từ server

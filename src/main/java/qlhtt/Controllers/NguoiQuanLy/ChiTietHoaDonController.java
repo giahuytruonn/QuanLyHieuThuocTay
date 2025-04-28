@@ -1,4 +1,4 @@
-package qlhtt.Controllers.NhanVien;
+package qlhtt.Controllers.NguoiQuanLy;
 
 import qlhtt.DAO.ChiTietHoaDonDAO;
 import qlhtt.Entity.ChiTietHoaDon;
