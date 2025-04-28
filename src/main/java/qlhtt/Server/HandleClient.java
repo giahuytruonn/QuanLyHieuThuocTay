@@ -118,8 +118,44 @@ public class HandleClient implements Runnable {
                 return handleGetListHD7Ngay();
             case "GET_LIST_PHIEU_NHAP_YEU_CAU":
                 return handleGetPhieuNhap(parts);
+            case "GET_LIST_SAN_PHAM":
+                return handleGetListSanPham();
+            case "GET_LIST_SAN_PHAM_HET_HAN":
+                return handleGetListSanPhamHetHan();
             default:
                 return "UNKNOWN_COMMAND";
+        }
+    }
+
+    private String handleGetListSanPhamHetHan() {
+        try {
+            ChiTietPhieuNhapController chiTietPhieuNhapController = new ChiTietPhieuNhapController();
+            List<ChiTietPhieuNhap> dsCTPN = chiTietPhieuNhapController.getDSSanPhamHetHan();
+
+            // Chuyển dữ liệu thành JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsCTPN);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    private String handleGetListSanPham() {
+        try {
+            SanPhamController sanPhamController = new SanPhamController();
+            List<SanPham> dsSP = sanPhamController.getDsSanPham();
+
+            // Chuyển dữ liệu thành JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsSP);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 

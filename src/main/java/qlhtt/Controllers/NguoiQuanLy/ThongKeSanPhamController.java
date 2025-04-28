@@ -22,8 +22,10 @@ import javafx.util.Duration;
 import qlhtt.Controllers.NhanVien.ChiTietPhieuNhapController;
 import qlhtt.DAO.*;
 import qlhtt.Entity.*;
+import qlhtt.ThongBao.ThongBao;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -93,61 +95,6 @@ public class ThongKeSanPhamController {
 
     ObservableList<LocalDate> selectedDates = FXCollections.observableArrayList();
 
-    @FXML
-    void getDate(MouseEvent event) {
-        if (datePicker.getValue() == null) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thông báo lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Vui lòng nhập vào ngày tương ứng");
-            alert.showAndWait();
-            return;
-        }
-
-        if (selectedDates.size() < 2) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Thông báo lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Vui lòng chọn ít nhất 2 ngày.");
-            alert.showAndWait();
-            return;
-        }
-
-        Collections.sort(selectedDates);
-        LocalDate startDate = selectedDates.get(0);
-        LocalDate endDate = selectedDates.get(1);
-
-        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-
-            // Gửi yêu cầu thống kê sản phẩm đến server
-            String request = String.format("THONG_KE_SAN_PHAM %s %s", startDate, endDate);
-            out.println(request);
-
-            // Nhận phản hồi từ server
-            String response = in.readLine();
-            System.out.println("Phản hồi từ server: " + response);
-
-            // Chuyển đổi JSON thành HashMap
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.registerModule(new JavaTimeModule());
-            HashMap<LocalDate, Integer> dsSPTheoNgay = objectMapper.readValue(response, HashMap.class);
-
-            // Hiển thị dữ liệu trên giao diện
-            taoDuLieuBarChartSanPham(dsSPTheoNgay);
-            label_NgaySP.setText(startDate + " -> " + endDate);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText(null);
-            alert.setContentText("Không thể kết nối tới server thống kê.");
-            alert.showAndWait();
-        }
-    }
-
 //    @FXML
 //    void getDate(MouseEvent event) {
 //        if (datePicker.getValue() == null) {
@@ -169,25 +116,80 @@ public class ThongKeSanPhamController {
 //        }
 //
 //        Collections.sort(selectedDates);
+//        LocalDate startDate = selectedDates.get(0);
+//        LocalDate endDate = selectedDates.get(1);
 //
+//        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+//             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+//             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 //
+//            // Gửi yêu cầu thống kê sản phẩm đến server
+//            String request = String.format("THONG_KE_SAN_PHAM %s %s", startDate, endDate);
+//            out.println(request);
 //
-//        label_NgaySP.setText( selectedDates.get(0)+"->"+selectedDates.get(1));
-//        label_NgaySP.setStyle("-fx-font-size: 17px");
-//        sanPhamBanDuoc.setText(tinhSoSanPhamBanDuoc(selectedDates.get(0),selectedDates.get(1)) +"");
+//            // Nhận phản hồi từ server
+//            String response = in.readLine();
+//            System.out.println("Phản hồi từ server: " + response);
 //
+//            // Chuyển đổi JSON thành HashMap
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            objectMapper.registerModule(new JavaTimeModule());
+//            HashMap<LocalDate, Integer> dsSPTheoNgay = objectMapper.readValue(response, HashMap.class);
 //
-//        List<HoaDon> dsHoaDon = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(selectedDates.get(0),selectedDates.get(1));
+//            // Hiển thị dữ liệu trên giao diện
+//            taoDuLieuBarChartSanPham(dsSPTheoNgay);
+//            label_NgaySP.setText(startDate + " -> " + endDate);
 //
-//        HashMap<LocalDate, Integer> dsSPTheoNgay = loadDataThongKeSPTheoNgay(dsHoaDon);
-//
-//        taoDuLieuBarChartSanPham(dsSPTheoNgay);
-//
-//        taoDuLieuProgressBarBanChay(selectedDates.get(0),selectedDates.get(1));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Lỗi");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Không thể kết nối tới server thống kê.");
+//            alert.showAndWait();
+//        }
 //    }
 
+    @FXML
+    void getDate(MouseEvent event) {
+        if (datePicker.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Thông báo lỗi");
+            alert.setHeaderText(null);
+            alert.setContentText("Vui lòng nhập vào ngày tương ứng");
+            alert.showAndWait();
+            return;
+        }
+
+        if (selectedDates.size() < 2) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo lỗi");
+            alert.setHeaderText(null);
+            alert.setContentText("Vui lòng chọn ít nhất 2 ngày.");
+            alert.showAndWait();
+            return;
+        }
+
+        Collections.sort(selectedDates);
+
+
+
+        label_NgaySP.setText( selectedDates.get(0)+"->"+selectedDates.get(1));
+        label_NgaySP.setStyle("-fx-font-size: 17px");
+        sanPhamBanDuoc.setText(tinhSoSanPhamBanDuoc(selectedDates.get(0),selectedDates.get(1)) +"");
+
+
+        List<HoaDon> dsHoaDon = getDsHoaDonYeuCau(selectedDates.get(0),selectedDates.get(1));
+
+        HashMap<LocalDate, Integer> dsSPTheoNgay = loadDataThongKeSPTheoNgay(dsHoaDon);
+
+        taoDuLieuBarChartSanPham(dsSPTheoNgay);
+
+        taoDuLieuProgressBarBanChay(selectedDates.get(0),selectedDates.get(1));
+    }
+
     public void restart(MouseEvent event) {
-        List<HoaDon> dsHD7Ngay = HoaDonDAO.getInstance().getDanhSachHoaDonTheo7Ngay();
+        List<HoaDon> dsHD7Ngay = getDanhSachHoaDonTheo7Ngay();
         HashMap<LocalDate,Integer> dsSPTheoTuan = loadDataThongKeSPTheoNgay(dsHD7Ngay);
         HashMap<String, Integer> dsNhomSanPham = loadDataMaNhomSanPham();
         taoDuLieuProgressBarBanChay(LocalDate.now(),LocalDate.now());
@@ -197,7 +199,7 @@ public class ThongKeSanPhamController {
         label_NgaySP.setText("hôm nay");
         label_NgaySP.setStyle("-fx-font-size: 20px");
 
-        List<ChiTietPhieuNhap> dsCTPN_SD = ChiTietPhieuNhapDAO.getInstance().getDanhSachSapHetHan();
+        List<ChiTietPhieuNhap> dsCTPN_SD = getDsSanPhamHetHan();
         soLuongHetHan.setText(dsCTPN_SD.size() + "");
         sanPhamBanDuoc.setText(tinhSoSanPhamBanDuoc(LocalDate.now(),LocalDate.now()) +"");
     }
@@ -206,19 +208,18 @@ public class ThongKeSanPhamController {
     @FXML
     public void initialize() {
         HashMap<String, Integer> dsNhomSanPham = loadDataMaNhomSanPham();
-        List<HoaDon> dsHD7Ngay = HoaDonDAO.getInstance().getDanhSachHoaDonTheo7Ngay();
+        List<HoaDon> dsHD7Ngay = getDanhSachHoaDonTheo7Ngay();
         HashMap<LocalDate,Integer> dsSPTheoTuan = loadDataThongKeSPTheoNgay(dsHD7Ngay);
-
-//        San Pham
         chooseDate();
-        taoDuLieuProgressBarBanChay(LocalDate.now(),LocalDate.now());
-        taoDuLieuPieChartNhomHetHan(dsNhomSanPham);
-        taoDuLieuBarChartSanPham(dsSPTheoTuan);
 
+            //        San Pham
+            taoDuLieuProgressBarBanChay(LocalDate.now(),LocalDate.now());
+            taoDuLieuPieChartNhomHetHan(dsNhomSanPham);
+            taoDuLieuBarChartSanPham(dsSPTheoTuan);
+            List<ChiTietPhieuNhap> dsCTPN_SD = getDsSanPhamHetHan();
+            soLuongHetHan.setText(dsCTPN_SD.size() + "");
+            sanPhamBanDuoc.setText(tinhSoSanPhamBanDuoc(LocalDate.now(),LocalDate.now()) +"");
 
-        List<ChiTietPhieuNhap> dsCTPN_SD = ChiTietPhieuNhapDAO.getInstance().getDanhSachSapHetHan();
-        soLuongHetHan.setText(dsCTPN_SD.size() + "");
-        sanPhamBanDuoc.setText(tinhSoSanPhamBanDuoc(LocalDate.now(),LocalDate.now()) +"");
     }
 
     private int tinhSoSanPhamBanDuoc(LocalDate date, LocalDate date2) {
@@ -432,9 +433,9 @@ public class ThongKeSanPhamController {
 
     private HashMap<String, Integer> loadDataThongKeSP(LocalDate date, LocalDate date1) {
         HashMap<String, Integer> dsSPHoaDon = new HashMap<>();
-        List<HoaDon> dsHD = HoaDonDAO.getInstance().getDanhSachHoaDonTheoYeuCau(date, date1);
-        List<SanPham> dsSP = SanPhamDAO.getInstance().getDanhSachSanPham();
-        List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
+        List<HoaDon> dsHD = getDsHoaDonYeuCau(date, date1);
+        List<SanPham> dsSP = getDanhSachSanPham();
+        List<ChiTietHoaDon> dsCTHD = getDsCTHD();
 
         for (HoaDon hoaDon : dsHD) {
             for (ChiTietHoaDon chiTietHoaDon : dsCTHD) {
@@ -468,8 +469,8 @@ public class ThongKeSanPhamController {
 
     private HashMap<LocalDate, Integer> loadDataThongKeSPTheoNgay(List<HoaDon> dsHD) {
         HashMap<LocalDate, Integer> dsSPTheoTuan = new HashMap<>();
-        List<SanPham> dsSP = SanPhamDAO.getInstance().getDanhSachSanPham();
-        List<ChiTietHoaDon> dsCTHD = ChiTietHoaDonDAO.getInstance().getDanhSachChiTietHoaDon();
+        List<SanPham> dsSP = getDanhSachSanPham();
+        List<ChiTietHoaDon> dsCTHD = getDsCTHD();
 
         for(HoaDon hoaDon : dsHD) {
             for(ChiTietHoaDon chiTietHoaDon : dsCTHD) {
@@ -495,8 +496,8 @@ public class ThongKeSanPhamController {
 
 
     private HashMap<String, Integer> loadDataThongKeSanPhamHetHan() {
-        List<ChiTietPhieuNhap> dsCTPN_sapHetHan = ChiTietPhieuNhapDAO.getInstance().getDanhSachSapHetHan();
-        List<SanPham> dsSP = SanPhamDAO.getInstance().getDanhSachSanPham();
+        List<ChiTietPhieuNhap> dsCTPN_sapHetHan = getDsSanPhamHetHan();
+        List<SanPham> dsSP = getDanhSachSanPham();
 
         HashMap<String, Integer> dsSanPham = new HashMap<>();
         for (ChiTietPhieuNhap ctpn : dsCTPN_sapHetHan) {
@@ -514,7 +515,7 @@ public class ThongKeSanPhamController {
     private HashMap<String, Integer> loadDataMaNhomSanPham() {
         HashMap<String, Integer> dsMaNhomSanPham = new HashMap<>();
         HashMap<String, Integer> dsSanPhamHetHan = loadDataThongKeSanPhamHetHan();
-        List<SanPham> dsSP = SanPhamDAO.getInstance().getDanhSachSanPham();
+        List<SanPham> dsSP = getDanhSachSanPham();
 
         for (Map.Entry<String, Integer> entry : dsSanPhamHetHan.entrySet()) {
             String maSanPham = entry.getKey();
@@ -532,8 +533,8 @@ public class ThongKeSanPhamController {
 
     private HashMap<String, Integer> loadDsSanPhamTheoMaNhom(String maNhomSanPham) {
         HashMap<String, Integer> dsSanPham = new HashMap<>();
-        List<ChiTietPhieuNhap> dsCTPN_sapHetHan = ChiTietPhieuNhapDAO.getInstance().getDanhSachSapHetHan();
-        List<SanPham> dsSP = SanPhamDAO.getInstance().getDanhSachSanPham();
+        List<ChiTietPhieuNhap> dsCTPN_sapHetHan = getDsSanPhamHetHan();
+        List<SanPham> dsSP = getDanhSachSanPham();
 
         String tenSanPham = "";
         for (ChiTietPhieuNhap ctpn : dsCTPN_sapHetHan) {
@@ -549,6 +550,166 @@ public class ThongKeSanPhamController {
         return dsSanPham;
     }
 
+    public static List<HoaDon> getDsHoaDonYeuCau(LocalDate startDate, LocalDate endDate) {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_HD_YEU_CAU %s %s",startDate.toString(), endDate.toString());
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang ChiTietPhieuNhap
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<HoaDon> dsHoaDon = Arrays.asList(objectMapper.readValue(response, HoaDon[].class));
+                if (dsHoaDon.size() > 0) {
+                    return dsHoaDon;
+                } else {
+                    ThongBao.thongBaoLoi("Không có danh sách nào");
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public List<ChiTietHoaDon> getDsCTHD(){
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_CTHD");
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<ChiTietHoaDon> dsChiTietHoaDon = Arrays.asList(objectMapper.readValue(response, ChiTietHoaDon[].class));
+                if (dsChiTietHoaDon.size() > 0) {
+                    return dsChiTietHoaDon;
+                } else {
+                    ThongBao.thongBaoLoi("Không có dữ liệu để thống kê");
+                    return null;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+        public static List<HoaDon> getDanhSachHoaDonTheo7Ngay() {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_HD_7_NGAY");
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang ChiTietPhieuNhap
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<HoaDon> dsHoaDon = Arrays.asList(objectMapper.readValue(response, HoaDon[].class));
+                if (dsHoaDon.size() > 0) {
+                    return dsHoaDon;
+                } else {
+                    ThongBao.thongBaoLoi("Không có dữ liệu");
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<ChiTietPhieuNhap> getDsSanPhamHetHan() {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_SAN_PHAM_HET_HAN");
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang ChiTietPhieuNhap
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<ChiTietPhieuNhap> dsCTPN = Arrays.asList(objectMapper.readValue(response, ChiTietPhieuNhap[].class));
+                if (dsCTPN.size() > 0) {
+                    return dsCTPN;
+                } else {
+                    ThongBao.thongBaoLoi("Không có dữ liệu");
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<SanPham> getDanhSachSanPham() {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            // Gửi yêu cầu đăng nhập tới server
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            String request = String.format("GET_LIST_SAN_PHAM");
+            out.println(request);
+
+            //Nhan dữ liệu từ server
+            String response = in.readLine();
+            //Chuyen doi Json sang ChiTietPhieuNhap
+            if(response.equals("NOT_FOUND")){
+                return null;
+            }else {
+                List<SanPham> dsSP = Arrays.asList(objectMapper.readValue(response, SanPham[].class));
+                if (dsSP.size() > 0) {
+                    return dsSP;
+                } else {
+                    ThongBao.thongBaoLoi("Không có dữ liệu");
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // DS SP
+
+
+    // DS SP HET HAN
 
 
     /*

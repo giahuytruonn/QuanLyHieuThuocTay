@@ -66,6 +66,10 @@ public class ChiTietPhieuNhapController {
         return null;
     }
 
+    public List<ChiTietPhieuNhap> getDSSanPhamHetHan() {
+        return chiTietPhieuNhapDAO.getDanhSachSapHetHan();
+    }
+
 
     public void capNhatChiTietPhieuNhap(ChiTietPhieuNhap chiTietPhieuNhap){
         chiTietPhieuNhapDAO.capNhatChiTietPhieuNhap(chiTietPhieuNhap);
