@@ -116,8 +116,28 @@ public class HandleClient implements Runnable {
                 return handleGetListHD(parts);
             case "GET_LIST_HD_7_NGAY":
                 return handleGetListHD7Ngay();
+            case "GET_LIST_PHIEU_NHAP_YEU_CAU":
+                return handleGetPhieuNhap(parts);
             default:
                 return "UNKNOWN_COMMAND";
+        }
+    }
+
+    private String handleGetPhieuNhap(String[] parts) {
+        LocalDate startDate = LocalDate.parse(parts[1]);
+        LocalDate endDate = LocalDate.parse(parts[2]);
+
+        try{
+            PhieuNhapController phieuNhapController = new PhieuNhapController();
+            List<PhieuNhap> dsPhieuNhap = phieuNhapController.getDSPhieuNhapYeuCau(startDate, endDate);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            return objectMapper.writeValueAsString(dsPhieuNhap);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
         }
     }
 

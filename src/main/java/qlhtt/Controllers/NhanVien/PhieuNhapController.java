@@ -4,6 +4,9 @@ import org.springframework.security.core.parameters.P;
 import qlhtt.DAO.PhieuNhapDAO;
 import qlhtt.Entity.PhieuNhap;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class PhieuNhapController {
     PhieuNhapDAO phieuNhapDAO = new PhieuNhapDAO();
 
@@ -13,6 +16,10 @@ public class PhieuNhapController {
 
     public PhieuNhap getPhieuNhapVuaTao(){
         return phieuNhapDAO.getPhieuNhapVuaTao();
+    }
+
+    public List<PhieuNhap> getDSPhieuNhapYeuCau(LocalDate startDate, LocalDate endDate){
+        return phieuNhapDAO.getDanhSachPhieuNhapTheoYeuCau(startDate, endDate);
     }
 
     public void taoPhieuNhap(PhieuNhap phieuNhap){

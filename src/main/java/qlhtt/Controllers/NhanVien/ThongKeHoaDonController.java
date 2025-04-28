@@ -187,7 +187,7 @@ public class ThongKeHoaDonController {
 
             //Nhan dữ liệu từ server
             String response = in.readLine();
-            //Chuyen doi Json sang ChiTietPhieuNhap
+            //Chuyen doi Json
             if(response.equals("NOT_FOUND")){
                 return null;
             }else {
