@@ -18,6 +18,7 @@ public class TaiKhoanDAO {
     private EntityManager entityManager = JPAUtil.getEntityManager();
 
     public List<TaiKhoan> getDanhSachTaiKhoan() {
+        entityManager.clear();
         String jpql = "SELECT t FROM TaiKhoan t";
         return entityManager.createQuery(jpql, TaiKhoan.class).getResultList();
     }

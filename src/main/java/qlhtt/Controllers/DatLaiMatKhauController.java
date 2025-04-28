@@ -71,6 +71,7 @@ public class DatLaiMatKhauController implements Initializable {
             }
             Model.getInstance().setOTP(OTP);
             Model.getInstance().setTaiKhoanCanDoiMatKhau(TaiKhoanDAO.getInstance().timTaiKhoanBangEmailNhanVien(email));
+            System.out.println(TaiKhoanDAO.getInstance().timTaiKhoanBangEmailNhanVien(email));
             Model.getInstance().getViewFactory().hienThiTrangXacNhanOTP();
             Model.getInstance().getViewFactory().closeStage(
                     (javafx.stage.Stage) btn_TiepTheo.getScene().getWindow()
