@@ -12,7 +12,7 @@ public class ConnectDB {
         String serverName = "localhost";
         String databaseName = "pharmacy_system";
         String username = "sa";
-        String password = "sapassword";
+        String password = "sa";
         String url = "jdbc:sqlserver://" + serverName + ":1433;databaseName=" + databaseName + ";encrypt=true;trustServerCertificate=true;";
 
         con = DriverManager.getConnection(url, username, password);
